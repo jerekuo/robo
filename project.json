@@ -3,6 +3,7 @@
   "description": "",
   "main": "Main.xaml",
   "dependencies": {
+    "NovigoSolutions.TransposeDataTable.Activities": "[1.0.0]",
     "UiPath.Excel.Activities": "[2.12.0-preview]",
     "UiPath.Mail.Activities": "[1.14.0-preview]",
     "UiPath.System.Activities": "[22.2.0-preview]",

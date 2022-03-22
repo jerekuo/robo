@@ -1,0 +1,222 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SequencetietojenhakuVIRRESTÄ" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:nta="clr-namespace:NovigoSolutions.TransposeDataTable.Activities;assembly=NovigoSolutions.TransposeDataTable.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="osoite" Type="OutArgument(x:String)" />
+    <x:Property Name="postiNro" Type="OutArgument(x:String)" />
+    <x:Property Name="postiToimipaikka" Type="OutArgument(x:String)" />
+    <x:Property Name="puhNro" Type="OutArgument(x:String)" />
+    <x:Property Name="yTunnus" Type="InArgument(x:String)" />
+    <x:Property Name="Output" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>470.666666666667,1963</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>NovigoSolutions.TransposeDataTable.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NovigoSolutions.TransposeDataTable.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Sequence - tietojen haku VIRRESTÄ" sap:VirtualizedContainerService.HintSize="480.666666666667,1938" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Tervetuloa Virre-tietopalveluun! - Virre-tietopalvelu | PRH" sap:VirtualizedContainerService.HintSize="438.666666666667,1305.33333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="9368978e-eb0e-4981-8d73-50f1478d7ee2" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1087.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="variable1" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Kirjoita yrityksen'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,220" sap2010:WorkflowViewState.IdRef="NTypeInto_9" Text="[yTunnus]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://virre.prh.fi/novus/home?execution=e1s1" DesignTimeRectangle="1446, 784, 765, 60" ElementType="InputBox" FriendlyName="'INPUT criteriaText'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control' aaname='Kirjoita yrityksen nimi, nimen osa, Y-tunnus tai diaarinumero' /&gt;" Guid="e6e632e7-7419-445d-8e7c-c52020fa04c3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAwEAAABACAYAAABC83tBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAF2SURBVHhe7dexCcMwAABBQ9b0fq61VTZQ4cKBFIFgvID+ihvitvc8LwAAoEMCAAAgRgIAACDml4AxBgAAsLDXfnz9JWDOCQAALEgCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIEYCAAAgRgIAACBGAgAAIOYxAQAAwLpuCQAAAArO6wPa2nRUmzCigwAAAABJRU5ErkJggg==" InformativeScreenshot="c68108e9b434d87eb1dd0e09efdcc659.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Tervetuloa Virre-tietopalveluun! - Virre-tietopalvelu | PRH' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1446, 750, 590, 30" ElementType="Text" FriendlyName="'Kirjoita yrityksen'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='sub-title label-formQuickSearch' aaname='Kirjoita yrityksen nimi, nimen osa, Y-tunnus tai diaarinumero' check:innerText='Kirjoita yrityksen nimi, nimen osa, Y-tunnus tai diaarinumero' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Hae'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://virre.prh.fi/novus/home?execution=e1s1" DesignTimeRectangle="2211, 852, 180, 60" ElementType="Button" FriendlyName="'Hae'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='btn btn-primary btn-front-page' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; Hae' check:innerText='HAE' /&gt;" Guid="3c493228-6e78-4453-84cd-8993eacebf97" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAABACAYAAACp8r2zAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALHSURBVHhe7dvBShtRFIfxgq/SR+lj+ArdVPoIXbruKhsRXApdKHQREIpSKLooyaY0BKQ0ENBaKENQOJ0Jk3jvzc2NOGfjP9+BH9SZO6GLb3EY46udd58tNanuAQkEDmnZwHd2j4AXbRl4VVUEDjkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkEDmkE7qD3y4KZWf8wOXM4sdv2bjO3g6v4fuj0pj21mAe7OM6cWzi7a8+VZ/TlU/55cQTuwDPw94NZe+pxfl+eZ8/OPTHwYT/z7BYgcAd+gZ/byZ/20L/Z4zPTa3uTPV97UuCZ/9OWIHAHboHvjW3UnrHp1C7+tv9+uLH93PlGEnhx/dlCBO7ALfBg/65+DKx33f7QfOZR5nyDwIsI3IFX4OH+Pfrat7ffH39eu4cTeBGBO/AJPNi/67k6ra/1g3gnY3u98kyNwIsI3IFL4OH+bZWdfKyvHQTPrdvDCbyIwB3EgW+ebITh++9qah/m13/asL20dg9PAs/NNkdP4A48Ao/efy9fC36z/uJNSj3ZPZzAiwjcQffA4/27eYOy/Ozlm5R6cns4gRcRuIPOO3i0f8e/Vt+9rNqr9eT2cHbwIgJ30Dnw6Psnya5dutcg8CICd9A18Nz3T9bNyh5O4EUE7qBb4PH+vXHSPZzAiwjcQafAk/1746R7OIEXEbiDToEn3//OBbo/bm/OJ9nDCbyIwB10CTzdv3N/mBC9Sakn2sOTwNfN8Cz+zG1B4A6eH3i6f9fPHiTPNo6nFiUe7uEEXkTgDp4d+F74q/hm7qwXPreQ7unhHk7gRQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOaQQOacvAV+ImcAgoBr64Cbx0BA5h9/YfFJYQgt2EXdkAAAAASUVORK5CYII=" InformativeScreenshot="179c62e63fca6d2c3914bf2f515f0021.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Tervetuloa Virre-tietopalveluun! - Virre-tietopalvelu | PRH' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1446, 818, 590, 30" ElementType="Text" FriendlyName="'Kirjoita yrityksen'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='sub-title label-formQuickSearch' aaname='Kirjoita yrityksen nimi, nimen osa, Y-tunnus tai diaarinumero' check:innerText='Kirjoita yrityksen nimi, nimen osa, Y-tunnus tai diaarinumero' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Yrityksen perustiedot' ReferenceIdx='0' Name='Yrityksen perustiedot'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Yrityksen perustiedot1' ReferenceIdx='1' Name='Yrityksen perustiedot1'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alkaen' ReferenceIdx='2' Name='Alkaen' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Historia' ReferenceIdx='3' Name='Historia' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Yrityksen perustiedot' attr='text' /&gt;&lt;column name='Yrityksen perustiedot' attr='text' /&gt;&lt;column name='Alkaen' attr='text' /&gt;&lt;column name='Historia' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="334,158.666666666667" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="0" ScopeIdentifier="9368978e-eb0e-4981-8d73-50f1478d7ee2" Version="V1">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1514, 690, 810, 1067" FriendlyName="'Yrityksen perustiedot'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="680e3306-60e9-435f-ab34-99205905828d" InformativeScreenshot="a5374fc0f019c773d4a35a56e529ff61.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Yrityksen tiedot - Yrityksen perustiedot - Virre-tietopalvelu | PRH' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <nta:TransposeDataTable AlternateColumnName="{x:Null}" DisplayName="Transpose DataTable" sap:VirtualizedContainerService.HintSize="334,80.6666666666667" sap2010:WorkflowViewState.IdRef="TransposeDataTable_1" InputDataTable="[ExtractDataTable]" OutputDataTable="[ExtractDataTable]" />
+            <ui:OutputDataTable DataTable="[ExtractDataTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="334,80.6666666666667" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[Output]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[Output]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-11, -11, 3862, 2110" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAL3SURBVDhPrZNrTM0BGMbftLXkUorJhjCZtqIPpXRRna4OOaFOkltkWhlTZkUhWxdq6Th1LvXvdKrTWVfpQlmdyi1dpHVxdL/jyBRGbD48/uVrHxgfnr3v3u35vdvz7iUA/6QFh38jatovo0feWVTHZajaK5Mq3KVUypFQoZOYChxEpNwp0ldYp21grIT2SVZp/HBbUYSHO5Nh6qes1mEGLOYAy1mAST2XsanzYvi17hnh1RyJoNhJXJ6+S9xyyUU64ePBzFrsy4YhPw90RAk6XgA6VQJK7dxLzQdkT1v2yb5Vukkg2iXEBUcBeK5CbOQIschDBPLOAvmzxjlzgAIUyAL82XqiCMT0B1CjT1bXUedk+B1l4BtRiB2h+SC32zAJVoBz9T4coh/Mm9eF3cWK4GLQYSVML1ZC5xTb54+FUjlXUmPFuw315DRu5j5DaUMvEpStaH6tQXJZJ3IbBhBf1g1V9zu4xauwJKgQvW8+w/hcOShn+DpVcCU5Hvw0jLydgfNpOa6IG/GwbRQvB6fgGl0JfpIKle2TaO7/gLDsNoSyev/pO1aevQeSD4uoYrck0fWgAJrpr2DutiNJ8Ry2IQr0TcxA0dCPYc0XWERU4MnrKRQ3j0HxdATvZmaxag6QPVxCVVzJeU++EOqRKRjYx4HMY2DMS8Or0Y9YEyhHTfs4fJMb8VitgU10DQzZHNTj07/zkA2q6CEv09/MLhaWPqlYZnMDeg4JWOaeArMgOchTiLUnFNgaVoJNISXQOZSHxccLsTmmDhRZDyqY7KFan0zOesvL0LWIgr5NLJbaxUHXIRFkn8ieUQDaI51PnsLYa8Q2ge70gLKGQMWan1Q21UaP9jPmJtsiYbA9CobW16DvfAt6PCl0Thb90L5Yq9GKa+0gQXcNSfsyWGMUyUeOUd6YM7t9C5VqjEjGy1ht5phYtdpbLNc7cy9S+5IqUCu2yYUSXphSUocRpXRpU2o3UbqaWAiRbIgod5RYALGA//BMCw3/XKBfZs1qsAB81GYAAAAASUVORK5CYII=" InformativeScreenshot="d74484ffe8566d2ebcbb253637655fa2.png" Selector="&lt;html app='chrome.exe' title='Tervetuloa Virre-tietopalveluun! - Virre-tietopalvelu | PRH'/&gt;" Url="https://virre.prh.fi/novus/home?execution=e1s1" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="438.666666666667,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[osoite]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[ExtractDataTable.Rows(0).Item("Postiosoite").ToString.Split(" "c)(0).ToString +" "+ ExtractDataTable.Rows(0).Item("Postiosoite").ToString.Split(" "c)(1).ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[postiNro]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[ExtractDataTable.Rows(0).Item("Postiosoite").ToString.Split(" "c)(2).ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[postiToimipaikka]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[ExtractDataTable.Rows(0).Item("Postiosoite").ToString.Split(" "c)(3).ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,300" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[puhNro]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[ExtractDataTable.Rows(0).Item("Puhelin").ToString.Trim]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[puhNro]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
