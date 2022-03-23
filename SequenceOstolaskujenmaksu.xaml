@@ -1,0 +1,243 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SequenceOstolaskujenmaksu" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Ostolaskut" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>542,3082</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NovigoSolutions.TransposeDataTable.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Sequence Ostolaskujen maksu" sap:VirtualizedContainerService.HintSize="552,3057" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[Ostolaskut]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510,2934" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,2819" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="434,2727" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,2471" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="erapaiva" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NHover DisplayName="Hover 'Ostot'" sap:VirtualizedContainerService.HintSize="334,156" HoverTime="1" sap2010:WorkflowViewState.IdRef="NHover_1" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
+                      <uix:NHover.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/landingpages/home.aspx?page_transaction=98040" DesignTimeRectangle="249, 168, 79, 50" ElementType="Text" FriendlyName="'Ostot'" FullSelectorArgument="&lt;webctrl id='nvm_a_purchases' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='nvm_a_purchases' tag='A' type='' class=' nv_main_menu_top_entry' aaname='  Ostot  ' check:innerText='Ostot' /&gt;" Guid="14e85dd7-4cab-492e-a620-a677d14dbe46" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAA2CAYAAAC7i6XpAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALuSURBVHhe7ZexS2pxFMf9nxqisaUhamgPoyDIRocHIjhERZE2ZDQEqUuTNTTGMwiEwKGhHj2MHr1MbbCoNEiL9Pv4nqeiZVFw7lCdD5zBc++53vv5/X7n/q7L5U/CQilcP37CQilgqGEyFTGZiphMRUymIiZTEZOpiMlUxGQqYjIVMZmKmExFTKYiJlMRk6mIyVTEZCpiMhUxmYo4LjOXy2F6ehq9vb3o6urC4OAgotEo7u/v62d8HRyVmUqlMDAwgHg8jsvLS9zc3CCTyYjc8fFxyb2HUqkkNaz/KIlEAltbW/VfzuKYzGKxiMnJSXmQWq1Wz/7n4eEBMzMzWFlZwdPTUz37OkdHR/B4PB+WyWvPzc19fpn7+/sYGxvD9fV1PdPOwcGBzM7G8YuLC/h8PvT09KC7uxujo6PY2dnB7u6u5NgiGsFrk0qlglgshr6+PskPDw9jb29PBu/u7g5er7etzu/3o1wuS60TOCaTs+Gtm8/n8yLz9PQUj4+Psow3NjZkNjGy2WxTNOWNjIy0zUyes7q6KgNQKBRQrVZxeHgo12R7Ifxv3sOnn5l8gKWlpfqvl1AMBVEUl30gEMDm5qZIeU4nma2D0cr29nZzEL+UzPfOTHJ2doaJiQlZqqzlMm3QSWanHEmn083++mVk8mE/0jMJZ+X5+Tnm5+fR39/fXK7fXuZbb3P2u2AwiLW1tRfHGvDFw6XPFtBJ3Lda5qR1n3l1dSUbde4zZ2dnZUm/ts/kWzoSiWBxcVHEU5jb7cbx8bHI5wx+/gJi/uTkRHYByWRSrsPc8vIywuGwDArrXhs8DRyVSZ5/AQ0NDWF9fb3tC4gPurCw0NwC8dxQKITb21s5TnGsYZ7nsEUQ1nGg2BJY17o1atDoxTw+NTUlNU7huMzvhMlUxGQqYjIVMZmKmExFTKYiJlMRk6mIyVTEZCpiMhUxmYqYTEVMpiImUxGTqYjJVMRkKmIyFXH9+p2GhU64/vzNwEIjMvgHPOtv0njecGgAAAAASUVORK5CYII=" InformativeScreenshot="2e85b483f5685212a9e65929bce7a563.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Tiedotusnäkymä' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="150, 168, 99, 50" ElementType="Text" FriendlyName="'Tuotteet'" FullSelectorArgument="&lt;webctrl id='nvm_a_products' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='nvm_a_products' tag='A' type='' class=' nv_main_menu_top_entry' aaname='  Tuotteet  ' check:innerText='Tuotteet' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGcAAAA2CAYAAADak4erAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANRSURBVHhe7Ze/SyNBFMfzP1mIpY2FaGEfIoqCptCgeBBiJSJiIaISSCqLBAJWlnIRhIBgIZIEJeJptFBUUEk0Pwwm7/i+2wmbkMB5l/Ue5/vAK+bHzuzOZ2f2rcsVSJCG0HB9+04aQoMUsagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwagcwTgip1QqUSAQoK6urpYxMDBAl5eXVm+lHY7IqdVqlM/n6fn5mSMWi9Hc3Bzd3d1xOZfL0fv7u9X774nH47Szs2OVfpFOpykYDFqlzoHnWlxc5Odwmk851rBw2EnYUZ0GkpeXlxvk4OWIRqO0vr5u1XSOk5MTmpyc/L/lHB0d0fDwcMNDmuMQbYZyuUxbW1vU19fHR6Lb7aaDgwMW8PLyQjMzMw1Hpt/vZ1n2Ovs8t7e33Kenp4d6e3spFArR6+srtwH7fN3d3TQ7O0vZbJbb9vf3+Tr72PZ77TSi5WBXhMNhXsyHhweqVquUSqVofHycDg8PuY+5pvlYw65p3jmPj480PT1Ne3t7PDbkrq2t0erqKpfNfKhDG8roOzY2xvODVvftFKLl3NzcsIjm5GF3d7c+3kfk4Nu0srLCi264uLig0dFRngsxNTVF9/f3VitRsVjklwPXApVjyWm3EJlMpn7uf0QOyvYjyYTJHjFfq3aEGV/lOCinuc7O7yz8l5BzfHxMIyMjDQ/59PTEdUaOE8eaz+fjdLgVmA8Lj4ysHV9CDhbC4/HwBxcf+kKhwP9DyJCMHPOBNgkBMrTz83MWmEgkuA/qNjc3aWNjg97e3ngs1GFOXIdMzNQhIfB6vSwN/1qoRx3mq1Qq9fkmJib4W2TuC0kI+gG8KLjvs7MzHhN9nOKfycGDISVGaowzfWhoiHcEMiUjB2DBt7e3qb+/n/vZU2nD1dUVLyjaFxYW+BosJuRANnYfZABIXlpa4jQa/QcHBykSibAcYObD/aAd/ebn5+vZGgTiHwr1SKuTySTXO8GnyFH+DJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGJUjGFf6NEMaMsP1I3tNGhLjmn4Cp3ls2gJJt7AAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NHover.Target>
+                    </uix:NHover>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Uusi ostolasku'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/landingpages/home.aspx?page_transaction=98040" DesignTimeRectangle="477, 276, 210, 31" ElementType="Text" FriendlyName="'Uusi ostolasku'" FullSelectorArgument="&lt;webctrl id='nvm_a_purchasesAndExpensesNewPurchaseInvoice' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='nvm_a_purchasesAndExpensesNewPurchaseInvoice' tag='A' type='' class='' aaname=' Uusi ostolasku ' check:innerText='Uusi ostolasku' /&gt;" Guid="64135cce-49c2-4649-88d9-0b44245d0503" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANYAAAAjCAYAAADovPSEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALASURBVHhe7Z2xjtNQEEX5p/wEQvRQrKCABiGgRIhuGxpoaGjgAygRf4BokShW20FFR5GCgtLoRrrWMDw7tnei4Ohc6cjxvPdm3ovmJo622GsdQqhcGAuhA6g31na7BYArYvXG+vYLAK6KhbEACrEwFkAhFsYCKMTCWACFWBgLoBALYwEUYmEsgEIsjAVQiIWxAAqxMFaDrz+23ZOnz3fX1vgU3r7/sKM1BqeLNdtYarb7Dx93ny6+T4rPRc2opr78+bs5vgTt6eWbd82xFhgLlmL9d8Y6BB8/f+nOX71ujrXAWLAU62DGUiPHxtI30LPzF/24mn2z2fT4W2qfCTTmNddv3PxrH3FMuLljzLm1TutzXGRj5RzxXEPncG3N0b3irqFrzJHfG1gv1lGMlRs3MmYs5XPj6l5zb5/d3eXZty6Oab7WaY3u3fjeb96frq6p/d86u7P3HMrlfKrtWr73mMBYp4N1FGPlRo4MGcRrYoMKN63yuuHjuFCdmFPzlctmEVqn/Sk2Zpip51DMdfP42HsT58H6sI72KCg0Hh+fFBsy1lDdWMeNnh/X9DrmzPdCeZVfdUQ0lvYUH/fyI2jrHIrde/BoF299GMT9YazTwZptrKEmyM2Ym0fxljFE/AYZMpZN02rSHHPc9XWNOWM9x7QvnUuxeBbN9eOm5g2dX8S8rqlY67fg1PcG1oU121hCTZEbU80SmzfP0X1uMBObWo0Y80Ryztz0ea7w67hO86f+xopm0VjLKCaeY6x+634oJ6wLa5GxhJohPh5lM7hZ47j+lqTmcWN7LDbVmLFErJvXOS5i48Z6zp33EGtGYy09h/YpnFPrvKexnJ4P68RabCwA+BcLYwEUYmEsgEIsjAVQiIWxAAqxMBZAIRbGAijEwlgAhVgYC6AQC2MBFGL1xmr9SxIAmIfVGwshVKWu+wMGDEgrZrPgEwAAAABJRU5ErkJggg==" InformativeScreenshot="c95e3a8a644d6edbbc6847d838c161be.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Tiedotusnäkymä' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="477, 239, 210, 37" FriendlyName="'Ostolaskut'" FullSelectorArgument="&lt;webctrl idx='3' parentid='nvm_purchases' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='nvm_purchases' tag='H3' class='' aaname='Ostolaskut ' check:innerText='Ostolaskut' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANYAAAApCAYAAABJJ9fiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMiSURBVHhe7ZsxT+NAEEbv19JSQklLS5mWkpKWlpKW7shPoLiC0qcH2WhubuwkNovAek9aJV7Prtfoe7Ed4NcgIp+OYol0QLFEOqBYIh1QLJEOKJZIBxRLpAOKJdKBVYn19vY2bDab4fX1ddfzOfSaV9bLIrEI3PX19XB2dvZPe3p62lV8LYol34XZYiFPJRHhu7y8fA/iqTD28fFxt3U6P0Wspecp359ZYhGMq6ur4eXlZdfzPwTx/v5+t3UcSHrqmMhPEWvpecr3Z5ZYhOJQMAght4kxjIypbhsJ7qFbyqomXy3HBMjHpSZDX6w5Pz/ff3CMzUtfm4va29vb9/cZjn/seco6OFkswnFzczN5tYJcR3gIFf2RGCreV8ISaG4vY20LaaynLwvA8R8eHnZbH1ATx/G+CdJgrufn5/37PC9j4hzHiNUYO09ZDyeLRbgIdP70riCMLVA5XBVjgaOv6mcN8Za0EqCC/dRRDwgx9UGR52WdbEcUSyJdxYpCEDwkmBpXBY5QT10hY2jnisX46mraiPOyDtaTaxVLIl92xQLCx7NLfH6JVIE7dLw4ZkwsavJzTRap1XDLmce3ealh7bxmFEsiX/aMFWEfwc4hrgK3RKx2nCwR+6mLfQ32sa44ps3LFXe73ZbrUSyJnCwWEIpDwSBoh279qIm3VVXg2Df3VnAs7FNiNZiTGsjzxn2NKbGobWuE6jxlXcwSi4B9xu+xqsBWY+ir+vM6jhEA6M9XsQxzMJaaPC+wHWWJ9RG2OVasHTtPWQ+zxALCwTNJDAwQsPyXF4Qrf+UNhCvWIUh1lWtzxjC2wOa+KACv+QOA9V5cXOyvlNRUfwXBPG3uPC/kuav1AOPyz2nsPGU9zBYLWpjaFwK0qS8mYh0tStUgmNX+6lhZ6koA1sKa4pzU3d3dvb9CPGZrU8I2siDVGpmHltc6dp6yDhaJJSI1iiXSAcUS6YBiiXRAsUQ6oFgiHVAskQ4olkgHFEukA4ol0gHFEumAYol0QLFEOqBYIh1QLJEOKJZIBxRLpAN7sfgvWJvNtqw19mL9/mOz2Za2D4bhL+TfwaYjcQ2wAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Laskun numero'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Text="[CurrentRow.Item(&quot;Tositenro&quot;).ToString]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="389, 542, 242, 25" ElementType="InputBox" FriendlyName="'INPUT invoicenumber'" FullSelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='input--text width--full' aaname='' /&gt;" Guid="bd22d491-e04a-42bb-b705-19a125954533" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPYAAAAdCAYAAACZkZGJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADzSURBVHhe7dxBioNAFEXR3v/aBFcg4lwcOFNIqnmhIxHSC6jPOfAm1vji7P80oBxhQ0G3sJdlaeM4tmEYzKyTpdm0++kKOw/TNLV1Xdu2bWbWydJs2v2M+wo71e/73o7jaI/Hw8w6WZpNu2n47Qo7v/TzPNvz+fz7AvQgzabdNPx2Czv1A/1Ju8KGYoQNBQkbChI2FCRsKEjYUJCwoSBhQ0HChoKEDQUJGwoSNhQkbChI2FCQsKEgYUNBwoaC/g0795JyOwnoT9r9evMsFw7neX7dTgL6kWbT7tcrpZGHVJ9fupn1sTT7GXXcwgZqEDaU09ovLsKelCohNIcAAAAASUVORK5CYII=" InformativeScreenshot="93bb62e81da8a10994950ebabf2b665e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="211, 537, 171, 35" ElementType="Text" FriendlyName="'Laskun numero'" FullSelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='text__emp width__per--20 required' aaname='Laskun numero' check:innerText='Laskun numero' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAnCAYAAAB5cRjAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJmSURBVHhe7ZQxaxRRFEbzD62tY6mFRUAbITaCNiIExC6dtunEysbKJqXFgj9AJE1MOfqN+y3fXnbCzjpFLp4Dl5l5775338w9u0cDQFOQF9qykXe1WhFEq9iSF6ADdhV5oR3IC21BXmgL8kJbkBfagrzQFuSFtiAvtAV5oS3IC22ZLe+rt+fDg5Pnw4+fV+uRf+Pb6vtw/+HT4f3Fx/UIwH4gL7RlUXk1prl7x4/HUK6xpJ778vVya1zyer33z1rXv26GJy/ejKF7rzs7/7CpmfUS76Nc5Wmd1ov649G5fD6f5/T1u7GuxvV88enzeK/IH53XOk/rhet7D7+7xp3v94L9WVRezbmZurpRVbzcI+XReIqVeVPy+lnrc22ifXwWC6kxsY+8PoPn8j1cM/epZ836Jt+tngl2cLRRdMOi8go3Qs1yw9zMbLxx0zPfZK0qhNe54RYr1xvlWLKpfW6T1zVqbv5g8t5zPnv9ZnVfUdfDGktbr39YTF5L4cZXmfzsqPLUcZG15khXOXSfKlnNTeGU43dw5Fx+s7qPyL2gIGEdwWLy1oZMyWQhNKdcr9O+es41Weuuy5v3lfrN6r7itvX/NfUfNwReTN5siAWZkiAFSSGcZ7Gyoc5bWt56Nl0PkTfnao2sb3Ks1oEdlH9dcZC8am6GG6jGeez45HSr0W6u56eESAndVD0/evZyjKXlFXluv99ceYXPoHA9kfUT13JdmMdseQHuCsgLbUFeaAvyQluQF9qCvNAW5IW2IC+0BXmhLcgLbUFeaAvyQluQF9qyU16C6BT880I77CryQjv+ujoMvwGVfWPv6vMvJgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayAfter="1" DisplayName="Type Into 'Toimittaja'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Text="[CurrentRow.Item(&quot;Toimittaja&quot;).ToString]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="389, 577, 157, 25" ElementType="InputBox" FriendlyName="'INPUT distributername'" FullSelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='distributername' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='distributername' type='text' tag='INPUT' class='input--text width--full' aaname='' /&gt;" Guid="24683a8b-decd-4ef0-9ab3-6ebb1c519ec8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKEAAAAdCAYAAADCWQy4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM+SURBVHhe7dvfS1phHMfx/UvdVMbCOiMnUbSiRkREuQUFA4uQ0Y+RRvNgN120m4pRoyDGooW72JKxMAhr2ISuwpRWuKytdCq6Uuqz831mTaPdnTNvvi/4XtTJuzfPec7T8Q4YKzCOkBVcXoT7+/vw+Xzwer08PJoM9UWd5bqOkC4Eg0GcnJwgEonw8Ggy1Bd1lhvidYRUaDwex/n5OS4uLnh4NBnqizqj3q5cR0hLZTqdxuXlZfY3jKmP+qLOqLcreRFSqYxpjTrjCJlqotEo5ufn0dXVhbq6OrS2tmJ8fFzs+/6FI2SqoQeNgYEB3JUkNFtHYXa60PLcAf19Izo6OrC9vZ39y3wcIVPNzMwMyqV7kL/44TsDEko+EWVeB7/B8LAZPT09ODtTLtzAETJV0MNFW1sbWp7JmDsGNuJAQOktqMzHGPBk9i0qKyvhXnNnP/EXR8hUEYvFYDQaYXmzjvdhYO0H8DmixHgKrCsz6gmjrKwMFotFHMvk4giZKo6OjlBbW4tH8kt8CCk/p4CfSmvxNOBXVkLbpxB0Oh2mpqbEw0sujpCpIhQKobu7G1L1A7zwJuH9DqQywOkv4N1X4LE8i+LiYrESHh8r9+scHCFTxeHhoVjl6JZc3WzC07kNONYTsK9FlQBfQVeuR319PQwGA+x2e/ZTf3CETBV0PLO6uorh4WE0NDRAr9eL229JSQmKiorEUIR9fX0YHByEw+EQ+0jCETJV0NGL3+/H0tKSOJweGhpCZ2en2CdWVFSgtLQUkiRhenoaOzs7sNlskGUZu7u7HCFTTyKREIG5XC4sLCyI2/PY2Bh6e3vR3t6OxsZG1NTUYGRkBIuLiyJCGo6QqYZ6SaVS4vUselCh17MCgQA2NzfFQXZ/f784S6SV0WQyib2h2WyG0+nkCJm26CD74OAAy8vLYs9Iq2JVVRWamprEgwxd4wiZ5jKZDMLhMFZWVsQKSC84WK1WeDwecY0jZP8F9US3arfbjYmJCUxOTmJrawvJZJIjZIVFnd0aIb1uffN/fIxpgTq79fV+erLZ29sTm0rGtEJ9UWe3ftGJ0AUqlJZKHh4thvrKDZDkRchYIXCErOA4QlZgwG/N9P+mfgHXfQAAAABJRU5ErkJggg==" InformativeScreenshot="45241cbecab69e9fc64966e252672cb3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="211, 572, 171, 35" ElementType="Text" FriendlyName="'Toimittaja'" FullSelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='text__emp required' aaname='Toimittaja' check:innerText='Toimittaja' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAnCAYAAAB5cRjAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHwSURBVHhe7dYxS8NAGIdxv6Gzs446OAg6OOgi4iKCIG7ddO0mTi5OLo4OAT+AiIs6nv5r33J9vQQaouRNnx8cbdK7y/L0yEqaqqpq+g3oN2t1Ll4GI9Lg5EU41irxIhziRVjEi7CIF2ERL8IiXoRFvAiLeBEW8SIs4kVYxIuwFor3anyTVte3i+P+4XE667en6jmtbe5N1i/Cr3v/+EwnF6P08vpWvK7T9vnot1Ynr2LZ2DlMu0dnk4D+i0LVcy1Wf43l0mm8dsL50zg/+WztwenlZL3m6Xp8ezdbZydkvk7Dfte989H13LXm+ueX9smv/TzE0lm8PhB9+qh0z9Zq6LsCV0C2l07T0jppOnm1VnvYH6Zun6Z56LGVWaIzncWbxyo2R3Hk8eT3Jf9N8n38b3mspWuxNfpD1O0jpXnoIYvWf37rLF4fUh5pHk9+X3xYbeO1fW1t3T5N89BTCtZGZjAnr71+2OtA3T5N89BD/sTNAu4sXh9aXTx/FW/pGaV9muahx9ypK53FKxaGf48sBdMmXjs17eT019rTrrf2j2f3/T518xBLq3ij8fFiGAYfr4LVyWqvFxiOpTh5MUzEi7CIF2ERL8IiXoRFvAiLeBEW8SIs4kVYxIuwiBdhFeNlMCINTl6EY60SL8L5aTWlL75Q+fYa/w0PAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DeselectAfter="True" DisplayName="Type Into 'Toimittaja'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,253" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Text="%[k(enter)]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="389, 577, 157, 25" ElementType="InputBox" FriendlyName="'INPUT distributername'" FullSelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='distributername' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='distributername' type='text' tag='INPUT' class='input--text width--full' aaname='' /&gt;" Guid="24683a8b-decd-4ef0-9ab3-6ebb1c519ec8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKEAAAAdCAYAAADCWQy4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM+SURBVHhe7dvfS1phHMfx/UvdVMbCOiMnUbSiRkREuQUFA4uQ0Y+RRvNgN120m4pRoyDGooW72JKxMAhr2ISuwpRWuKytdCq6Uuqz831mTaPdnTNvvi/4XtTJuzfPec7T8Q4YKzCOkBVcXoT7+/vw+Xzwer08PJoM9UWd5bqOkC4Eg0GcnJwgEonw8Ggy1Bd1lhvidYRUaDwex/n5OS4uLnh4NBnqizqj3q5cR0hLZTqdxuXlZfY3jKmP+qLOqLcreRFSqYxpjTrjCJlqotEo5ufn0dXVhbq6OrS2tmJ8fFzs+/6FI2SqoQeNgYEB3JUkNFtHYXa60PLcAf19Izo6OrC9vZ39y3wcIVPNzMwMyqV7kL/44TsDEko+EWVeB7/B8LAZPT09ODtTLtzAETJV0MNFW1sbWp7JmDsGNuJAQOktqMzHGPBk9i0qKyvhXnNnP/EXR8hUEYvFYDQaYXmzjvdhYO0H8DmixHgKrCsz6gmjrKwMFotFHMvk4giZKo6OjlBbW4tH8kt8CCk/p4CfSmvxNOBXVkLbpxB0Oh2mpqbEw0sujpCpIhQKobu7G1L1A7zwJuH9DqQywOkv4N1X4LE8i+LiYrESHh8r9+scHCFTxeHhoVjl6JZc3WzC07kNONYTsK9FlQBfQVeuR319PQwGA+x2e/ZTf3CETBV0PLO6uorh4WE0NDRAr9eL229JSQmKiorEUIR9fX0YHByEw+EQ+0jCETJV0NGL3+/H0tKSOJweGhpCZ2en2CdWVFSgtLQUkiRhenoaOzs7sNlskGUZu7u7HCFTTyKREIG5XC4sLCyI2/PY2Bh6e3vR3t6OxsZG1NTUYGRkBIuLiyJCGo6QqYZ6SaVS4vUselCh17MCgQA2NzfFQXZ/f784S6SV0WQyib2h2WyG0+nkCJm26CD74OAAy8vLYs9Iq2JVVRWamprEgwxd4wiZ5jKZDMLhMFZWVsQKSC84WK1WeDwecY0jZP8F9US3arfbjYmJCUxOTmJrawvJZJIjZIVFnd0aIb1uffN/fIxpgTq79fV+erLZ29sTm0rGtEJ9UWe3ftGJ0AUqlJZKHh4thvrKDZDkRchYIXCErOA4QlZgwG/N9P+mfgHXfQAAAABJRU5ErkJggg==" InformativeScreenshot="45241cbecab69e9fc64966e252672cb3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="211, 572, 171, 35" ElementType="Text" FriendlyName="'Toimittaja'" FullSelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648022925648' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='text__emp required' aaname='Toimittaja' check:innerText='Toimittaja' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAnCAYAAAB5cRjAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHwSURBVHhe7dYxS8NAGIdxv6Gzs446OAg6OOgi4iKCIG7ddO0mTi5OLo4OAT+AiIs6nv5r33J9vQQaouRNnx8cbdK7y/L0yEqaqqpq+g3oN2t1Ll4GI9Lg5EU41irxIhziRVjEi7CIF2ERL8IiXoRFvAiLeBEW8SIs4kVYxIuwFor3anyTVte3i+P+4XE667en6jmtbe5N1i/Cr3v/+EwnF6P08vpWvK7T9vnot1Ynr2LZ2DlMu0dnk4D+i0LVcy1Wf43l0mm8dsL50zg/+WztwenlZL3m6Xp8ezdbZydkvk7Dfte989H13LXm+ueX9smv/TzE0lm8PhB9+qh0z9Zq6LsCV0C2l07T0jppOnm1VnvYH6Zun6Z56LGVWaIzncWbxyo2R3Hk8eT3Jf9N8n38b3mspWuxNfpD1O0jpXnoIYvWf37rLF4fUh5pHk9+X3xYbeO1fW1t3T5N89BTCtZGZjAnr71+2OtA3T5N89BD/sTNAu4sXh9aXTx/FW/pGaV9muahx9ypK53FKxaGf48sBdMmXjs17eT019rTrrf2j2f3/T518xBLq3ij8fFiGAYfr4LVyWqvFxiOpTh5MUzEi7CIF2ERL8IiXoRFvAiLeBEW8SIs4kVYxIuwiBdhFeNlMCINTl6EY60SL8L5aTWlL75Q+fYa/w0PAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                      <uix:NTypeInto.VerifyOptions>
+                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                        </uix:VerifyExecutionTypeIntoOptions>
+                      </uix:NTypeInto.VerifyOptions>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Eräpäivä'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Text="[Date.ParseExact(CurrentRow.Item(&quot;Tositepäivä&quot;).ToString, &quot;dd.MM.yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="389, 646, 85, 25" ElementType="InputBox" FriendlyName="'INPUT dueDate'" FullSelectorArgument="&lt;webctrl id='iframe_1648023410084' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023410084' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='input--text' aaname='' /&gt;" Guid="2aac5dc8-c6a2-438f-b4a4-df3b40c7decd" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAAdCAYAAADBwsDVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADVSURBVGhD7dmxCoQwEEXR/f9vE/yCIPaSwk5BZ3myBgW3ieRV98I0SXeSbj5BzQPZ0A15HMfo+z66rmMqR35yvFaQdZFSimmaIufMVI785HiFLsh6gXmeY1mW2LaNqRz5yVGeZwVZX31d19j3/XdCNclPjvI8uyHrJeh9cgS5cSAbAtkQyIZANgSyIZANgWwIZEMgGwLZEMiGQDYEsiGQDYFs6C+y1iVandD75Pi4ftLibxiGY3VC9clPjo+LVKULvYC+OlM38rsCqxsytQlkQyA3L+IL8umdeycqdtwAAAAASUVORK5CYII=" InformativeScreenshot="c410fce81adc745de8eef75f1d4fa0b4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="211, 641, 171, 35" ElementType="Text" FriendlyName="'Eräpäivä'" FullSelectorArgument="&lt;webctrl id='iframe_1648023410084' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023410084' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='text__emp width__per--20 required' aaname='Eräpäivä' check:innerText='Eräpäivä' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAnCAYAAAB5cRjAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIISURBVHhe7Za9SgNREEZ9Q2vrWGphEdBG0EbQThCsBDsttfMFrGwsLQI+gIiNWq5+a75ws/mPLvrJOTDc3XtnJrc4O2Sl6tPr9fpPAH8buzokL0EkBZMX4rCryAtxIC/EgrwQC/JCLMgLsSAvxIK8EAvyQizIC7EgL8SCvBDLwvIenZ5Xq52tkbi4vulnDPP0/FKtd/er27v7OvSsvVlMq9Md5umjO20fHNd5WifdETJZSt55BQRokx+V9/XtvZ5wm7uHdaxt7FQPvcd64nlCe0+4l2p8rilrZtXpDs37qMa52tOZeygX/g+tyFuKplUiK98yKUe56mVhXeves+qcp1r/nnuUef6r4A+h/DggiJWBogOWkteTzDFJnpJyio6TUEgsnU+avuPqLLbydAfdxcIKn7sH8oZhaZvrJ61M3lJeC6k91ZTn0+RdpE7vOju7vBr5kJr9tEIYEtZR0Lq8ZX7zfJq8i9ZJ2k53b5DTnMLIG0pz4hYCty6v5PE0tEClhHpXjmvde1ZdeQetenevck+57o28wTSmrlhKXknQjFISSyZKsTwdLZ4lPDm/HJxL1nnr9Gy0V9YLiez7qV7nlhvyWVjen2SchADzgrwQy6/KC/AdkBdiQV6IBXkhFuSFWJAXYkFeiAV5IRbkhViQF2JBXohlrLwEkRRMXojDriIvxPHlalV9AF9rImZHSiNnAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Loppusumma'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Text="[CurrentRow.Item(&quot;Summa&quot;).ToString]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="389, 784, 121, 25" ElementType="InputBox" FriendlyName="'INPUT sum'" FullSelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='input--text width__per--50' aaname='' /&gt;" Guid="544eaa64-c7a9-4847-8790-62bc4c6418d3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH0AAAAdCAYAAACHdGN/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADYSURBVGhD7doxCoQwEIXhvf/ZBE8gIb1Y2BnQWZ6sQcG9wLz/h2mS8gup5hNkF+iGPdBrrTGOYwzDwCQZecr1XkfXxTRNMc9zLMvCJBl5yvUO39H1ItZ1jW3bYt93JsnIU67yvero+gpaa3Ecx++EMiRPucr36oGul0H5kivoZoFuGOiGgW4Y6IaBbhjohoFuGOiGgW4Y6IaBbhjohoFuGOiGgW7YX3St02i1hvIl19d1KS3OlVLO1RrKkzzl+roYqXShF6GvgMkx8ryDqwc6eQS6YaDbFfEFJrerD/bE8uoAAAAASUVORK5CYII=" InformativeScreenshot="d2c19bf700e364d157980a726e2cdd09.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="211, 779, 171, 35" ElementType="Text" FriendlyName="'Loppusumma'" FullSelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='text__emp required' aaname='Loppusumma' check:innerText='Loppusumma' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAnCAYAAAB5cRjAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJTSURBVHhe7Zgxa1RREEbzD62tY+kWKQJaKMQmJGlEEMRC2M6U2U6sbFKlSZniQX5ACDZqefV77LfMXnaf7tu7iQPnwPCu787MvckcHsS9MqfruvkK4P/Gri7JSxCZgi8vpMOuIi+kA3khLcgLaUFeSAvyQlqQF9KCvJAW5IW0IC+kBXkhLcgLadlY3rMP0/Ls8E25u/8+fwPwOCAvpKW5vJ9nX8qT/YM+Yt5Nd1uePn9Zjt5+7J/af3H8rvz4+asPrSevT/vQnnJUI+KZznWtWHfmUN3l1XWf/+n8YnEf5Svi+bFOd/fe7Ou3pTrjn1PvFbob7Iam8mpQq4autYday6Ma57pWvXWGc4ckdF/1cZ1lGqrz+THX94nna62n7+bz3Ff5qlM/n6G1e7oOtmRvoeiCZvLWcggLomeUTMR8CxJrlefBD0novhYvMlQX7ybieTG3vpv+rZ7qLeo+It7JPWEklrZ+/qGZvPVQRRysB9paXqF9nePwGUN1tXQt5PWe+8SesAUS1hFI/+WN+Lx/qYt3Ey3kHeoJI6m/uEHgZvKKdQJorXfac60HrRrnevAWxLWxr/t4rxYm3m+TunV3Vx+v9d53WyWvz1Av57knbEn11RWj5NWwYsQBaXB+74ELD/b99LwfqvYtQJTFf9FbQGER9N7/IxF7xzMVFnKobhfyivj7mbw6WdqDtmws71jiV6kmymIhAf4G8kJaHkxegNYgL6QFeSEtyAtpQV5IC/JCWpAX0oK8kBbkhbQgL6QFeSEtK+UliEzBlxfSgryQlFJ+A2Cgg4Q8zttmAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Laskupäivä'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Text="[Date.ParseExact(Date.Now.ToString, &quot;dd.MM.yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="817, 542, 85, 25" ElementType="InputBox" FriendlyName="'INPUT invoicedate'" FullSelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='invoicedate' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='invoicedate' type='text' tag='INPUT' class='input--text' aaname='' /&gt;" Guid="d2bb390f-2f40-434a-925b-778d671c9e0d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAAdCAYAAADBwsDVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADVSURBVGhD7dmxCoQwEEXR/f9vE/yCIPaSwk5BZ3myBgW3ieRV98I0SXeSbj5BzQPZ0A15HMfo+z66rmMqR35yvFaQdZFSimmaIufMVI785HiFLsh6gXmeY1mW2LaNqRz5yVGeZwVZX31d19j3/XdCNclPjvI8uyHrJeh9cgS5cSAbAtkQyIZANgSyIZANgWwIZEMgGwLZEMiGQDYEsiGQDYFsCGRDf5G1k9J+it4nx8cdn7arwzAc+ymqT35yfNxWK13oBfTVmbqR3xVY3ZCpTSA3L+ILx7ecPUtuh1QAAAAASUVORK5CYII=" InformativeScreenshot="0af76095328f02807778f4c49e47ecc7.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="639, 537, 171, 35" ElementType="Text" FriendlyName="'Laskupäivä'" FullSelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='3' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='text__emp width__per--20 required' tag='TD' aaname='Laskupäivä' check:innerText='Laskupäivä' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAnCAYAAAB5cRjAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJfSURBVHhe7Zg9SwNBFEXzD62ttdTCQtBG0EbQThBs02lrZ2VnlcbSIiAIgiBio5ajd/Hiy7hiNMuSp+fAMNmZ97FhTqbIoAAkBXkhLYPxeFwYjIyjuXn1ASAD0VXkhVQgL6QFeSEtyAtpQV5IC/JCWpAX0oK8kBbkhbQgL6Tlx/Jeja/L4spmOT49e1+Znf2jYVle3yn3D4/vK7Oj91xa325mvevG7kF5en5p9qbt5zzFae7yO8Ps/Fl54e/TubxaX1haa4biFG8kqfe+ugmdr7nudTG6bPY0C+eplut6T8R+8cfhvJvbuyb3q3fR0GfX0B7MD53Kq73Vrb2Jg7cYUby6hoXRntYtyTTy+lk91Mviac29Xcd13U9xqu3PfucY596aY2/omUGj5wSd37zCB61Ry9smgCWM8WIaeS2eqPdFrB2ldJ57KKct30K7RtyDHrC09fxGp/L68CWgDl2zZfTNaAmiCFGwuD6LvP4BKcYCtsnr99Ja27rr1b2hRySsR6BTedsO3/JGLJZjlefbT2vO+a285xejid7aV5ziRZ2n+uqjfycc811v6In6xg0CdyqvJVCMD9sCxb1a7CiT4ixJm3S1vHpWjmu6TlvNWCfK6+8Ua8ferh33oWeqW1f8Wl4dZBw6ZB+4nhWjmyxKohjHW2SvO64W2+K5h+Yor/IOhyefasb39Lu0/VhELb6JvZWvOlqD+eDH8s4TtYTwv0BeSEtqeeF/g7yQFuSFtCAvpAV5IS3IC2lBXkgL8kJakBfSgryQFuSFtEzIqwcGI+Pg5oVURFeRF1Lx4Wopr4IfxOqG1MzIAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Viesti'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Text="[CurrentRow.Item(&quot;Kaupungin nimi&quot;).ToString +&quot; &quot;+CurrentRow.Item(&quot;Tili&quot;).ToString]" Version="V1">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="817, 784, 242, 25" ElementType="InputBox" FriendlyName="'INPUT bankmessage'" FullSelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='bankmessage' tableRow='8' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='bankmessage' type='text' tag='INPUT' class='input--text width--full' aaname='' /&gt;" Guid="c1614ded-1561-47ac-9096-5cf673e7bf89" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPYAAAAdCAYAAACZkZGJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADzSURBVHhe7dxBioNAFEXR3v/aBFcg4lwcOFNIqnmhIxHSC6jPOfAm1vji7P80oBxhQ0G3sJdlaeM4tmEYzKyTpdm0++kKOw/TNLV1Xdu2bWbWydJs2v2M+wo71e/73o7jaI/Hw8w6WZpNu2n47Qo7v/TzPNvz+fz7AvQgzabdNPx2Czv1A/1Ju8KGYoQNBQkbChI2FCRsKEjYUJCwoSBhQ0HChoKEDQUJGwoSNhQkbChI2FCQsKEgYUNB/4adsyo5sQL0J+1+PY2UQ2jzPL9OrAD9SLNp9+sxw8hDqs8v3cz6WJr9jDpuYQM1CBsKEjaU09ovtE+f0tnpxm4AAAAASUVORK5CYII=" InformativeScreenshot="220a7a5f8728f9de732d8a0f15703876.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="639, 779, 171, 35" ElementType="Text" FriendlyName="'Viesti'" FullSelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='3' tableRow='8' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='text__emp required' tag='TD' aaname='Viesti' check:innerText='Viesti' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAAAnCAYAAAB5cRjAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHLSURBVHhe7dgxSwNBFEXh/YfW1lraWAja2ljYWdnaWdtZ2aVKk0ZQWBAEQQhio5Zj7pIrL+Mi7iro0/PBsNnMZNKcDEmastC2rS7ArxdbbXTDYGQcnLxIJbZKvEiFeJEW8SIt4kVaxIu0iBdpES/SIl6kRbxIi3iRFvEirUHxzh8ey+bOftk9OCpPzy/LZ0u5am/K+tZeOTw+6YbWaO1Y2lv7aA891vvV7wkMPnkVlUJVsHZ6dl7WNrbLZDpbPvM13/EBwN83OF4FqlAVrMXY6vActkY8PTWvdZ7zfnG9PiSzy2tOXvQaHK+jc0y+V7QS43Xoun60TsHG0zzO8bUBnabLc8XgeEVxObYYqOccXnzsOUeox3pdnLf4OuL95xxtfV0YFW8Mti9Q3d/e3XfBaV0cXusfefXzcQ/iRUfBegSj4lVUiktB6arYLIZXh93HcSpg70O8eFOfuCHgUfGKAvOp6a8MEsOLJ7SD13wdpE9h/2gjXrxTnboyOl6HWZ+sMTz57L8Ncc57a1xMpsSLXqPjBX4a8SIt4kVaxIu0iBdpES/SIl6kRbxIi3iRFvEiLeJFWsSLtIgXaa3EqxsGI+Pg5EVaxIukSnkF7EujPZWSktkAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Tallenna'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/editinvoice.aspx?page_transaction=98040" DesignTimeRectangle="1023, 973, 65, 26" ElementType="Button" FriendlyName="'Tallenna'" FullSelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl id='submitButton' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_1648023929636' tag='IFRAME' /&gt;&lt;webctrl id='submitButton' tag='BUTTON' type='button' class='btn--success' aaname='Tallenna' check:innerText='Tallenna' /&gt;" Guid="ba9e5bfc-ae1f-4741-b114-26cc4d16f1d4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAeCAYAAAB6xNMdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARSSURBVGhD7Znfb1RFFMf9U4iI/bEtBcrPh1LoL6qAivKAiYSEZ1/8EV9IgCeBbikVhRTatIhKjOmSVmTLAyFo025/CIQHKNhdoNhgArtsuttVfDqc78yZy72XnVv7RLLXSb6de2a+586cz8692WxfKxQK9L+8egnK/Px86ORn4EDB5MHhTlr/w/u0/Nu3QiPUi7rdcBQUA6Q+9iHtuvoJfTT8udJu6Us53nnlY9oY2+UBo6Dk83lFrGloD629sJNqf94RGqHeLZf2qvrBQUEBnVwup47SmsEPaNXAu6z3VF8rvYn9fanMo27UDw7goaDMzc2pwVXnOSGkQv3g8BKUlf3vsLaHsrdD+YkNIZUVyoofty2svkZ6Y/+GoqrsK+KHvmum8v2NVI1r5Lc3U43f84plh3KODee2Bveph2Rr91KWvMkblKMZiiH+Y4bo2Q06Wsz3CnsrlJrv316UYk+ZxNMh11gLVexbR0uNOlv0+MR1mqMHFMP13QcM5Tq1K38rRY688Fd0y334NJXt20wVnUXmujfT0iM85+TVUaRP5mzr/wfZoZzlybO6r5E+KI5lGEqGoah4C0UODVJSnRlpj3+hyl72jwsU5N9hKP8wFM6v6viKRp+Jl1vy9zqX/z4lAV1a8mYjr23y71PqX5ngMzh6lYsPWl/269+/O7ZCWX6mdVHSUOISd9M4bzT3V7eOJ/DI5GlsjK/HBArGpwTKmSbqf8z52UvaP82PFWckRoyfo0f6XuezHKgcyeeWmuZrrAmoag8B6yNeSFYova1UzUJvZGJ/DzlQzPiJenr9i7WiQZrGphI8nhAo8BkovXH1qU5PGj+fmr/5RNxqET/njst9nRzJx/sJ46zon3m1h8D1kSd+9/49sQ1KdU8LVbH8vZF/vD/N+0vHZb6Byifv8YC75SkxynOjGko/fLd1gdEeDcXfco9OUbXb78nxXmMf0YcMRe0hYH25j3//poesUKpOs2ERcqCoWBeZvK3nIkcvqE8qMcLxiBQJnynq9BCl8D643KDzT26iZZ+tprLjPr8nx3fNcqAErS/eINmhdDVTpKuJpfuFYg3losRxLpIfh/FaWvLpajo0w5vFO+JX9g9f00XCdwtFXaM2zo/hXfFkQPmXDEywh98Vd3x+rCc5UV8+9tOGddQeAtaX+wTVY4USOcmGRUgVlY07cXQWG9EtNxunMX4JpqZ4bkS+p8A3pb+nRFVOl/KYlpvt0vdy+/05nnxZU/ZgXV+8QbJCqfymkdXg7b/2xSU6b4dynA0hlRVKRSe+RYZTdigdbOjYFMreCqW8vT60skNpY0PbRk9f5otLdb4oFPxwC2PZ4brQCXWjfg8U/GB7YPgYrenZziYG8yWbRW+6rksxRr2oG/U7P1ybf3Fks1k68NsxJrZDHaWwCPWibtTv/IsDf8xpwUQmk6F0Oh0aoV7UbU6JA8WAASlM4tkKi1Av6jZACoUCPQd2GLMHyrsXHQAAAABJRU5ErkJggg==" InformativeScreenshot="e42fa502f1dba21b0466cf5a70368830.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-7, 0, 1294, 1399" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADzSURBVDhPndOxSsNQFMbxCJ1sidp2kA6FEgdxUDeLFIdiO3XsksHBwb5AF13EzQM+hXRsoUvdBJe+xHmEQrcOLpb2f5OzCSG5H/yG893kcrkhwb+I1nCFI2s8IlpHD2fWeEQ0xAPurPFIuskrBtYUiLsD0UO0MEfHVnJE9AITXNs8xjeqyZwZ0VP8YIs3HKCNNYb2VEZEn7DDFE3ruvjFSzJnRvQdG9zYHGGBP8RJlxnRR6xwiRI+4E70hdx3sMTI5lt8IkrmXBHtY4YGKghtpUDcjYs+o2xNwaSf7x6x/yYuoue20Yk1HnEvp7/4sTWWINgD9mWE6eXtRIcAAAAASUVORK5CYII=" InformativeScreenshot="aeefd86de5d06a00f1ba0cc8cd4cd0db.png" Selector="&lt;html app='chrome.exe' title='Netvisor :: Tiedotusnäkymä'/&gt;" Url="https://koulutus.netvisor.fi/evo/landingpages/home.aspx?page_transaction=98040" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+  </Sequence>
+</Activity>
