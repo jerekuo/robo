@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1780,1205" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1965.33333333333,1230.66666666667" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="98">
       <x:String>System.Activities</x:String>
@@ -94,10 +94,9 @@
       <AssemblyReference>NovigoSolutions.TransposeDataTable.Activities</AssemblyReference>
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Ostolaskujen lukeminen Excel tiedostosta" DisplayName="NetvisorRobo" sap:VirtualizedContainerService.HintSize="376,1140" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Ostolaskujen lukeminen Excel tiedostosta" DisplayName="NetvisorRobo" sap:VirtualizedContainerService.HintSize="376,1166" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="Ostolaskut" />
       <Variable x:TypeArguments="x:String" Name="Output" />
@@ -114,7 +113,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Lukee excel tiedoston, valitsee sieltä yhden kuukauden ja luo tarvittavat datatablet" DisplayName="Invoke Tietojenhaku workflow" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Tietojenhaku.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Lukee excel tiedoston, valitsee sieltä yhden kuukauden ja luo tarvittavat datatablet" DisplayName="Invoke Tietojenhaku workflow" sap:VirtualizedContainerService.HintSize="334,159.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Tietojenhaku.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="var_Summa">[var_Summa]</OutArgument>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Ostolaskut">[Ostolaskut]</InOutArgument>
@@ -126,23 +125,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Etsii valitun kuukauden 5 suurinta toimittajaa kokonais-summan perusteella" DisplayName="Invoke Findtop5 workflow" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Findtop5.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Etsii valitun kuukauden 5 suurinta toimittajaa kokonais-summan perusteella" DisplayName="Invoke Findtop5 workflow" sap:VirtualizedContainerService.HintSize="334,159.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Findtop5.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="var_Summa">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_Summa" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Ostolaskut">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="Ostolaskut" />
-        </InOutArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="var_Sorted">
-          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_Sorted" />
-        </InOutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="testi_string">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="testi_string" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="var_YtunnusLista">
-          <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="var_YtunnusLista" />
-        </OutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="var_Summa">[var_Summa]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Ostolaskut">[Ostolaskut]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="var_Sorted">[var_Sorted]</InOutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="testi_string">[testi_string]</OutArgument>
+        <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="var_YtunnusLista">[var_YtunnusLista]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -150,7 +139,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:JoinDataTables sap2010:Annotation.AnnotationText="Hakee kuukauden 5 suurimmalle toimittajalle toimittaja nimen sekä toimittajanron Y-tunnuksen perusteella yritysTietoTaulukosta" DataTable1="[var_Sorted]" DataTable2="[yritysTietoTaulukko]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="JoinDataTables_1" JoinType="Left" OutputDataTable="[var_Sorted]">
+    <ui:JoinDataTables sap2010:Annotation.AnnotationText="Hakee kuukauden 5 suurimmalle toimittajalle toimittaja nimen sekä toimittajanron Y-tunnuksen perusteella yritysTietoTaulukosta" DataTable1="[var_Sorted]" DataTable2="[yritysTietoTaulukko]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="334,120.666666666667" sap2010:WorkflowViewState.IdRef="JoinDataTables_1" JoinType="Left" OutputDataTable="[var_Sorted]">
       <ui:JoinDataTables.Arguments>
         <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
           <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
@@ -169,7 +158,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:JoinDataTables>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Tarkastaa netvisorista toimittajataulukon ja lisää puuttuvat toimittajat. Täytyy olla chrome, joka kirjautunut netvisoriin." DisplayName="Invoke Toimittajatietojenlisäys workflow" sap:VirtualizedContainerService.HintSize="334,169" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Toimittajatietojenlisäys.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SequenceOstolaskujenmaksu workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SequenceOstolaskujenmaksu.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="Ostolaskut">[Ostolaskut]</InArgument>
+        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="yTunnuslista">[var_YtunnusLista]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Tarkastaa netvisorista toimittajataulukon ja lisää puuttuvat toimittajat. Täytyy olla chrome, joka kirjautunut netvisoriin." DisplayName="Invoke Toimittajatietojenlisäys workflow" sap:VirtualizedContainerService.HintSize="334,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Toimittajatietojenlisäys.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="var_Sorted">[var_Sorted]</InArgument>
         <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="var_rekisteriLista">[var_rekisteriLista]</InOutArgument>
@@ -181,15 +176,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke pankkitilienLisäys workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="pankkitilienLisäys.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke pankkitilienLisäys workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="pankkitilienLisäys.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:List(x:String)" x:Key="var_rekisteriLista">[var_rekisteriLista]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SequenceOstolaskujenmaksu workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SequenceOstolaskujenmaksu.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="Ostolaskut">[Ostolaskut]</InArgument>
-        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="yTunnuslista">[var_YtunnusLista]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
