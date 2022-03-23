@@ -1,0 +1,140 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Tarkistarekisterissäolevatyritykset" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="var_rekisteriLista" Type="OutArgument(scg:List(x:String))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>742,1341</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>NovigoSolutions.TransposeDataTable.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Tarkista rekisterissä olevat yritykset" sap:VirtualizedContainerService.HintSize="752,1316" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="434,1224" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" ScopeGuid="c187d383-2a4b-4d98-bc7f-ca273ce4dc15" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,968" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+              <Variable x:TypeArguments="sd:DataTable" Name="rekisteriDt" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NHover DisplayName="Hover 'Ostot'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NHover_2" ScopeIdentifier="c187d383-2a4b-4d98-bc7f-ca273ce4dc15" Version="V1">
+              <uix:NHover.Target>
+                <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/landingpages/home.aspx" DesignTimeRectangle="372, 316, 118, 75" ElementType="Text" FriendlyName="'Ostot'" FullSelectorArgument="&lt;webctrl id='nvm_a_purchases' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='nvm_a_purchases' tag='A' type='' class=' nv_main_menu_top_entry' aaname='  Ostot  ' check:innerText='Ostot' /&gt;" Guid="d4bba5a3-dd0f-4a99-b9f0-9b127180157d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHoAAABPCAYAAAAk7tH6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAR+SURBVHhe7ZnPa9tIGIbzP/nkQ8BQMPTgU3yJIFDTiymsIVDvLmt62L0ULwSRg8lh8V7CQk2hKIfFYUsWFlww7iGosOBASWBBh4KhYOhBYHh3Rhopsi0rjusSwfc+MAeNpbE9z/z45tPOzo9/g0VA2fn+L7AIKCAioGghULQQKFoIFC0EihYCRQuBooVA0UKgaCFQtBAoWggULQSKFgJFC4GihUDRQqBoIVC0EChaCBQtBIoWAkULgaKFQNFCoGghULQQ8id65sO7dGA/t1B9VEChEJbSXh2tEwfuJ3MfuRf5Ej0ZwN4vGrlFlPctWAemPI7qS2i+voZvHtmYqy4qBRuuudwOU1z8VEDjbGKu80N+RH9xYe+Fgq2jAbwUk9MrB78EA6GoOtMztZtx/cpS7WxZtD9AWw1Gil6JD/e4EszY6rGbPVvjAVFD78bU3ZeZh953uo3tivaHNooUncHnPpp6Wd5tY7TGmuy/awcdWvx1ND8oZhO4Zzaa++Xgcz1wio8t1F904FyGne+dt1BL7P3JsiQoam+vZO7R20kT9vkY05m5RzN10T28/c75su3tYTNyIXr6thV0SuW3sam5A7NEFnZVJ0Ydrmapcxgu6+XDNjonnaC0VVBX3r0dFNOPI4yGfdgHWkITp0N9HRY3uV+olaNj4oXSkxbsoL02GiZWKP3Qhxd9t+/B1W380Qw+s476cZuj4bXauR+eXIh2T8LOa79bYzoHTOAES68VL9/+MJzljTcpe7eK5KdzTUfPr5ptOqjSv6mC9j+Ly7Cv9vdG8F3V3xcG5qUd/A8u3SsYHelOL8C+NBVr4B7PPzM5a4TX78PrbO4Q/V8PNdVW4edBerwwu0bviX6+hYvkdKXoLKJO/zrR+HiKqpaz18bgzrN2tmjvTT1oO2uFCaP2hXsoOpslaWuw/IxaUl83UVJ14T5tqwDMg58MmmKyRYdtV9C9MhVpvE+RStHZbL5H1+EsbsmfXPRe1oxwVR7VVZS8mGBZR3QDTtbKkCaVorPZStS9iDka1c1Rav58zhn9METn6Irq+DUm9cpzdBpfxugGgVMD/bj/s0VP/gwDu9bb1Qcj7tEb8W0zY2FEXkTng6m4Q3QcdauzcqpqRt1fQSLXXTsZpea6fS966XGPXLdOpARSk1J8DF7qOrU8/2uq5tCfm+9ZOpdnnKNverCyBsgDkh/RGp1KfBoGZvotVfWgjtZRB/aLOqw4DZn+9mpy1ozvj7Jit5ms5YERJVgKu1b8jA7aYvSSb35LMjMWpUPnMmMxnpnp6vNnUXbuFKMcTPB8idakvo/WOebs99H+zQU6cwNCSyzDeq6OWR/Se3oy7N7msdW9tVcJ0ZrZFOPzZO5c/Y6nLXQWc91JpmM4KurXaddAuD7X52B65080+SZQtBAoWggULQSKFgJFC4GihUDRQqBoIVC0EChaCBQtBIoWAkULgaKFQNFCoGghULQQKFoIFC0EihYCRQuBooVA0UKgaCFQtBAoWggULQSKFgJFC4GihUDRQqBoEQD/A1kqBYjIqhjgAAAAAElFTkSuQmCC" InformativeScreenshot="05c7abc71ba4c44a93d5b345f46a2c2c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Tiedotusnäkymä' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NHover.Target>
+            </uix:NHover>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Toimittajalistaus'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c187d383-2a4b-4d98-bc7f-ca273ce4dc15">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/landingpages/home.aspx" DesignTimeRectangle="387, 519, 315, 47" ElementType="Text" FriendlyName="'Toimittajalistaus'" FullSelectorArgument="&lt;webctrl id='nvm_a_purchasesAndExpensesSupplierList' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='nvm_a_purchasesAndExpensesSupplierList' tag='A' type='' class='' aaname=' Toimittajalistaus ' check:innerText='Toimittajalistaus' /&gt;" Guid="4aa534bd-4d54-4b3d-90ed-4aa4ce504dbd" ImageBase64="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" InformativeScreenshot="c68abc6ee496bc989cf1f035dd82e876.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Tiedotusnäkymä' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[rekisteriDt]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot' ReferenceIdx='0' Name='Perustiedot' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot1' ReferenceIdx='1' Name='Perustiedot1'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot2' ReferenceIdx='2' Name='Perustiedot2' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot3' ReferenceIdx='3' Name='Perustiedot3' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot4' ReferenceIdx='4' Name='Perustiedot4' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot5' ReferenceIdx='5' Name='Perustiedot5' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot6' ReferenceIdx='6' Name='Perustiedot6' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Perustiedot7' ReferenceIdx='7' Name='Perustiedot7' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-8' ReferenceIdx='8' Name='Column-8' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Perustiedot' attr='text' /&gt;&lt;column name='Column-8' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="0" ScopeIdentifier="c187d383-2a4b-4d98-bc7f-ca273ce4dc15" Version="V1">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="19, 443, 2538, 218" FriendlyName="'Perustiedot  '" FullSelectorArgument="&lt;webctrl tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TABLE' /&gt;" Guid="1934e642-d13c-4962-8552-278f613970ae" InformativeScreenshot="ab14edd41b09ee61c611c28566e16a38.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Toimittajalistaus' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <ui:RemoveDataRow Row="{x:Null}" DataTable="[rekisteriDt]" DisplayName="Remove Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="RemoveDataRow_1" RowIndex="0" />
+            <Assign DisplayName="Assign - lista rekisterissä olevista yrityksistä" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:List(x:String)">[var_rekisteriLista]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:List(x:String)">[( From row in rekisteriDt.AsEnumerable() Select Convert.Tostring(row(“Perustiedot1”)) ).ToList()]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 2576, 1408" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADzSURBVDhPndOxSsNQFMbxCJ1sidp2kA6FEgdxUDeLFIdiO3XsksHBwb5AF13EzQM+hXRsoUvdBJe+xHmEQrcOLpb2f5OzCSG5H/yG893kcrkhwb+I1nCFI2s8IlpHD2fWeEQ0xAPurPFIuskrBtYUiLsD0UO0MEfHVnJE9AITXNs8xjeqyZwZ0VP8YIs3HKCNNYb2VEZEn7DDFE3ruvjFSzJnRvQdG9zYHGGBP8RJlxnRR6xwiRI+4E70hdx3sMTI5lt8IkrmXBHtY4YGKghtpUDcjYs+o2xNwaSf7x6x/yYuoue20Yk1HnEvp7/4sTWWINgD9mWE6eXtRIcAAAAASUVORK5CYII=" InformativeScreenshot="4f078f2de1a809b3db74b9e2b67d2fb2.png" Selector="&lt;html app='chrome.exe' title='Netvisor :: Tiedotusnäkymä'/&gt;" Url="https://koulutus.netvisor.fi/evo/landingpages/home.aspx" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
