@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Workflow" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1209,880" sap2010:WorkflowViewState.IdRef="Workflow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Workflow" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1605,915" sap2010:WorkflowViewState.IdRef="Workflow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="45">
       <x:String>System.Activities</x:String>
@@ -78,7 +78,7 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Workflow" sap:VirtualizedContainerService.HintSize="476,815" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Workflow" sap:VirtualizedContainerService.HintSize="476,684" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="extractedText" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="Nimitesti" />
@@ -88,8 +88,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="Input data\Lasku SP Nature Invoice 2022.pdf" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="4a62992b-9203-401e-bf7a-f52865e9fc1c" DisplayName="Computer Vision" sap:VirtualizedContainerService.HintSize="434,596" sap2010:WorkflowViewState.IdRef="CVScope_3" Version="V5">
+    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="4a62992b-9203-401e-bf7a-f52865e9fc1c" DisplayName="Computer Vision" sap:VirtualizedContainerService.HintSize="434,592" sap2010:WorkflowViewState.IdRef="CVScope_3" Version="V5">
       <p:CVScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -99,7 +98,7 @@
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="summa" />
             </Sequence.Variables>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (1211,873,22,10)&quot; +&#xD;&#xA;&quot;Anchor: Text 'EUR' (1125,873,20,9)&quot;]" DesignTimeCacheId="4a62992b-9203-401e-bf7a-f52865e9fc1c" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Text" sap:VirtualizedContainerService.HintSize="400,168" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_4" InformativeScreenshot="5a4da48ecae16e6d5747637c1f3b65bf" RefreshBefore="True" Result="[summa]" Version="V5">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (1211,873,22,10)&quot; +&#xA;&quot;Anchor: Text 'EUR' (1125,873,20,9)&quot;]" DesignTimeCacheId="4a62992b-9203-401e-bf7a-f52865e9fc1c" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Text" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_4" InformativeScreenshot="5a4da48ecae16e6d5747637c1f3b65bf" RefreshBefore="True" Result="[summa]" Version="V5">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
@@ -113,14 +112,17 @@
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[summa]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[summa]" />
           </Sequence>
         </ActivityAction>
       </p:CVScope.Body>
+      <p:CVScope.DesignTimeCache>
+        <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" />
+      </p:CVScope.DesignTimeCache>
       <p:CVScope.DesignTimeCacheContainer>
         <uc:CvCacheContainer>
           <uc:CvCacheContainer.Caches>
-            <scg:List x:TypeArguments="uc:CVCache" Capacity="4">
+            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
               <uc:CVCache DisplayName="1" Id="4a62992b-9203-401e-bf7a-f52865e9fc1c" InformativeScreenshot="d0c4a1a0feafc92881ec25b154aa76a6" LogicalPosition="5758, 506" OcrText="in CS31A077 X in Dashboare X Netvisor : X Read PDF X in Course: C X Where to X Continue X API Key a X Get OCR X PDF Data X in Course: X Microsoft X Tekstintur X Lasku SP X + V - X i Tiedosto sto|C:/Kouluhommat/Digitaaliset%20liketoimintaprosessit/Lasku%20SP%20Nature%20Invoice%202022.pdf A Organisaation logo on LUT_09092021_Mit... EYVA185: Lesson 3:.. in (99+) Mikkeli, Sout... How to Fix Any Wir... Lasku SP Nature Invoice 2022.pdf 1 / 1 - 83% + SP Nature Phone +49 10)5521 INVOICE Aunostrasse 16 Fax +49 (0) 5521 345 -4229 D .9121 Heideberg Germany BAGNr. 12802 Please quote on payment Our Reference No. Customer Account No. Purchase Order No. Customer VAT Due Date Date wih queries -2935809900 300456671 &gt;ISA21.1.202 0.4.2022 2022 Bill: to Ship to SP Nature Terhi Testaaja Terhi Testaaja Kaupunkkatu 1 Kaupunkikatu 1 Lappeenranta 53100 Lappeenranta Finland Finland Quantity Product No. Description List Price Disc. VAT Amount Date of services is date of invoicing. 1 887-1-4939-9506-2 Financial Accounting book Diaital version ISA-21.1.202 2.3.2021 Order noJpos: 11124349 000010 Net Value of Goods 12,54 12,54 recommended price 28.04 EUR 1 EORI-no. DE7062974 Net Value 0,00 Net Value 0,00 Net Value 12.54 Total Net Value of Goods 12.54 Goods C Goods B Goods A Net Shipping 0.00 Net Shipping 0,00 Net Shipping 0,00 Total Net Shipping Costs 0.00 Costs C Costs B Costs A Total Net C 0,00 Total Net B 0,00 Total Net A 12.54 Total Net Due 41.82 Incoterms CPT VAT C VAT B VAT, 10,00 % 1,25 Total VAT 1,25 Units Weight 0.000 KG Delivery Method Standard Subtotal 42.07 Orders or ofher inquiries please to Please remit payments so the following account: Prepaid 0.00 Books +49 (0 6221 333-0 Hypovereinsbank Munchen Aoct: 664793298 BLZ 700202 70 Journals +49 (0) 6221 3125-0 IBAN: DE22 7002 0270 0654 7932 98 TOTAL DUE EUR 42,07 BIC HYVEDEMMXX SP Nabure Please do not send credit card details. Autostrasse 16 ID-69121 Heidelberg Germany For a secure payment link please contact: Commercial Register: Amtsgeriche HRS 336546 creditcardstmBspature.com Settlement via webshop Managing Directors NN General terms and conditions af payment please find Please send cheques toc Thank you for your business! at www sp com or directly at SP Nature SP Nature Center GmbH Postfach 200101 60606 Frankfurt Germany Returns Verlagsauslieferung SP co KNV Zeitfracht Remissionen, Str 15, 99095 Erfurt, Germany" Position="2879, 253" ScreenshotGuid="45c67b63-8266-4482-a215-5aa404722e0a" ServerVersion="1">
                 <uc:CVCache.CvAnchorRelations>
                   <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">

@@ -1,9 +1,9 @@
 {
   "DefaultOCREngine": "UiPath.OCR.Activities.UiPathScreenOCR, UiPath.OCR.Activities",
   "UiPath.OCR.Activities.UiPathScreenOCR.Endpoint": "https://ocr.uipath.com/",
-  "UiPath.OCR.Activities.UiPathScreenOCR.ApiKey": "",
+  "UiPath.OCR.Activities.UiPathScreenOCR.ApiKey": "EVfrG+IMuyIFXCA/G0zTSiZHjLSof1c0nSSHyfWpJdBKAAJFktU0Bmanpzqhp0S50zRrVHs78gFxpiLDFhpp3Q==",
   "UiPath.OCR.Activities.UiPathDocumentOCR.Endpoint": "https://du.uipath.com/ocr",
-  "UiPath.OCR.Activities.UiPathDocumentOCR.ApiKey": "",
+  "UiPath.OCR.Activities.UiPathDocumentOCR.ApiKey": "a0NqPx6IzJZ6GaYW/Kf+aKa9OVZutuorw+bvu281Fi1i4att611rCLTbttr4C9+IWuCurgrXch9FSeu2L3nJDA==",
   "UiPath.UiAutomation.Activities.GoogleCloudOCR.ApiKey": "",
   "UiPath.UiAutomation.Activities.GoogleCloudOCR.Scale": "1",
   "UiPath.UiAutomation.Activities.GoogleCloudOCR.Language": null,
