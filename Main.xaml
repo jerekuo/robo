@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1605,1599" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1605,2597" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
       <x:String>System.Activities</x:String>
@@ -104,7 +104,7 @@
       <AssemblyReference>netstandard</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Ostolaskujen lukeminen Excel tiedostosta" DisplayName="NetvisorRobo" sap:VirtualizedContainerService.HintSize="518,2380" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Ostolaskujen lukeminen Excel tiedostosta" DisplayName="NetvisorRobo" sap:VirtualizedContainerService.HintSize="518,2532" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="Ostolaskut" />
       <Variable x:TypeArguments="x:String" Name="Output" />
@@ -166,10 +166,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:JoinDataTables>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SequenceOstolaskujenmaksu workflow" sap:VirtualizedContainerService.HintSize="476,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SequenceOstolaskujenmaksu.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - kirjautuminen" sap:VirtualizedContainerService.HintSize="476,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Sisäänkirjautuminen.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="Ostolaskut">[Ostolaskut]</InArgument>
-        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="yTunnuslista">[var_YtunnusLista]</InArgument>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Tarkastaa netvisorista toimittajataulukon ja lisää puuttuvat toimittajat. Täytyy olla chrome, joka kirjautunut netvisoriin." DisplayName="Invoke Toimittajatietojenlisäys workflow" sap:VirtualizedContainerService.HintSize="476,169" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Toimittajatietojenlisäys.xaml">
@@ -187,6 +186,12 @@
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke pankkitilienLisäys workflow" sap:VirtualizedContainerService.HintSize="476,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="pankkitilienLisäys.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:List(x:String)" x:Key="var_rekisteriLista">[var_rekisteriLista]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SequenceOstolaskujenmaksu workflow" sap:VirtualizedContainerService.HintSize="476,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SequenceOstolaskujenmaksu.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="Ostolaskut">[Ostolaskut]</InArgument>
+        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="yTunnuslista">[var_YtunnusLista]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <Sequence DisplayName="Lue pdf laskut 1 ja 2" sap:VirtualizedContainerService.HintSize="476,1200" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -211,7 +216,7 @@
                 <Variable x:TypeArguments="x:String" Name="laskunSumma" />
                 <Variable x:TypeArguments="x:String" Name="tiliNro1" />
               </Sequence.Variables>
-              <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (938,1071,35,14)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Yht.' (873,1071,28,14)&quot;]" DesignTimeCacheId="41a63112-0312-45c3-9524-36899f41c868" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Loppusumma" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_2" InformativeScreenshot="36c90605f8fe06426f56802681a3edee" RefreshBefore="True" Result="[laskunSumma]" Version="V5">
+              <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (938,1071,35,14)&quot; +&#xA;&quot;Anchor: Text 'Yht.' (873,1071,28,14)&quot;]" DesignTimeCacheId="41a63112-0312-45c3-9524-36899f41c868" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Loppusumma" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_2" InformativeScreenshot="36c90605f8fe06426f56802681a3edee" RefreshBefore="True" Result="[laskunSumma]" Version="V5">
                 <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                   <uc:CvDescriptor>
                     <uc:CvDescriptor.Anchors>
@@ -225,7 +230,7 @@
                   </uc:CvDescriptor>
                 </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
               </p:CvGetTextWithDescriptor>
-              <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (873,1130,195,13)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Y-tunnus:' (692,1130,58,13)&quot;]" DesignTimeCacheId="41a63112-0312-45c3-9524-36899f41c868" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_3" InformativeScreenshot="d05369a4a031e82cf3e93a2c3f463c8c" RefreshBefore="True" Result="[tiliNro1]" Version="V5">
+              <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (873,1130,195,13)&quot; +&#xA;&quot;Anchor: Text 'Y-tunnus:' (692,1130,58,13)&quot;]" DesignTimeCacheId="41a63112-0312-45c3-9524-36899f41c868" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="400,166" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_3" InformativeScreenshot="d05369a4a031e82cf3e93a2c3f463c8c" RefreshBefore="True" Result="[tiliNro1]" Version="V5">
                 <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                   <uc:CvDescriptor>
                     <uc:CvDescriptor.Anchors>

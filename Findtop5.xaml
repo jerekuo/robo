@@ -6,7 +6,7 @@
     <x:Property Name="testi_string" Type="OutArgument(x:String)" />
     <x:Property Name="var_YtunnusLista" Type="OutArgument(scg:List(x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1780,1218</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1605,1218</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">

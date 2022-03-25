@@ -4,7 +4,7 @@
     <x:Property Name="var_rekisteriLista" Type="InOutArgument(scg:List(x:String))" />
     <x:Property Name="Output" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1779,8178</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1605,6974</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -84,7 +84,6 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>NovigoSolutions.TransposeDataTable.Activities</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Toimittajatietojen lisäys" sap:VirtualizedContainerService.HintSize="794,6909" sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -394,7 +393,7 @@
                         </Sequence>
                       </ui:CommentOut.Body>
                     </ui:CommentOut>
-                    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="556,3042" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="c2219df0-c2f9-4769-a67d-01dc749e2529" Version="V1">
+                    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="556,3042" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c2219df0-c2f9-4769-a67d-01dc749e2529" Version="V1">
                       <uix:NApplicationCard.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
