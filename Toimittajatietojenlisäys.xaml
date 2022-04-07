@@ -1,10 +1,10 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Toimittajatietojenlisäys" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="var_Sorted" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="var_Sorted" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="var_rekisteriLista" Type="InOutArgument(scg:List(x:String))" />
     <x:Property Name="Output" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1796,7171.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1424,7154</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -86,39 +86,39 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Vertaa nykyisen yritysrekisterin ja uuden ostolaskun yritysten tietoja. Lisää yritysrekisteriin puuttuvat yritykset. &#xD;&#xA;" DisplayName="Toimittajatietojen lisäys" sap:VirtualizedContainerService.HintSize="795.333333333333,7106.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="Vertaa nykyisen yritysrekisterin ja uuden ostolaskun yritysten tietoja. Lisää yritysrekisteriin puuttuvat yritykset. &#xA;" DisplayName="Toimittajatietojen lisäys" sap:VirtualizedContainerService.HintSize="795,7089" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Tarkistarekisterissäolevatyritykset workflow" sap:VirtualizedContainerService.HintSize="753.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Tarkistarekisterissäolevatyritykset.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Tarkistarekisterissäolevatyritykset workflow" sap:VirtualizedContainerService.HintSize="753,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Tarkistarekisterissäolevatyritykset.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="var_rekisteriLista">[var_rekisteriLista]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Käy jokaisen lisättävän ostolaskun ja nykyisen yritysrekisterilistan läpi. Lisää puuttuvat yritystiedot yritysrekisterilistaan netvisorissa hakemalla tiedot YTJ sivulta. " DataTable="[var_Sorted]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="753.333333333333,6815.33333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Käy jokaisen lisättävän ostolaskun ja nykyisen yritysrekisterilistan läpi. Lisää puuttuvat yritystiedot yritysrekisterilistaan netvisorissa hakemalla tiedot YTJ sivulta. " DataTable="[var_Sorted]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="753,6803" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="719.333333333333,6651.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="719,6646" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[not var_rekisteriLista.Contains(CurrentRow.Item(&quot;Toimittajanro&quot;).ToString)]" DisplayName="If - tarkistaa ettei toimittaja ole jo luettelossa" sap:VirtualizedContainerService.HintSize="677.333333333333,6559.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[not var_rekisteriLista.Contains(CurrentRow.Item(&quot;Toimittajanro&quot;).ToString)]" DisplayName="If - tarkistaa ettei toimittaja ole jo luettelossa" sap:VirtualizedContainerService.HintSize="677,6554" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="640.666666666667,6364.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <Sequence sap:VirtualizedContainerService.HintSize="641,6367" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Lisää uusi toimittaja netvisoriin" sap:VirtualizedContainerService.HintSize="598.666666666667,6272.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Lisää uusi toimittaja netvisoriin" sap:VirtualizedContainerService.HintSize="599,6275" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="toimittajakoodi" />
                       <Variable x:TypeArguments="x:String" Name="toimittajaNimi" />
@@ -134,7 +134,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Multiple Assign - tiedot excelistä" sap:VirtualizedContainerService.HintSize="556.666666666667,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign DisplayName="Multiple Assign - tiedot excelistä" sap:VirtualizedContainerService.HintSize="557,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
