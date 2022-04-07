@@ -4,7 +4,7 @@
     <x:Property Name="Ostolaskut" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="yritysTietoTaulukko" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1489,1459</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2088,1501</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -88,7 +88,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Tietojen haku / taulukoiden luonti" sap:VirtualizedContainerService.HintSize="476,1394" sap2010:WorkflowViewState.IdRef="Sequence_28">
+  <Sequence DisplayName="Tietojen haku / taulukoiden luonti" sap:VirtualizedContainerService.HintSize="476,1436" sap2010:WorkflowViewState.IdRef="Sequence_28">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="virheLaskut" />
     </Sequence.Variables>
@@ -137,12 +137,27 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <ui:FilterDataTable DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Tarkastaa virheelliset laskut" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[virheLaskut]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Tarkastaa laskut puuttuvien tietojen osalta ja kirjaa virheelliset laskut virheLaskut taulukkon" DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Tarkastaa puuttuvat loppusummat" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,202" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[virheLaskut]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
             <ui:FilterOperationArgument.Column>
               <InArgument x:TypeArguments="x:String">["Summa"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+          </ui:FilterOperationArgument>
+          <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="Or" Operator="EMPTY">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Y-tunnus"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+          </ui:FilterOperationArgument>
+          <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="Or" Operator="EMPTY">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Toimittaja"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+          </ui:FilterOperationArgument>
+          <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="Or" Operator="EMPTY">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Toimittajanro"]</InArgument>
             </ui:FilterOperationArgument.Column>
           </ui:FilterOperationArgument>
         </scg:List>
@@ -152,6 +167,11 @@
           <x:Null />
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
     <ui:FilterDataTable DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Poistaa virheelliset laskut automaatiosta" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[Ostolaskut]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>

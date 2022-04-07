@@ -3,7 +3,7 @@
     <x:Property Name="Ostolaskut" Type="InArgument(sd:DataTable)" />
     <x:Property Name="yTunnuslista" Type="InArgument(scg:List(x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1605,5478</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1400,5662</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="72">
@@ -89,10 +89,10 @@
       <AssemblyReference>HtmlAgilityPack</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Sequence Ostolaskujen maksu" sap:VirtualizedContainerService.HintSize="1538,5413" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Sequence Ostolaskujen maksu" sap:VirtualizedContainerService.HintSize="1153,5597" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Double" Name="double_maksimi" />
-      <Variable x:TypeArguments="sd:DataTable" Name="virheDataTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="manuaalisetLaskut" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -100,42 +100,42 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="1496,238" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Syötä luku" Title="Maksimi summa automaattiselle maksulle?">
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="1111,238" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Syötä luku" Title="Maksimi summa automaattiselle maksulle?">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:Double">[double_maksimi]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="1496,5012" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="1111,5196" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="1462,4796" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence sap:VirtualizedContainerService.HintSize="1077,4980" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[Ostolaskut]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1420,4550" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[Ostolaskut]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1035,4579" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="1386,4434" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence sap:VirtualizedContainerService.HintSize="1001,4463" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1344,4340" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="959,4369" sap2010:WorkflowViewState.IdRef="Sequence_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[(convert.ToDouble(CurrentRow.Item(&quot;Summa&quot;).ToString)).IsNumeric]" DisplayName="If - Tarkastaa onko laskulla loppusummaa" sap:VirtualizedContainerService.HintSize="1302,4246" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If Condition="[(convert.ToDouble(CurrentRow.Item(&quot;Summa&quot;).ToString)).IsNumeric]" DisplayName="If - Tarkastaa onko laskulla loppusummaa" sap:VirtualizedContainerService.HintSize="917,4275" sap2010:WorkflowViewState.IdRef="If_3">
                         <If.Then>
                           <Sequence DisplayName="Sequence - Tiedot OK" sap:VirtualizedContainerService.HintSize="881,4087" sap2010:WorkflowViewState.IdRef="Sequence_12">
                             <sap:WorkflowViewStateService.ViewState>
@@ -322,12 +322,13 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence DisplayName="Sequence - hyväksy manuaalisesti" sap:VirtualizedContainerService.HintSize="376,396" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                  <Sequence DisplayName="Sequence - hyväksy manuaalisesti" sap:VirtualizedContainerService.HintSize="376,621" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[CurrentRow]" DataTable="[manuaalisetLaskut]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                                     <uix:NClick ClickType="Single" DisplayName="Click 'Tallenna rivit'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
                                       <uix:NClick.Target>
                                         <uix:TargetAnchorable BrowserURL="https://koulutus.netvisor.fi/evo/accounting/purchaseinvoice/invoice.aspx?id=150&amp;page_transaction=98040" DesignTimeRectangle="753, 721, 87, 26" ElementType="Button" FriendlyName="'Tallenna rivit'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='savelinesbtn' tableRow='1' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='savelinesbtn' class='btn--success pull--right add-beat--top--quarter add-beat--right--half ' tag='BUTTON' type='button' aaname='                         Tallenna rivit                     ' check:innerText='Tallenna rivit' /&gt;" Guid="4fe7139a-ae24-414a-982f-ebd19dce7f67" ImageBase64="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" InformativeScreenshot="8d77b070f59fdeb28738a924b2c101dd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Netvisor :: Ostolasku' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
@@ -351,23 +352,14 @@
                             </Sequence>
                           </Sequence>
                         </If.Then>
-                        <If.Else>
-                          <Sequence DisplayName="Sequence - Tietoja puuttuu" sap:VirtualizedContainerService.HintSize="376,279" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[CurrentRow]" DataTable="[virheDataTable]" DisplayName="Add Data Row - lisää virheellinen rivi" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                          </Sequence>
-                        </If.Else>
                       </If>
                     </Sequence>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEachRow.Body>
             </ui:ForEachRow>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LaskujenmaksuSequence workflow" sap:VirtualizedContainerService.HintSize="1420,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="LaskujenmaksuSequence.xaml">
+            <ui:AppendRange DataTable="[manuaalisetLaskut]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="1035,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Taul1" WorkbookPath="outputData\HyväksymättömätLaskut.xlsx" />
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LaskujenmaksuSequence workflow" sap:VirtualizedContainerService.HintSize="1035,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="LaskujenmaksuSequence.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:InvokeWorkflowFile.Arguments>
