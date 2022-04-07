@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Workflow" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1209,3214" sap2010:WorkflowViewState.IdRef="Workflow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Workflow" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1216,4612" sap2010:WorkflowViewState.IdRef="Workflow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="45">
       <x:String>System.Activities</x:String>
@@ -49,7 +49,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -76,16 +76,23 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Workflow" sap:VirtualizedContainerService.HintSize="476,3149" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Workflow" sap:VirtualizedContainerService.HintSize="512,4547" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="Input data\Lasku SP Nature Invoice 2022.pdf" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DisplayName="Computer Vision" sap:VirtualizedContainerService.HintSize="434,2930" sap2010:WorkflowViewState.IdRef="CVScope_3" Version="V5">
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="Input data\Lasku SP Nature Invoice 2022.pdf" sap:VirtualizedContainerService.HintSize="470,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="b01d66dd-ca92-4e8e-b247-eceddbc2dc41" DisplayName="Computer Vision" sap:VirtualizedContainerService.HintSize="470,4328" sap2010:WorkflowViewState.IdRef="CVScope_3" Version="V5">
       <p:CVScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -93,13 +100,20 @@
           </ActivityAction.Argument>
           <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="summa" />
-              <Variable x:TypeArguments="x:String" Name="IBAN" />
-              <Variable x:TypeArguments="x:String" Name="etunimi" />
-              <Variable x:TypeArguments="x:String" Name="osoite" />
-              <Variable x:TypeArguments="x:String" Name="postiNro" />
+              <Variable x:TypeArguments="x:String" Name="lasku_summa" />
+              <Variable x:TypeArguments="x:String" Name="lasku_IBAN" />
+              <Variable x:TypeArguments="x:String" Name="lasku_nro" />
+              <Variable x:TypeArguments="x:String" Name="lasku_toimittaja" />
+              <Variable x:TypeArguments="x:String" Name="lasku_viite" />
+              <Variable x:TypeArguments="x:String" Name="toimittaja_tunnus" />
+              <Variable x:TypeArguments="x:String" Name="toimittaja_osoite" />
+              <Variable x:TypeArguments="x:String" Name="toimittaja_postinro" />
+              <Variable x:TypeArguments="x:String" Name="toimittaja_toimipaikka" />
+              <Variable x:TypeArguments="x:String" Name="toimittaja_puhnro" />
+              <Variable x:TypeArguments="x:String" Name="lasku_erapaiva" />
+              <Variable x:TypeArguments="x:String" Name="lasku_paiva" />
             </Sequence.Variables>
-            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text '100%' (936,125,35,12)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="1" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="400,137" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="9ddc80addee3ebd8aa6749e342b8f305" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V5">
+            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text '100%' (936,125,35,12)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="1" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="436,137" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="9ddc80addee3ebd8aa6749e342b8f305" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V5">
               <p:CvClickWithDescriptor.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -128,7 +142,7 @@
                 </ui:Target>
               </p:CvClickWithDescriptor.Target>
             </p:CvClickWithDescriptor>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'pane'" sap:VirtualizedContainerService.HintSize="400,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="back" KeyModifiers="None" SpecialKey="True">
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'pane'" sap:VirtualizedContainerService.HintSize="436,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="back" KeyModifiers="None" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e28666ab-a519-4a3d-ac12-e20b3c3d672e" InformativeScreenshot="cc2895cead116f1aacdab718d6fa51f9" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf - Google Chrome' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl idx='6' role='pane' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -140,7 +154,7 @@
                 </ui:Target>
               </ui:SendHotkey.Target>
             </ui:SendHotkey>
-            <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: Text '100%' (936,125,35,12)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Text" EmptyField="False" sap:VirtualizedContainerService.HintSize="400,186" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="9ddc80addee3ebd8aa6749e342b8f305" Text="[&quot;95%[k(enter)]&quot;]" Version="V5">
+            <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: Text '100%' (936,125,35,12)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Text" EmptyField="False" sap:VirtualizedContainerService.HintSize="436,186" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_1" InformativeScreenshot="9ddc80addee3ebd8aa6749e342b8f305" Text="[&quot;160%[k(enter)]&quot;]" Version="V5">
               <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Target>
@@ -159,109 +173,79 @@
                 </ui:Target>
               </p:CvTypeIntoWithDescriptor.Target>
             </p:CvTypeIntoWithDescriptor>
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (1247,868,27,12)&quot; +&#xD;&#xA;&quot;Anchor: Text 'EUR' (1149,868,25,11)&quot;]" DesignTimeCacheId="1f95b434-558d-420f-97d6-8dfe5428829e" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="400,168" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_7" InformativeScreenshot="383d5cf223e1f7f6c80648bc428e4c6c" RefreshBefore="True" Result="[summa]" Version="V5">
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (359,245,83,13)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Reference' (377,227,72,13)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="2" DisplayName="CV Get Text - Any Text" sap:VirtualizedContainerService.HintSize="436,168" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_7" InformativeScreenshot="fe99364b89d5433179e13fa8af9436d2" RefreshBefore="True" Result="[lasku_viite]" Version="V5">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
                     <x:Array Type="uc:CvElementDescriptor">
-                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1149, 868, 25, 11" ElementType="Text" Text="EUR" />
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="377, 227, 72, 13" ElementType="Text" Text="Reference" />
                     </x:Array>
                   </uc:CvDescriptor.Anchors>
                   <uc:CvDescriptor.Target>
-                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1247, 868, 27, 12" ElementType="AnyWordGroup" />
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="359, 245, 83, 13" ElementType="AnyText" />
                   </uc:CvDescriptor.Target>
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[summa]" />
-            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (882,868,125,10)&quot; +&#xD;&#xA;&quot;Anchor: Text 'IBAN:' (857,869,24,9)&quot;]" DesignTimeCacheId="1f95b434-558d-420f-97d6-8dfe5428829e" DesignTimeScaleFactor="1" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="400,168" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_8" InformativeScreenshot="815b1010011a383adf339568155f8305" RefreshBefore="True" Result="[IBAN]" Version="V5">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;viite: &quot; + lasku_viite]" />
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (774,104,113,14)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Phone:' (729,105,41,11)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="2" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="436,168" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_8" InformativeScreenshot="d1fe326d22cc949ce77b12ba40e0c16b" RefreshBefore="True" Result="[toimittaja_puhnro]" Version="V5">
               <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
                   <uc:CvDescriptor.Anchors>
                     <x:Array Type="uc:CvElementDescriptor">
-                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="857, 869, 24, 9" ElementType="Text" Text="IBAN:" />
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="729, 105, 41, 11" ElementType="Text" Text="Phone:" />
                     </x:Array>
                   </uc:CvDescriptor.Anchors>
                   <uc:CvDescriptor.Target>
-                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="882, 868, 125, 10" ElementType="AnyWordGroup" />
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="774, 104, 113, 14" ElementType="AnyWordGroup" />
                   </uc:CvDescriptor.Target>
                 </uc:CvDescriptor>
               </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
             </p:CvGetTextWithDescriptor>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[IBAN]" />
-            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: Text '95%' (940,21,28,13)&quot;]" DesignTimeCacheId="1f95b434-558d-420f-97d6-8dfe5428829e" DesignTimeScaleFactor="1" DisplayName="CV Click - Text" sap:VirtualizedContainerService.HintSize="400,137" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_2" InformativeScreenshot="c7b30737bfe58e2fa27396ef7249907b" KeyModifiers="None" MouseButton="BTN_LEFT" Version="V5">
-              <p:CvClickWithDescriptor.CursorPosition>
-                <ui:CursorPosition Position="Center">
-                  <ui:CursorPosition.OffsetX>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetX>
-                  <ui:CursorPosition.OffsetY>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetY>
-                </ui:CursorPosition>
-              </p:CvClickWithDescriptor.CursorPosition>
-              <p:CvClickWithDescriptor.DesignTimeDescriptor>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Puhnro: &quot; + toimittaja_puhnro]" />
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyText (1096,248,67,13)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Due Date' (1096,227,65,13)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="2" DisplayName="CV Get Text - Any Text" sap:VirtualizedContainerService.HintSize="436,168" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_9" InformativeScreenshot="21151b42875a052c2f386742eb5899f0" RefreshBefore="True" Result="[lasku_erapaiva]" Version="V5">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1096, 227, 65, 13" ElementType="Text" Text="Due Date" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
                   <uc:CvDescriptor.Target>
-                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="940, 21, 28, 13" ElementType="Text" Text="95%" />
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1096, 248, 67, 13" ElementType="AnyText" />
                   </uc:CvDescriptor.Target>
                 </uc:CvDescriptor>
-              </p:CvClickWithDescriptor.DesignTimeDescriptor>
-              <p:CvClickWithDescriptor.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="8c777ae8-26c7-4a99-9581-bf4e137ec4d6">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </p:CvClickWithDescriptor.Target>
-            </p:CvClickWithDescriptor>
-            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'pane'" sap:VirtualizedContainerService.HintSize="400,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="back" KeyModifiers="None" SpecialKey="True">
-              <ui:SendHotkey.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e28666ab-a519-4a3d-ac12-e20b3c3d672e" InformativeScreenshot="5852f5564bc025df96149c05a71c265a" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf - Google Chrome' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl idx='6' role='pane' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:SendHotkey.Target>
-            </ui:SendHotkey>
-            <p:CvTypeIntoWithDescriptor DeselectAfter="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" Descriptor="[&quot;Target: Text '95%' (940,21,28,13)&quot;]" DesignTimeCacheId="1f95b434-558d-420f-97d6-8dfe5428829e" DesignTimeScaleFactor="1" DisplayName="CV Type Into - Text" EmptyField="False" sap:VirtualizedContainerService.HintSize="400,186" sap2010:WorkflowViewState.IdRef="CvTypeIntoWithDescriptor_2" InformativeScreenshot="f588fd32acdb0d303cc52074c697185b" Text="[&quot;160%[k(enter)]&quot;]" Version="V5">
-              <p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,93" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;eräpäivä: &quot; + lasku_erapaiva]" />
+            <p:CvGetTextWithDescriptor Descriptor="[&quot;Target: AnyWordGroup (1178,248,67,13)&quot; +&#xD;&#xA;&quot;Anchor: Text 'Date' (1184,227,33,13)&quot;]" DesignTimeCacheId="5578e5d1-153c-4444-aa59-dde168c942e4" DesignTimeScaleFactor="2" DisplayName="CV Get Text - Any Word Group" sap:VirtualizedContainerService.HintSize="436,168" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_10" InformativeScreenshot="4259fdd52be8ada1f5315eb06fc17a6e" RefreshBefore="True" Result="[lasku_paiva]" Version="V5">
+              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
                 <uc:CvDescriptor>
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1184, 227, 33, 13" ElementType="Text" Text="Date" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
                   <uc:CvDescriptor.Target>
-                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="940, 21, 28, 13" ElementType="Text" Text="95%" />
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="1178, 248, 67, 13" ElementType="AnyWordGroup" />
                   </uc:CvDescriptor.Target>
                 </uc:CvDescriptor>
-              </p:CvTypeIntoWithDescriptor.DesignTimeDescriptor>
-              <p:CvTypeIntoWithDescriptor.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="fdb97b4a-309b-498d-b6f2-401febb6e8d9">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </p:CvTypeIntoWithDescriptor.Target>
-            </p:CvTypeIntoWithDescriptor>
-            <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'pane'" sap:VirtualizedContainerService.HintSize="400,168" sap2010:WorkflowViewState.IdRef="GetOCRText_3">
+              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+            </p:CvGetTextWithDescriptor>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,93" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;laskupäivä: &quot; + lasku_paiva]" />
+            <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'pane  Sivu 1'" sap:VirtualizedContainerService.HintSize="436,168" sap2010:WorkflowViewState.IdRef="GetOCRText_7">
               <ui:GetOCRText.OCREngine>
                 <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
                   <ActivityFunc.Argument>
                     <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
                   </ActivityFunc.Argument>
-                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+                  <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" DisplayName="UiPath Screen OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_5" Image="[Image]" Language="auto" Profile="Screen" Scale="1" Timeout="100000" />
                 </ActivityFunc>
               </ui:GetOCRText.OCREngine>
               <ui:GetOCRText.Target>
-                <ui:Target Element="{x:Null}" Id="3f4422fd-22ea-4a6b-a01c-6911d3508f11" InformativeScreenshot="d68743e2a83c7f6524a4b21ed894080d" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf - Google Chrome' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl idx='6' role='pane' /&gt;">
+                <ui:Target Element="{x:Null}" Id="7f3de560-3703-4b31-95f9-85a53b958f11" InformativeScreenshot="5519cf30fa6f3b79cf140ad32e89d56a" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf' role='document' /&gt;&lt;ctrl name='PDF-dokumentti, jossa on 1 sivu' role='document' /&gt;&lt;ctrl name='Sivu 1' role='pane' /&gt;">
                   <ui:Target.ClippingRegion>
-                    <ui:Region Rectangle="439, 433, 120, 25" />
+                    <ui:Region Rectangle="348, 32, 85, 39" />
                   </ui:Target.ClippingRegion>
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
@@ -272,64 +256,157 @@
                 </ui:Target>
               </ui:GetOCRText.Target>
               <ui:GetOCRText.Text>
-                <OutArgument x:TypeArguments="x:String">[etunimi]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[lasku_toimittaja]</OutArgument>
               </ui:GetOCRText.Text>
             </ui:GetOCRText>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[etunimi]" />
-            <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'pane'" sap:VirtualizedContainerService.HintSize="400,168" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
-              <ui:GetOCRText.OCREngine>
-                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
-                  <ActivityFunc.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
-                  </ActivityFunc.Argument>
-                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" />
-                </ActivityFunc>
-              </ui:GetOCRText.OCREngine>
-              <ui:GetOCRText.Target>
-                <ui:Target Element="{x:Null}" Id="3f4422fd-22ea-4a6b-a01c-6911d3508f11" InformativeScreenshot="e668b9a11ddd4fc1e6d67ea72bad9352" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf - Google Chrome' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl idx='6' role='pane' /&gt;">
-                  <ui:Target.ClippingRegion>
-                    <ui:Region Rectangle="438, 457, 130, 23" />
-                  </ui:Target.ClippingRegion>
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:GetOCRText.Target>
-              <ui:GetOCRText.Text>
-                <OutArgument x:TypeArguments="x:String">[osoite]</OutArgument>
-              </ui:GetOCRText.Text>
-            </ui:GetOCRText>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[osoite]" />
-            <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'pane'" sap:VirtualizedContainerService.HintSize="400,168" sap2010:WorkflowViewState.IdRef="GetOCRText_5">
-              <ui:GetOCRText.OCREngine>
-                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
-                  <ActivityFunc.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
-                  </ActivityFunc.Argument>
-                  <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" />
-                </ActivityFunc>
-              </ui:GetOCRText.OCREngine>
-              <ui:GetOCRText.Target>
-                <ui:Target Element="{x:Null}" Id="3f4422fd-22ea-4a6b-a01c-6911d3508f11" InformativeScreenshot="3b192db72013cf608c07428805f4fcf7" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;">
-                  <ui:Target.ClippingRegion>
-                    <ui:Region Rectangle="446, 589, 54, 20" />
-                  </ui:Target.ClippingRegion>
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:GetOCRText.Target>
-              <ui:GetOCRText.Text>
-                <OutArgument x:TypeArguments="x:String">[postiNro]</OutArgument>
-              </ui:GetOCRText.Text>
-            </ui:GetOCRText>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,93" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[postiNro]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,93" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;toimittaja: &quot; + lasku_toimittaja]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,338" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'pane'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_3">
+                    <ui:GetOCRText.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" />
+                      </ActivityFunc>
+                    </ui:GetOCRText.OCREngine>
+                    <ui:GetOCRText.Target>
+                      <ui:Target Element="{x:Null}" Id="3f4422fd-22ea-4a6b-a01c-6911d3508f11" InformativeScreenshot="d68743e2a83c7f6524a4b21ed894080d" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf - Google Chrome' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl idx='6' role='pane' /&gt;">
+                        <ui:Target.ClippingRegion>
+                          <ui:Region Rectangle="439, 433, 120, 25" />
+                        </ui:Target.ClippingRegion>
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:GetOCRText.Target>
+                    <ui:GetOCRText.Text>
+                      <OutArgument x:TypeArguments="x:String">[lasku_nro]</OutArgument>
+                    </ui:GetOCRText.Text>
+                  </ui:GetOCRText>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,263" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[lasku_nro]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,338" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'pane'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+                    <ui:GetOCRText.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" />
+                      </ActivityFunc>
+                    </ui:GetOCRText.OCREngine>
+                    <ui:GetOCRText.Target>
+                      <ui:Target Element="{x:Null}" Id="3f4422fd-22ea-4a6b-a01c-6911d3508f11" InformativeScreenshot="e668b9a11ddd4fc1e6d67ea72bad9352" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf - Google Chrome' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl idx='6' role='pane' /&gt;">
+                        <ui:Target.ClippingRegion>
+                          <ui:Region Rectangle="438, 457, 130, 23" />
+                        </ui:Target.ClippingRegion>
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:GetOCRText.Target>
+                    <ui:GetOCRText.Text>
+                      <OutArgument x:TypeArguments="x:String">[lasku_toimittaja]</OutArgument>
+                    </ui:GetOCRText.Text>
+                  </ui:GetOCRText>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,263" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[lasku_toimittaja]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,338" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'pane'" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_5">
+                    <ui:GetOCRText.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" />
+                      </ActivityFunc>
+                    </ui:GetOCRText.OCREngine>
+                    <ui:GetOCRText.Target>
+                      <ui:Target Element="{x:Null}" Id="3f4422fd-22ea-4a6b-a01c-6911d3508f11" InformativeScreenshot="3b192db72013cf608c07428805f4fcf7" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;">
+                        <ui:Target.ClippingRegion>
+                          <ui:Region Rectangle="446, 589, 54, 20" />
+                        </ui:Target.ClippingRegion>
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:GetOCRText.Target>
+                    <ui:GetOCRText.Text>
+                      <OutArgument x:TypeArguments="x:String">[lasku_viite]</OutArgument>
+                    </ui:GetOCRText.Text>
+                  </ui:GetOCRText>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,263" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[lasku_viite]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
           </Sequence>
         </ActivityAction>
       </p:CVScope.Body>
@@ -339,7 +416,7 @@
       <p:CVScope.DesignTimeCacheContainer>
         <uc:CvCacheContainer>
           <uc:CvCacheContainer.Caches>
-            <scg:List x:TypeArguments="uc:CVCache" Capacity="4">
+            <scg:List x:TypeArguments="uc:CVCache" Capacity="6">
               <uc:CVCache DisplayName="Main Screen" Id="5578e5d1-153c-4444-aa59-dde168c942e4" InformativeScreenshot="c56febd7b25ab014f81825d9d4893f3b" LogicalPosition="5760, 728" OcrText="Lasku SP Nature Invoice 2022.pdf 1 / 1 100% + 9 SP Nature Phone: +49 (0) 5521 345 -0 INVOICE Autlostrasse 16 Fax: +49 (0) 5521 345 5-4229 D 69121 Heidelberg I Germany BAG-Nr. 12802 VAT ID DE209719082 Please quote on payment Our Reference No. Customer Account No. Purchase Order No. Customer VAT ID Due Date Date or with queries &gt; 2935809900 &gt; 300455671 &gt; &gt; 10.4.2022 23.2.2022 Bill to Ship to SP Nabure &gt; Terhi Testaaja Terhi Testaaja Kaupunkikatu 1 Kaupunkikatu 1 53100 Lappeenranta 53100 Lappeenranta Finland Finland Quantity Product No. Description List Price Disc. % VAT Amount Date of services is date of invoicing. 1 887-1-4939-9506-2 Financial Accounting book Digital version 1.2021 2.3.2021 Order no./pos: 011124349 000010 Net Value of Goods 12,54 12,54 recommended price 28,04 EUR 1 EORI-no. DE7062974 Net Value 0,00 Net Value 0.00 Net Value 12,54 Total Net Value of Goods 12,54 Goods C Goods B Goods A Net Shipping 0,00 Net Shipping 0.00 Net Shipping 0.00 Total Net Shipping Costs 0,00 Costs C Costs B Costs A Total Net C 0,00 Total Net B 0,00 Total Net A 12.54 Total Net Due 41,82 Incoterms CPT VATC VAT B VAT A 10,00 % 1,25 Total VAT 1,25 Units Weight 0.000 KG Delivery Method Standard Subtotal 42,07 Orders or other inquiries please to Please remit payments to the following account: Prepaid 0,00 &gt; Books +49 (0) 6221 333-0 Hypovereinsbank Munchen Customerservice@spnature.con Acct: 654793298 BLZ 0202 70 Journals +49 (0) 6221 3125-0 IBAN DE22 7002 0270 0654 7932 98 TOTAL DUE EUR 42,07 LIrRmnvv" Position="2880, 364" ScreenshotGuid="664e9ffc-6dbb-4f80-89b7-66b05a2b5178" ServerVersion="1">
                 <uc:CVCache.CvAnchorRelations>
                   <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
@@ -779,7 +856,570 @@
                   </scg:List>
                 </uc:CVCache.OcrTexts>
               </uc:CVCache>
-              <uc:CVCache DisplayName="Screen CV Get Text - ''" Id="1f95b434-558d-420f-97d6-8dfe5428829e" InformativeScreenshot="16d20b2697322347cfaa664a68048ebd" LogicalPosition="5760, 728" OcrText="Lasku SP Nature Invoice 2022.pdf 1 / 1 95% + 9 SP Nature Phone: +49 (0) 5621 345 -0 INVOICE Autostrasse 16 Fax: +49 (0 5521 345 -4229 D 69121 Heidelberg Germany BAG-Nr. 12802 VAT ID DE209719082 Please quote on payment Our Reference No. Customer Account No. Purchase Order No. Customer VAT ID Due Date Date or with queries 2935809900 300455671 &gt; ISA-21.1.2021 &gt; 10.4.2022 23.2.2022 Bi to Ship to SP Nature &gt; Terhi Testaaja Terhi Testaaja Kaupunkikatu 1 Kaupunkikatu 1 53100 Lappeenranta 53100 Lappeenranta Finland Finland Quantity Product No. Description List Price Disc. % VAT Amount Date of services is date of invoicing. 1 887-1-4939-9506-2 Financial Accounting book Digital version ISA-21 .1.2021 2.3.2021 Order no./pos: 1124349 000010 Net Value of Goods 12,54 12,54 recommended price 28.04 EUR 1 EORI-no. DE7062974 Net Value 0.00 Net Value 0.00 Net Value 12.54 Total Net Value of Goods 12,54 Goods C Goods B Goods A Net Shipping 0.00 Net Shipping 0.00 Net Shipping 0,00 Total Net Shipping Costs 0,00 Costs C Costs B Costs A Total Net C 0,00 Total Net B 0,00 Total Net A 12.54 Total Net Due 41,82 lncoterms CPT VAT C VAT B VATA 10,00 % 1,25 Total VAT 1,25 Units Weight 0,000 KG Dellivery Method Standard Subtotal 42,07 Orders or other inquiries please to Please rerit payments to the following account: Prepaid 0.00 &gt; Books +49 (0) 6221 333-0 Hypovereinsbank Munchen Customerservicer0spnature.cor Acct: 654793298 BLZ: 700 202 70 &gt; Journais +49 (0) 6221 3125-0 IBAN: DE22 7002 0270 0654 7932 98 TOTAL DUE EUR 42,07 Customerservice@spnature.cor BIC: HYVEDEMMOOX SP Nature Please do not send credit card details. Autostrasse 16 D-69121 Heidelberg Germany For a secure payment link please contact: Commercial Register Amtsgericht IHRB 336546 creditcardstm@spature.com Settlement via webshop ilonorlre nisntnre." Position="2880, 364" ScreenshotGuid="da01bf07-2616-456f-b855-310b5c5690c5" ServerVersion="1">
+              <uc:CVCache Dirty="Ocr" DisplayName="Screen CV Get Text - '' (2)" Id="c7480c47-cdf9-431f-91da-efa93876f173" InformativeScreenshot="3aab9f3a1fcef6622ea97ab35895f096" LogicalPosition="0, 206" OcrText="Lasku SP Nature Invoice 2022.pdf 1 / 1 - 160% + SP Nature Phone: +49 (0) 5521 345 -0 INVOICE Autostrasse 16 Fax: +49 (0) 5521 345 -4229 BAG-Nr. 12802 D - 69121 Heidelberg Germany VAT ID DE209719082 Please quote on payment Our Reference No. Customer Account No. Purchase Order No. Customer VAT ID Due Date Date &gt; 2935809900 &gt; 300455671 &gt; ISA-21.1.2021 &gt; 10.4.2022 23.2.2022 or with queries Bill to Ship to SP Nature &gt; Terhi Testaaja Terhi Testaaja Kaupunkikatu 1 Kaupunkikatu 1 53100 Lappeenranta 53100 Lappeenranta Finland Finland Quantity Product No. Description List Price Disc. % VAT Amount Date of services is date of invoicing. 1 887-1-4939-9506-2 Financial Accounting book Digital version SA-21.1.202 2.3.2021 Order no./pos: 0011124349 000010" Position="0, 206" ScaleFactor="2" ScreenshotGuid="e6b769d8-584b-4551-8892-02fc13faf2c3" ServerVersion="1">
+                <uc:CVCache.CvAnchorRelations>
+                  <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
+                    <uc:AnchorRelationInfo Target="4">
+                      <uc:AnchorRelationInfo.Anchors>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>6</x:Int32>
+                        </x:Array>
+                      </uc:AnchorRelationInfo.Anchors>
+                    </uc:AnchorRelationInfo>
+                    <uc:AnchorRelationInfo Target="2">
+                      <uc:AnchorRelationInfo.Anchors>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>0</x:Int32>
+                          <x:Int32>1</x:Int32>
+                          <x:Int32>2</x:Int32>
+                          <x:Int32>3</x:Int32>
+                          <x:Int32>4</x:Int32>
+                        </x:Array>
+                      </uc:AnchorRelationInfo.Anchors>
+                    </uc:AnchorRelationInfo>
+                  </scg:List>
+                </uc:CVCache.CvAnchorRelations>
+                <uc:CVCache.CvTables>
+                  <x:Array Type="uc:CvTableInfo">
+                    <uc:CvTableInfo>
+                      <uc:CvTableInfo.Columns>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>136</x:Int32>
+                          <x:Int32>211</x:Int32>
+                          <x:Int32>372</x:Int32>
+                          <x:Int32>897</x:Int32>
+                          <x:Int32>1014</x:Int32>
+                          <x:Int32>1088</x:Int32>
+                          <x:Int32>1137</x:Int32>
+                          <x:Int32>1255</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Columns>
+                      <uc:CvTableInfo.Rows>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>605</x:Int32>
+                          <x:Int32>627</x:Int32>
+                          <x:Int32>667</x:Int32>
+                          <x:Int32>749</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Rows>
+                    </uc:CvTableInfo>
+                  </x:Array>
+                </uc:CVCache.CvTables>
+                <uc:CVCache.CvUiElements>
+                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
+                    <uc:CvElementInfo Category="Icon" Region="22, 18, 23, 19" />
+                    <uc:CvElementInfo Category="Icon" Region="836, 17, 22, 21" />
+                    <uc:CvElementInfo Category="InputBox" Region="690, 16, 47, 23" />
+                    <uc:CvElementInfo Category="Icon" Region="801, 18, 22, 18" />
+                    <uc:CvElementInfo Category="InputBox" Region="573, 16, 25, 22" />
+                    <uc:CvElementInfo Category="Icon" Region="1355, 18, 22, 20" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1422, 55, 17, 17" />
+                    <uc:CvElementInfo Category="Icon" Region="750, 18, 17, 17" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1424, 733, 14, 13" />
+                    <uc:CvElementInfo Category="Icon" Region="1400, 17, 13, 20" />
+                    <uc:CvElementInfo Category="Icon" Region="1316, 17, 18, 19" />
+                    <uc:CvElementInfo Category="MinimizeButton" Region="659, 16, 20, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="138, 445, 15, 15" />
+                    <uc:CvElementInfo Category="Cell" Region="1014, 605, 74, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="136, 605, 75, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="897, 605, 116, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="1088, 605, 49, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="211, 627, 160, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="136, 627, 75, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="897, 667, 116, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="211, 605, 160, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="1088, 627, 49, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="1014, 627, 74, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="897, 627, 116, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="1014, 667, 74, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="1137, 605, 117, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="1137, 667, 117, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="372, 627, 525, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="1085, 222, 91, 60" />
+                    <uc:CvElementInfo Category="Cell" Region="1137, 627, 117, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="136, 667, 75, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="372, 667, 525, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="1177, 223, 76, 58" />
+                    <uc:CvElementInfo Category="Cell" Region="1088, 667, 49, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="372, 605, 525, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="153, 220, 188, 62" />
+                    <uc:CvElementInfo Category="Cell" Region="211, 667, 160, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="117, 285, 590, 61" />
+                    <uc:CvElementInfo Category="Cell" Region="424, 59, 292, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="1176, 220, 76, 29" />
+                    <uc:CvElementInfo Category="Cell" Region="433, 132, 280, 27" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="572, 16, 26, 22" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="924, 244, 15, 16" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="340, 221, 180, 64" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="155, 290, 850, 55" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="922, 220, 163, 64" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="928, 221, 156, 62" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="660, 19, 18, 16" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="379, 626, 525, 39" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1177, 223, 75, 61" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="137, 606, 73, 23" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="139, 670, 10, 13" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="151, 220, 190, 66" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="579, 20, 12, 15" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1014, 667, 76, 81" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="598, 20, 11, 16" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1088, 669, 49, 80" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="614, 20, 10, 14" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="924, 244, 14, 14" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="557, 285, 696, 65" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="690, 16, 48, 23" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="522, 222, 184, 61" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1088, 222, 88, 61" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="344, 245, 13, 13" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1317, 18, 17, 17" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1176, 223, 77, 60" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="136, 669, 77, 77" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="800, 17, 25, 20" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="708, 222, 215, 62" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="139, 446, 14, 13" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="572, 16, 27, 23" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="713, 245, 13, 13" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="135, 222, 23, 60" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="86, 57, 349, 127" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="428, 156, 298, 21" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="728, 125, 303, 26" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="727, 150, 329, 25" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="726, 100, 324, 26" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="727, 126, 124, 24" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="726, 152, 332, 64" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="723, 59, 465, 94" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="727, 70, 256, 151" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="707, 342, 533, 244" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="176, 345, 599, 243" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="709, 223, 213, 61" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="810, 11, 533, 37" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="341, 222, 182, 60" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="522, 223, 182, 59" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="523, 243, 16, 17" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="343, 244, 15, 16" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="712, 244, 15, 15" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="308, 458, 11, 14" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="821, 459, 11, 13" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1316, 16, 19, 23" />
+                  </scg:List>
+                </uc:CVCache.CvUiElements>
+                <uc:CVCache.OcrTexts>
+                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="128">
+                    <uc:OcrTextInfo Region="67, 20, 38, 13" Text="Lasku" />
+                    <uc:OcrTextInfo Region="107, 21, 19, 12" Text="SP" />
+                    <uc:OcrTextInfo Region="129, 21, 43, 11" Text="Nature" />
+                    <uc:OcrTextInfo Region="174, 21, 45, 12" Text="Invoice" />
+                    <uc:OcrTextInfo Region="222, 20, 58, 15" Text="2022.pdf" />
+                    <uc:OcrTextInfo Region="582, 21, 6, 12" Text="1" />
+                    <uc:OcrTextInfo Region="600, 21, 7, 13" Text="/" />
+                    <uc:OcrTextInfo Region="615, 22, 6, 11" Text="1" />
+                    <uc:OcrTextInfo Region="661, 21, 15, 13" Text="-" />
+                    <uc:OcrTextInfo Region="697, 21, 34, 12" Text="160%" />
+                    <uc:OcrTextInfo Region="751, 21, 14, 13" Text="+" />
+                    <uc:OcrTextInfo Region="438, 105, 18, 11" Text="SP" />
+                    <uc:OcrTextInfo Region="460, 105, 38, 11" Text="Nature" />
+                    <uc:OcrTextInfo Region="729, 105, 41, 11" Text="Phone:" />
+                    <uc:OcrTextInfo Region="774, 105, 22, 11" Text="+49" />
+                    <uc:OcrTextInfo Region="799, 104, 17, 14" Text="(0)" />
+                    <uc:OcrTextInfo Region="818, 105, 28, 11" Text="5521" />
+                    <uc:OcrTextInfo Region="850, 105, 22, 11" Text="345" />
+                    <uc:OcrTextInfo Region="874, 105, 13, 12" Text="-0" />
+                    <uc:OcrTextInfo Region="167, 120, 157, 33" Text="INVOICE" />
+                    <uc:OcrTextInfo Region="438, 138, 69, 11" Text="Autostrasse" />
+                    <uc:OcrTextInfo Region="511, 137, 15, 12" Text="16" />
+                    <uc:OcrTextInfo Region="729, 129, 25, 11" Text="Fax:" />
+                    <uc:OcrTextInfo Region="758, 129, 22, 11" Text="+49" />
+                    <uc:OcrTextInfo Region="783, 128, 17, 14" Text="(0)" />
+                    <uc:OcrTextInfo Region="802, 129, 28, 12" Text="5521" />
+                    <uc:OcrTextInfo Region="834, 129, 22, 11" Text="345" />
+                    <uc:OcrTextInfo Region="859, 129, 34, 11" Text="-4229" />
+                    <uc:OcrTextInfo Region="729, 153, 48, 11" Text="BAG-Nr." />
+                    <uc:OcrTextInfo Region="781, 153, 36, 11" Text="12802" />
+                    <uc:OcrTextInfo Region="438, 161, 10, 12" Text="D" />
+                    <uc:OcrTextInfo Region="451, 163, 5, 9" Text="-" />
+                    <uc:OcrTextInfo Region="459, 161, 35, 11" Text="69121" />
+                    <uc:OcrTextInfo Region="498, 161, 63, 14" Text="Heidelberg" />
+                    <uc:OcrTextInfo Region="571, 161, 53, 13" Text="Germany" />
+                    <uc:OcrTextInfo Region="729, 177, 26, 11" Text="VAT" />
+                    <uc:OcrTextInfo Region="758, 177, 13, 11" Text="ID" />
+                    <uc:OcrTextInfo Region="774, 177, 82, 11" Text="DE209719082" />
+                    <uc:OcrTextInfo Region="171, 228, 41, 11" Text="Please" />
+                    <uc:OcrTextInfo Region="215, 229, 34, 13" Text="quote" />
+                    <uc:OcrTextInfo Region="252, 231, 16, 8" Text="on" />
+                    <uc:OcrTextInfo Region="271, 229, 52, 13" Text="payment" />
+                    <uc:OcrTextInfo Region="346, 227, 28, 13" Text="Our" />
+                    <uc:OcrTextInfo Region="377, 227, 72, 13" Text="Reference" />
+                    <uc:OcrTextInfo Region="453, 227, 24, 13" Text="No." />
+                    <uc:OcrTextInfo Region="528, 227, 71, 13" Text="Customer" />
+                    <uc:OcrTextInfo Region="600, 227, 62, 13" Text="Account" />
+                    <uc:OcrTextInfo Region="665, 227, 24, 13" Text="No." />
+                    <uc:OcrTextInfo Region="715, 227, 66, 13" Text="Purchase" />
+                    <uc:OcrTextInfo Region="785, 227, 42, 13" Text="Order" />
+                    <uc:OcrTextInfo Region="831, 227, 24, 13" Text="No." />
+                    <uc:OcrTextInfo Region="926, 227, 71, 13" Text="Customer" />
+                    <uc:OcrTextInfo Region="1000, 226, 31, 13" Text="VAT" />
+                    <uc:OcrTextInfo Region="1034, 227, 15, 13" Text="ID" />
+                    <uc:OcrTextInfo Region="1096, 227, 29, 13" Text="Due" />
+                    <uc:OcrTextInfo Region="1128, 227, 33, 13" Text="Date" />
+                    <uc:OcrTextInfo Region="1184, 227, 33, 13" Text="Date" />
+                    <uc:OcrTextInfo Region="346, 246, 10, 10" Text="&gt;" />
+                    <uc:OcrTextInfo Region="359, 245, 83, 13" Text="2935809900" />
+                    <uc:OcrTextInfo Region="527, 246, 10, 11" Text="&gt;" />
+                    <uc:OcrTextInfo Region="540, 245, 73, 12" Text="300455671" />
+                    <uc:OcrTextInfo Region="714, 246, 10, 10" Text="&gt;" />
+                    <uc:OcrTextInfo Region="727, 245, 95, 13" Text="ISA-21.1.2021" />
+                    <uc:OcrTextInfo Region="926, 246, 10, 10" Text="&gt;" />
+                    <uc:OcrTextInfo Region="1096, 248, 67, 13" Text="10.4.2022" />
+                    <uc:OcrTextInfo Region="1178, 248, 67, 13" Text="23.2.2022" />
+                    <uc:OcrTextInfo Region="175, 255, 13, 8" Text="or" />
+                    <uc:OcrTextInfo Region="190, 252, 24, 11" Text="with" />
+                    <uc:OcrTextInfo Region="217, 252, 45, 13" Text="queries" />
+                    <uc:OcrTextInfo Region="165, 296, 23, 13" Text="Bill" />
+                    <uc:OcrTextInfo Region="191, 296, 16, 12" Text="to" />
+                    <uc:OcrTextInfo Region="715, 296, 33, 16" Text="Ship" />
+                    <uc:OcrTextInfo Region="750, 296, 16, 12" Text="to" />
+                    <uc:OcrTextInfo Region="207, 350, 18, 11" Text="SP" />
+                    <uc:OcrTextInfo Region="229, 350, 40, 11" Text="Nature" />
+                    <uc:OcrTextInfo Region="140, 447, 12, 11" Text="&gt;" />
+                    <uc:OcrTextInfo Region="200, 437, 39, 14" Text="Terhi" />
+                    <uc:OcrTextInfo Region="244, 437, 66, 18" Text="Testaaja" />
+                    <uc:OcrTextInfo Region="714, 439, 39, 14" Text="Terhi" />
+                    <uc:OcrTextInfo Region="758, 439, 66, 17" Text="Testaaja" />
+                    <uc:OcrTextInfo Region="202, 459, 102, 18" Text="Kaupunkikatu" />
+                    <uc:OcrTextInfo Region="310, 459, 7, 14" Text="1" />
+                    <uc:OcrTextInfo Region="715, 460, 103, 17" Text="Kaupunkikatu" />
+                    <uc:OcrTextInfo Region="823, 460, 7, 14" Text="1" />
+                    <uc:OcrTextInfo Region="201, 480, 47, 14" Text="53100" />
+                    <uc:OcrTextInfo Region="253, 480, 105, 18" Text="Lappeenranta" />
+                    <uc:OcrTextInfo Region="715, 481, 47, 14" Text="53100" />
+                    <uc:OcrTextInfo Region="767, 481, 106, 18" Text="Lappeenranta" />
+                    <uc:OcrTextInfo Region="201, 501, 55, 14" Text="Finland" />
+                    <uc:OcrTextInfo Region="715, 502, 55, 14" Text="Finland" />
+                    <uc:OcrTextInfo Region="143, 611, 61, 16" Text="Quantity" />
+                    <uc:OcrTextInfo Region="218, 611, 57, 13" Text="Product" />
+                    <uc:OcrTextInfo Region="278, 612, 25, 13" Text="No." />
+                    <uc:OcrTextInfo Region="379, 611, 81, 16" Text="Description" />
+                    <uc:OcrTextInfo Region="942, 611, 27, 13" Text="List" />
+                    <uc:OcrTextInfo Region="972, 612, 37, 13" Text="Price" />
+                    <uc:OcrTextInfo Region="1021, 612, 35, 13" Text="Disc." />
+                    <uc:OcrTextInfo Region="1061, 611, 13, 14" Text="%" />
+                    <uc:OcrTextInfo Region="1093, 611, 32, 13" Text="VAT" />
+                    <uc:OcrTextInfo Region="1191, 612, 59, 13" Text="Amount" />
+                    <uc:OcrTextInfo Region="376, 632, 36, 14" Text="Date" />
+                    <uc:OcrTextInfo Region="416, 632, 16, 15" Text="of" />
+                    <uc:OcrTextInfo Region="435, 632, 63, 14" Text="services" />
+                    <uc:OcrTextInfo Region="502, 632, 13, 14" Text="is" />
+                    <uc:OcrTextInfo Region="519, 632, 34, 14" Text="date" />
+                    <uc:OcrTextInfo Region="556, 632, 16, 14" Text="of" />
+                    <uc:OcrTextInfo Region="575, 632, 71, 18" Text="invoicing." />
+                    <uc:OcrTextInfo Region="141, 672, 7, 14" Text="1" />
+                    <uc:OcrTextInfo Region="216, 671, 144, 15" Text="887-1-4939-9506-2" />
+                    <uc:OcrTextInfo Region="376, 671, 68, 15" Text="Financial" />
+                    <uc:OcrTextInfo Region="448, 672, 85, 17" Text="Accounting" />
+                    <uc:OcrTextInfo Region="537, 671, 38, 14" Text="book" />
+                    <uc:OcrTextInfo Region="376, 691, 47, 17" Text="Digital" />
+                    <uc:OcrTextInfo Region="427, 691, 55, 14" Text="version" />
+                    <uc:OcrTextInfo Region="378, 708, 95, 14" Text="SA-21.1.202" />
+                    <uc:OcrTextInfo Region="489, 708, 65, 14" Text="2.3.2021" />
+                    <uc:OcrTextInfo Region="376, 726, 44, 15" Text="Order" />
+                    <uc:OcrTextInfo Region="423, 726, 61, 18" Text="no./pos:" />
+                    <uc:OcrTextInfo Region="489, 727, 96, 14" Text="0011124349" />
+                    <uc:OcrTextInfo Region="588, 727, 58, 14" Text="000010" />
+                  </scg:List>
+                </uc:CVCache.OcrTexts>
+              </uc:CVCache>
+              <uc:CVCache Dirty="Ocr" DisplayName="Screen CV Get Text - '' (3)" Id="db7f1930-de19-43b8-b008-b6b37346be51" InformativeScreenshot="21fc927f5e732e3043fe1903259da681" LogicalPosition="0, 206" OcrText="Lasku SP Nature Invoice 2022.pdf 1 / 1 - 160% + SP Nature Phone: +49 (0) 5521 345 -0 INVOICE Autostrasse 16 Fax: +49 (0) 5521 345 -4229 BAG-Nr. 12802 D - 69121 Heidelberg Germany VAT ID DE209719082 Please quote on payment Our Reference No. Customer Account No. Purchase Order No. Customer VAT ID Due Date Date &gt; 2935809900 &gt; 300455671 &gt; ISA-21.1.2021 &gt; 10.4.2022 23.2.2022 or with queries Bill to Ship to SP Nature &gt; Terhi Testaaja Terhi Testaaja Kaupunkikatu 1 Kaupunkikatu 1 53100 Lappeenranta 53100 Lappeenranta Finland Finland Aatu Olkkonen, Atso Lind... 01:30:58 Quantity Product No. Description List Price Disc. % VAT Date of services is date of invoicing. AL 1 887-1-4939-9506-2 Financial Accounting book Digital version 1 SA-21.1.202 2.3.2021 Order no./pos: 0011124349 000010" Position="0, 206" ScaleFactor="2" ScreenshotGuid="ac35e836-cb2d-4eb8-a429-5e6eee6b07b6" ServerVersion="1">
+                <uc:CVCache.CvAnchorRelations>
+                  <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
+                    <uc:AnchorRelationInfo Target="4">
+                      <uc:AnchorRelationInfo.Anchors>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>6</x:Int32>
+                        </x:Array>
+                      </uc:AnchorRelationInfo.Anchors>
+                    </uc:AnchorRelationInfo>
+                    <uc:AnchorRelationInfo Target="0">
+                      <uc:AnchorRelationInfo.Anchors>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>0</x:Int32>
+                          <x:Int32>1</x:Int32>
+                          <x:Int32>2</x:Int32>
+                          <x:Int32>3</x:Int32>
+                          <x:Int32>4</x:Int32>
+                        </x:Array>
+                      </uc:AnchorRelationInfo.Anchors>
+                    </uc:AnchorRelationInfo>
+                  </scg:List>
+                </uc:CVCache.CvAnchorRelations>
+                <uc:CVCache.CvTables>
+                  <x:Array Type="uc:CvTableInfo">
+                    <uc:CvTableInfo>
+                      <uc:CvTableInfo.Columns>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>136</x:Int32>
+                          <x:Int32>211</x:Int32>
+                          <x:Int32>372</x:Int32>
+                          <x:Int32>897</x:Int32>
+                          <x:Int32>1014</x:Int32>
+                          <x:Int32>1088</x:Int32>
+                          <x:Int32>1138</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Columns>
+                      <uc:CvTableInfo.Rows>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>605</x:Int32>
+                          <x:Int32>627</x:Int32>
+                          <x:Int32>666</x:Int32>
+                          <x:Int32>749</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Rows>
+                    </uc:CvTableInfo>
+                  </x:Array>
+                </uc:CVCache.CvTables>
+                <uc:CVCache.CvUiElements>
+                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
+                    <uc:CvElementInfo Category="InputBox" Region="690, 16, 46, 22" />
+                    <uc:CvElementInfo Category="Icon" Region="22, 18, 23, 19" />
+                    <uc:CvElementInfo Category="Icon" Region="836, 17, 22, 21" />
+                    <uc:CvElementInfo Category="Icon" Region="800, 17, 22, 19" />
+                    <uc:CvElementInfo Category="InputBox" Region="573, 16, 25, 22" />
+                    <uc:CvElementInfo Category="Icon" Region="1355, 18, 22, 20" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1422, 55, 17, 17" />
+                    <uc:CvElementInfo Category="Icon" Region="750, 18, 17, 17" />
+                    <uc:CvElementInfo Category="Icon" Region="1293, 697, 17, 14" />
+                    <uc:CvElementInfo Category="Icon" Region="1257, 695, 15, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1424, 733, 14, 14" />
+                    <uc:CvElementInfo Category="Icon" Region="1251, 612, 65, 65" />
+                    <uc:CvElementInfo Category="Icon" Region="1400, 17, 13, 20" />
+                    <uc:CvElementInfo Category="Button" Region="1318, 686, 37, 37" />
+                    <uc:CvElementInfo Category="Icon" Region="1219, 695, 20, 19" />
+                    <uc:CvElementInfo Category="Icon" Region="1316, 17, 18, 19" />
+                    <uc:CvElementInfo Category="Icon" Region="1327, 697, 21, 15" />
+                    <uc:CvElementInfo Category="MinimizeButton" Region="659, 16, 20, 18" />
+                    <uc:CvElementInfo Category="Icon" Region="1394, 587, 15, 14" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="138, 445, 15, 15" />
+                    <uc:CvElementInfo Category="MinimizeButton" Region="1393, 587, 16, 13" />
+                    <uc:CvElementInfo Category="Cell" Region="1014, 605, 74, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="897, 605, 116, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="136, 605, 75, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="1014, 627, 74, 39" />
+                    <uc:CvElementInfo Category="Cell" Region="211, 627, 160, 39" />
+                    <uc:CvElementInfo Category="Cell" Region="136, 627, 75, 39" />
+                    <uc:CvElementInfo Category="Cell" Region="1088, 605, 50, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="897, 666, 116, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="211, 605, 160, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="897, 627, 116, 39" />
+                    <uc:CvElementInfo Category="Cell" Region="1088, 627, 50, 39" />
+                    <uc:CvElementInfo Category="Cell" Region="1014, 666, 74, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="372, 627, 525, 39" />
+                    <uc:CvElementInfo Category="Cell" Region="1085, 222, 91, 60" />
+                    <uc:CvElementInfo Category="Cell" Region="136, 666, 75, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="372, 666, 525, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="1177, 223, 76, 58" />
+                    <uc:CvElementInfo Category="Cell" Region="372, 605, 525, 22" />
+                    <uc:CvElementInfo Category="Cell" Region="156, 219, 184, 66" />
+                    <uc:CvElementInfo Category="Cell" Region="211, 666, 160, 82" />
+                    <uc:CvElementInfo Category="Cell" Region="117, 285, 590, 61" />
+                    <uc:CvElementInfo Category="Cell" Region="424, 59, 291, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="1176, 220, 76, 29" />
+                    <uc:CvElementInfo Category="Cell" Region="433, 132, 280, 27" />
+                    <uc:CvElementInfo Category="Cell" Region="1088, 666, 50, 82" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="572, 16, 26, 22" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="924, 244, 15, 16" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="340, 221, 180, 64" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="155, 290, 850, 55" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="922, 220, 163, 64" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="660, 19, 18, 16" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="928, 221, 156, 62" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="379, 626, 525, 39" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1177, 223, 75, 61" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1293, 697, 18, 14" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="137, 605, 76, 23" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="139, 670, 10, 13" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="151, 220, 190, 66" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="598, 20, 11, 16" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="581, 20, 9, 14" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1014, 667, 76, 81" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="614, 20, 10, 14" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="924, 244, 14, 14" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="688, 16, 50, 22" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="557, 285, 696, 65" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="522, 222, 184, 61" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1146, 574, 203, 32" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1088, 222, 88, 61" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="344, 245, 13, 13" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1317, 18, 17, 17" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1176, 223, 77, 60" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="136, 669, 77, 77" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1251, 612, 67, 62" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="800, 17, 25, 21" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="708, 222, 215, 62" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="139, 446, 14, 13" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1089, 669, 49, 79" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="572, 16, 27, 23" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="713, 245, 13, 13" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="135, 222, 23, 60" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="86, 57, 349, 127" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="428, 156, 298, 21" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="728, 125, 303, 26" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="727, 150, 329, 25" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1137, 605, 7, 21" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="726, 100, 325, 27" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1252, 731, 96, 17" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1137, 627, 7, 39" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="727, 126, 124, 24" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1253, 557, 92, 15" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="726, 152, 332, 64" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="724, 59, 467, 95" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="727, 70, 256, 151" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="176, 345, 599, 243" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="709, 223, 213, 61" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="810, 11, 533, 37" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1208, 686, 149, 37" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="715, 342, 528, 242" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="341, 222, 182, 60" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="522, 223, 182, 59" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="523, 243, 16, 17" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="343, 244, 15, 16" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="712, 244, 15, 15" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="308, 458, 11, 14" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1316, 16, 19, 23" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="821, 459, 11, 14" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1323, 691, 29, 27" />
+                  </scg:List>
+                </uc:CVCache.CvUiElements>
+                <uc:CVCache.OcrTexts>
+                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="128">
+                    <uc:OcrTextInfo Region="67, 20, 38, 13" Text="Lasku" />
+                    <uc:OcrTextInfo Region="107, 21, 19, 12" Text="SP" />
+                    <uc:OcrTextInfo Region="129, 21, 43, 11" Text="Nature" />
+                    <uc:OcrTextInfo Region="174, 21, 45, 12" Text="Invoice" />
+                    <uc:OcrTextInfo Region="222, 20, 58, 15" Text="2022.pdf" />
+                    <uc:OcrTextInfo Region="582, 21, 6, 12" Text="1" />
+                    <uc:OcrTextInfo Region="600, 21, 7, 13" Text="/" />
+                    <uc:OcrTextInfo Region="615, 22, 6, 11" Text="1" />
+                    <uc:OcrTextInfo Region="661, 20, 15, 13" Text="-" />
+                    <uc:OcrTextInfo Region="697, 21, 33, 12" Text="160%" />
+                    <uc:OcrTextInfo Region="751, 21, 14, 13" Text="+" />
+                    <uc:OcrTextInfo Region="438, 105, 18, 11" Text="SP" />
+                    <uc:OcrTextInfo Region="460, 105, 38, 11" Text="Nature" />
+                    <uc:OcrTextInfo Region="729, 105, 41, 11" Text="Phone:" />
+                    <uc:OcrTextInfo Region="774, 105, 22, 11" Text="+49" />
+                    <uc:OcrTextInfo Region="799, 104, 17, 14" Text="(0)" />
+                    <uc:OcrTextInfo Region="818, 105, 28, 11" Text="5521" />
+                    <uc:OcrTextInfo Region="850, 105, 22, 11" Text="345" />
+                    <uc:OcrTextInfo Region="874, 105, 13, 12" Text="-0" />
+                    <uc:OcrTextInfo Region="167, 120, 157, 33" Text="INVOICE" />
+                    <uc:OcrTextInfo Region="438, 138, 69, 11" Text="Autostrasse" />
+                    <uc:OcrTextInfo Region="511, 137, 15, 12" Text="16" />
+                    <uc:OcrTextInfo Region="729, 129, 25, 11" Text="Fax:" />
+                    <uc:OcrTextInfo Region="758, 129, 22, 11" Text="+49" />
+                    <uc:OcrTextInfo Region="783, 128, 17, 14" Text="(0)" />
+                    <uc:OcrTextInfo Region="802, 129, 28, 12" Text="5521" />
+                    <uc:OcrTextInfo Region="834, 129, 22, 11" Text="345" />
+                    <uc:OcrTextInfo Region="859, 129, 34, 11" Text="-4229" />
+                    <uc:OcrTextInfo Region="729, 153, 48, 11" Text="BAG-Nr." />
+                    <uc:OcrTextInfo Region="781, 153, 36, 11" Text="12802" />
+                    <uc:OcrTextInfo Region="438, 161, 10, 12" Text="D" />
+                    <uc:OcrTextInfo Region="451, 163, 5, 9" Text="-" />
+                    <uc:OcrTextInfo Region="459, 161, 35, 11" Text="69121" />
+                    <uc:OcrTextInfo Region="499, 161, 62, 14" Text="Heidelberg" />
+                    <uc:OcrTextInfo Region="570, 161, 54, 14" Text="Germany" />
+                    <uc:OcrTextInfo Region="729, 177, 26, 11" Text="VAT" />
+                    <uc:OcrTextInfo Region="758, 177, 13, 11" Text="ID" />
+                    <uc:OcrTextInfo Region="774, 177, 82, 11" Text="DE209719082" />
+                    <uc:OcrTextInfo Region="171, 228, 41, 11" Text="Please" />
+                    <uc:OcrTextInfo Region="215, 229, 34, 13" Text="quote" />
+                    <uc:OcrTextInfo Region="252, 231, 16, 8" Text="on" />
+                    <uc:OcrTextInfo Region="271, 229, 52, 13" Text="payment" />
+                    <uc:OcrTextInfo Region="346, 227, 28, 13" Text="Our" />
+                    <uc:OcrTextInfo Region="377, 227, 72, 13" Text="Reference" />
+                    <uc:OcrTextInfo Region="453, 227, 24, 13" Text="No." />
+                    <uc:OcrTextInfo Region="528, 227, 71, 13" Text="Customer" />
+                    <uc:OcrTextInfo Region="600, 227, 62, 13" Text="Account" />
+                    <uc:OcrTextInfo Region="665, 227, 24, 13" Text="No." />
+                    <uc:OcrTextInfo Region="715, 227, 66, 13" Text="Purchase" />
+                    <uc:OcrTextInfo Region="785, 227, 42, 13" Text="Order" />
+                    <uc:OcrTextInfo Region="831, 227, 24, 13" Text="No." />
+                    <uc:OcrTextInfo Region="926, 227, 71, 12" Text="Customer" />
+                    <uc:OcrTextInfo Region="1000, 226, 31, 13" Text="VAT" />
+                    <uc:OcrTextInfo Region="1034, 227, 15, 13" Text="ID" />
+                    <uc:OcrTextInfo Region="1096, 227, 29, 13" Text="Due" />
+                    <uc:OcrTextInfo Region="1128, 227, 33, 13" Text="Date" />
+                    <uc:OcrTextInfo Region="1184, 227, 33, 13" Text="Date" />
+                    <uc:OcrTextInfo Region="346, 246, 10, 10" Text="&gt;" />
+                    <uc:OcrTextInfo Region="359, 245, 83, 13" Text="2935809900" />
+                    <uc:OcrTextInfo Region="527, 246, 10, 11" Text="&gt;" />
+                    <uc:OcrTextInfo Region="540, 245, 73, 12" Text="300455671" />
+                    <uc:OcrTextInfo Region="714, 246, 10, 10" Text="&gt;" />
+                    <uc:OcrTextInfo Region="727, 245, 95, 13" Text="ISA-21.1.2021" />
+                    <uc:OcrTextInfo Region="926, 246, 10, 10" Text="&gt;" />
+                    <uc:OcrTextInfo Region="1096, 248, 67, 13" Text="10.4.2022" />
+                    <uc:OcrTextInfo Region="1178, 248, 67, 13" Text="23.2.2022" />
+                    <uc:OcrTextInfo Region="175, 255, 13, 8" Text="or" />
+                    <uc:OcrTextInfo Region="190, 252, 24, 11" Text="with" />
+                    <uc:OcrTextInfo Region="217, 252, 45, 13" Text="queries" />
+                    <uc:OcrTextInfo Region="165, 296, 23, 13" Text="Bill" />
+                    <uc:OcrTextInfo Region="191, 296, 16, 12" Text="to" />
+                    <uc:OcrTextInfo Region="715, 295, 33, 16" Text="Ship" />
+                    <uc:OcrTextInfo Region="750, 296, 16, 12" Text="to" />
+                    <uc:OcrTextInfo Region="207, 350, 18, 11" Text="SP" />
+                    <uc:OcrTextInfo Region="229, 350, 40, 11" Text="Nature" />
+                    <uc:OcrTextInfo Region="140, 447, 12, 11" Text="&gt;" />
+                    <uc:OcrTextInfo Region="200, 437, 39, 14" Text="Terhi" />
+                    <uc:OcrTextInfo Region="244, 437, 66, 18" Text="Testaaja" />
+                    <uc:OcrTextInfo Region="714, 439, 39, 14" Text="Terhi" />
+                    <uc:OcrTextInfo Region="758, 439, 66, 17" Text="Testaaja" />
+                    <uc:OcrTextInfo Region="202, 459, 102, 18" Text="Kaupunkikatu" />
+                    <uc:OcrTextInfo Region="310, 459, 7, 14" Text="1" />
+                    <uc:OcrTextInfo Region="715, 460, 103, 17" Text="Kaupunkikatu" />
+                    <uc:OcrTextInfo Region="823, 460, 7, 14" Text="1" />
+                    <uc:OcrTextInfo Region="201, 480, 47, 14" Text="53100" />
+                    <uc:OcrTextInfo Region="253, 480, 105, 18" Text="Lappeenranta" />
+                    <uc:OcrTextInfo Region="715, 481, 47, 14" Text="53100" />
+                    <uc:OcrTextInfo Region="767, 481, 106, 18" Text="Lappeenranta" />
+                    <uc:OcrTextInfo Region="201, 501, 55, 14" Text="Finland" />
+                    <uc:OcrTextInfo Region="715, 502, 55, 14" Text="Finland" />
+                    <uc:OcrTextInfo Region="1155, 584, 31, 12" Text="Aatu" />
+                    <uc:OcrTextInfo Region="1188, 584, 63, 14" Text="Olkkonen," />
+                    <uc:OcrTextInfo Region="1254, 584, 29, 12" Text="Atso" />
+                    <uc:OcrTextInfo Region="1286, 584, 37, 12" Text="Lind..." />
+                    <uc:OcrTextInfo Region="1338, 586, 42, 10" Text="01:30:58" />
+                    <uc:OcrTextInfo Region="143, 611, 61, 16" Text="Quantity" />
+                    <uc:OcrTextInfo Region="218, 611, 57, 13" Text="Product" />
+                    <uc:OcrTextInfo Region="278, 612, 25, 13" Text="No." />
+                    <uc:OcrTextInfo Region="379, 611, 81, 16" Text="Description" />
+                    <uc:OcrTextInfo Region="942, 611, 27, 13" Text="List" />
+                    <uc:OcrTextInfo Region="972, 612, 37, 13" Text="Price" />
+                    <uc:OcrTextInfo Region="1021, 612, 35, 13" Text="Disc." />
+                    <uc:OcrTextInfo Region="1061, 611, 13, 13" Text="%" />
+                    <uc:OcrTextInfo Region="1093, 611, 32, 13" Text="VAT" />
+                    <uc:OcrTextInfo Region="376, 632, 36, 14" Text="Date" />
+                    <uc:OcrTextInfo Region="416, 632, 16, 15" Text="of" />
+                    <uc:OcrTextInfo Region="435, 632, 63, 14" Text="services" />
+                    <uc:OcrTextInfo Region="502, 632, 13, 14" Text="is" />
+                    <uc:OcrTextInfo Region="519, 632, 34, 14" Text="date" />
+                    <uc:OcrTextInfo Region="556, 632, 16, 14" Text="of" />
+                    <uc:OcrTextInfo Region="575, 632, 71, 18" Text="invoicing." />
+                    <uc:OcrTextInfo Region="1267, 633, 31, 20" Text="AL" />
+                    <uc:OcrTextInfo Region="141, 672, 7, 14" Text="1" />
+                    <uc:OcrTextInfo Region="216, 671, 144, 15" Text="887-1-4939-9506-2" />
+                    <uc:OcrTextInfo Region="376, 671, 68, 15" Text="Financial" />
+                    <uc:OcrTextInfo Region="448, 672, 85, 17" Text="Accounting" />
+                    <uc:OcrTextInfo Region="537, 671, 38, 14" Text="book" />
+                    <uc:OcrTextInfo Region="376, 691, 47, 17" Text="Digital" />
+                    <uc:OcrTextInfo Region="427, 691, 55, 14" Text="version" />
+                    <uc:OcrTextInfo Region="1298, 700, 7, 8" Text="1" />
+                    <uc:OcrTextInfo Region="378, 708, 95, 14" Text="SA-21.1.202" />
+                    <uc:OcrTextInfo Region="489, 708, 65, 14" Text="2.3.2021" />
+                    <uc:OcrTextInfo Region="376, 726, 44, 15" Text="Order" />
+                    <uc:OcrTextInfo Region="423, 726, 61, 18" Text="no./pos:" />
+                    <uc:OcrTextInfo Region="489, 727, 96, 14" Text="0011124349" />
+                    <uc:OcrTextInfo Region="588, 727, 58, 14" Text="000010" />
+                  </scg:List>
+                </uc:CVCache.OcrTexts>
+              </uc:CVCache>
+              <uc:CVCache Dirty="Ocr" DisplayName="Main Screen" Id="b01d66dd-ca92-4e8e-b247-eceddbc2dc41" InformativeScreenshot="5d797e557392003586deb638a68ed800" LogicalPosition="0, 318" OcrText="SP Nature Phone: +49 (0) 5521 345-0&#xD;&#xA;| N VO | C E Autostrasse 16 Fax: +4 (0) 5521 345 4229&#xD;&#xA;D - 63121 Heidelberg | Germany BAG 12802&#xD;&#xA;VAT ID DE209719082&#xD;&#xA;&quot;7 Please&#xD;&#xA;quote on payment ~~ Our Reference No. Customer Account No. Purchase Order No. Customer VAT ID Due Date Date !&#xD;&#xA;or with queries &gt; 2935809900 &gt; 300455671 &gt; ISA-21.1.2021 &gt; 104.2022 23.2.2022&#xD;&#xA;© Billto “shipto&#xD;&#xA;SP Nature&#xD;&#xA;» Terhi Testaaja Terhi Testaaja&#xD;&#xA;Kaupunkikatu 1 Kaupunkikatu 1&#xD;&#xA;53100 Lappeenranta 53100 Lappeenranta&#xD;&#xA;Finland Finland&#xD;&#xA;Quantity Product No. ”&#xD;&#xA;Description List Price Disc. % VAT Amount&#xD;&#xA;Date of services is date of invoicing.&#xD;&#xA;1 887-1-4939-9506-2 Financial Accounting book&#xD;&#xA;Digital version&#xD;&#xA;1SA-21.1.2021 2.3.2021&#xD;&#xA;Order no./pos: 0011124349 000010&#xD;&#xA;Net Value of Goods 12,54 12,54&#xD;&#xA;recommended price 28,04 EUR&#xD;&#xA;1 EORI-no. DE7062974" Position="0, 318" ScaleFactor="2" ScreenshotGuid="9233576f-7e6d-4b7a-92d7-1ffb1c12cb5e" ServerVersion="1">
                 <uc:CVCache.CvAnchorRelations>
                   <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="0" />
                 </uc:CVCache.CvAnchorRelations>
@@ -788,468 +1428,260 @@
                     <uc:CvTableInfo>
                       <uc:CvTableInfo.Columns>
                         <x:Array Type="x:Int32">
-                          <x:Int32>608</x:Int32>
-                          <x:Int32>653</x:Int32>
-                          <x:Int32>748</x:Int32>
-                          <x:Int32>1063</x:Int32>
-                          <x:Int32>1129</x:Int32>
-                          <x:Int32>1173</x:Int32>
-                          <x:Int32>1204</x:Int32>
-                          <x:Int32>1275</x:Int32>
+                          <x:Int32>351</x:Int32>
+                          <x:Int32>398</x:Int32>
+                          <x:Int32>499</x:Int32>
+                          <x:Int32>827</x:Int32>
+                          <x:Int32>900</x:Int32>
+                          <x:Int32>946</x:Int32>
+                          <x:Int32>977</x:Int32>
+                          <x:Int32>1051</x:Int32>
                         </x:Array>
                       </uc:CvTableInfo.Columns>
                       <uc:CvTableInfo.Rows>
                         <x:Array Type="x:Int32">
-                          <x:Int32>380</x:Int32>
-                          <x:Int32>393</x:Int32>
-                          <x:Int32>419</x:Int32>
-                          <x:Int32>505</x:Int32>
-                          <x:Int32>534</x:Int32>
-                          <x:Int32>725</x:Int32>
-                          <x:Int32>738</x:Int32>
+                          <x:Int32>342</x:Int32>
+                          <x:Int32>356</x:Int32>
+                          <x:Int32>381</x:Int32>
+                          <x:Int32>475</x:Int32>
+                          <x:Int32>501</x:Int32>
+                          <x:Int32>693</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Rows>
+                    </uc:CvTableInfo>
+                    <uc:CvTableInfo>
+                      <uc:CvTableInfo.Columns>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>351</x:Int32>
+                          <x:Int32>366</x:Int32>
+                          <x:Int32>478</x:Int32>
+                          <x:Int32>592</x:Int32>
+                          <x:Int32>710</x:Int32>
+                          <x:Int32>843</x:Int32>
+                          <x:Int32>944</x:Int32>
+                          <x:Int32>1002</x:Int32>
+                          <x:Int32>1049</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Columns>
+                      <uc:CvTableInfo.Rows>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>102</x:Int32>
+                          <x:Int32>142</x:Int32>
+                          <x:Int32>181</x:Int32>
                         </x:Array>
                       </uc:CvTableInfo.Rows>
                     </uc:CvTableInfo>
                   </x:Array>
                 </uc:CVCache.CvTables>
                 <uc:CVCache.CvUiElements>
-                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="256">
-                    <uc:CvElementInfo Category="Icon" Region="1076, 16, 23, 22" />
-                    <uc:CvElementInfo Category="Icon" Region="21, 17, 25, 22" />
-                    <uc:CvElementInfo Category="Icon" Region="1040, 17, 23, 20" />
-                    <uc:CvElementInfo Category="Icon" Region="1878, 16, 17, 23" />
-                    <uc:CvElementInfo Category="InputBox" Region="812, 16, 27, 22" />
-                    <uc:CvElementInfo Category="Icon" Region="1795, 15, 21, 22" />
-                    <uc:CvElementInfo Category="Icon" Region="1834, 16, 25, 24" />
-                    <uc:CvElementInfo Category="ArrowButton" Region="1902, 54, 18, 20" />
-                    <uc:CvElementInfo Category="ArrowButton" Region="1903, 912, 17, 17" />
-                    <uc:CvElementInfo Category="Icon" Region="989, 19, 19, 18" />
-                    <uc:CvElementInfo Category="Icon" Region="900, 21, 19, 14" />
-                    <uc:CvElementInfo Category="InputBox" Region="931, 16, 48, 23" />
-                    <uc:CvElementInfo Category="Button" Region="929, 16, 48, 24" />
-                    <uc:CvElementInfo Category="ArrowButton" Region="610, 869, 10, 10" />
-                    <uc:CvElementInfo Category="Icon" Region="1157, 384, 12, 12" />
-                    <uc:CvElementInfo Category="ArrowButton" Region="609, 285, 13, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="1173, 393, 31, 26" />
-                    <uc:CvElementInfo Category="Cell" Region="653, 393, 95, 26" />
-                    <uc:CvElementInfo Category="Cell" Region="748, 505, 315, 29" />
-                    <uc:CvElementInfo Category="Cell" Region="1063, 393, 66, 26" />
-                    <uc:CvElementInfo Category="Cell" Region="1129, 505, 44, 29" />
-                    <uc:CvElementInfo Category="Cell" Region="608, 380, 45, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="653, 380, 95, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="1173, 380, 31, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="653, 505, 95, 29" />
-                    <uc:CvElementInfo Category="Cell" Region="1063, 505, 66, 29" />
-                    <uc:CvElementInfo Category="Cell" Region="1129, 393, 44, 26" />
-                    <uc:CvElementInfo Category="Cell" Region="838, 151, 110, 39" />
-                    <uc:CvElementInfo Category="Cell" Region="729, 151, 109, 41" />
-                    <uc:CvElementInfo Category="Cell" Region="1174, 820, 102, 23" />
-                    <uc:CvElementInfo Category="Cell" Region="1173, 505, 31, 29" />
-                    <uc:CvElementInfo Category="Cell" Region="608, 393, 45, 26" />
-                    <uc:CvElementInfo Category="Cell" Region="948, 151, 126, 39" />
-                    <uc:CvElementInfo Category="Cell" Region="1063, 380, 66, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="748, 380, 315, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="1174, 773, 101, 23" />
-                    <uc:CvElementInfo Category="Cell" Region="1204, 393, 71, 26" />
-                    <uc:CvElementInfo Category="Cell" Region="608, 505, 45, 29" />
-                    <uc:CvElementInfo Category="Cell" Region="1129, 380, 44, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="748, 393, 315, 26" />
-                    <uc:CvElementInfo Category="Cell" Region="1174, 796, 99, 24" />
-                    <uc:CvElementInfo Category="Cell" Region="1174, 148, 52, 41" />
-                    <uc:CvElementInfo Category="Cell" Region="1173, 842, 102, 24" />
-                    <uc:CvElementInfo Category="Cell" Region="1204, 380, 71, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="1063, 419, 66, 86" />
-                    <uc:CvElementInfo Category="Cell" Region="1204, 505, 71, 29" />
-                    <uc:CvElementInfo Category="Cell" Region="606, 150, 16, 39" />
-                    <uc:CvElementInfo Category="Cell" Region="1174, 749, 100, 24" />
-                    <uc:CvElementInfo Category="Cell" Region="1129, 419, 44, 86" />
-                    <uc:CvElementInfo Category="Cell" Region="622, 152, 108, 40" />
-                    <uc:CvElementInfo Category="Cell" Region="1226, 152, 48, 39" />
-                    <uc:CvElementInfo Category="Cell" Region="748, 419, 315, 86" />
-                    <uc:CvElementInfo Category="Cell" Region="1061, 844, 112, 21" />
-                    <uc:CvElementInfo Category="Cell" Region="1174, 726, 100, 23" />
-                    <uc:CvElementInfo Category="Cell" Region="624, 191, 300, 35" />
-                    <uc:CvElementInfo Category="Cell" Region="757, 749, 148, 13" />
-                    <uc:CvElementInfo Category="Cell" Region="748, 534, 315, 191" />
-                    <uc:CvElementInfo Category="Cell" Region="608, 419, 45, 86" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="620, 154, 109, 35" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1175, 153, 53, 39" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1228, 152, 44, 16" />
-                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="611, 847, 10, 10" />
-                    <uc:CvElementInfo Category="MaximizeButton" Confidence="Runtime" Region="1832, 15, 26, 25" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="838, 20, 12, 16" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1226, 154, 49, 34" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="817, 19, 17, 18" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="727, 151, 113, 41" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1131, 382, 44, 15" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1177, 153, 49, 17" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1176, 153, 50, 16" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1206, 419, 70, 86" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="852, 18, 12, 18" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="789, 751, 11, 12" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="885, 718, 9, 10" />
-                    <uc:CvElementInfo Category="MinimizeButton" Confidence="Runtime" Region="898, 17, 22, 17" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="608, 381, 47, 17" />
-                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="685, 800, 73, 21" />
-                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1063, 846, 111, 21" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1175, 153, 52, 36" />
-                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1062, 396, 69, 24" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="838, 154, 111, 38" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="812, 16, 26, 23" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="952, 195, 20, 14" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="609, 285, 12, 12" />
-                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1074, 160, 16, 20" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1225, 154, 44, 31" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="631, 171, 10, 9" />
-                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1061, 869, 211, 36" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="730, 152, 107, 35" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="811, 17, 32, 22" />
-                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="930, 15, 47, 24" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="608, 725, 140, 13" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1063, 796, 113, 24" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1062, 752, 114, 21" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="907, 749, 150, 13" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="758, 820, 90, 21" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="653, 419, 95, 86" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1204, 419, 71, 86" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="758, 737, 135, 12" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1173, 419, 31, 86" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="604, 899, 247, 12" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="994, 191, 278, 37" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1061, 822, 114, 21" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="910, 737, 140, 12" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="758, 774, 150, 22" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="758, 795, 104, 15" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1063, 534, 66, 191" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1204, 534, 71, 191" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="606, 190, 16, 39" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="612, 867, 184, 11" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="602, 910, 248, 12" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="653, 534, 95, 191" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="842, 820, 68, 16" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="748, 725, 315, 13" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1062, 730, 112, 23" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="611, 911, 44, 9" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1066, 903, 201, 22" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="610, 888, 223, 11" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="759, 762, 145, 12" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="872, 854, 189, 12" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1177, 865, 97, 18" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="909, 821, 137, 13" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="840, 806, 70, 16" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1060, 773, 115, 18" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1059, 864, 216, 41" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="948, 190, 127, 37" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="880, 738, 28, 13" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="576, 508, 33, 23" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="855, 889, 33, 10" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="911, 784, 122, 16" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="783, 367, 286, 14" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="758, 806, 99, 16" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="910, 773, 141, 14" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="609, 749, 136, 13" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="855, 866, 27, 10" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="610, 799, 76, 21" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="853, 844, 66, 12" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="947, 227, 325, 23" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="608, 856, 230, 11" />
-                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="872, 760, 36, 15" />
+                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="128">
+                    <uc:CvElementInfo Category="Button" Region="980, 398, 69, 75" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="352, 242, 11, 11" />
+                    <uc:CvElementInfo Category="Button" Region="828, 395, 73, 78" />
+                    <uc:CvElementInfo Category="Cell" Region="398, 356, 100, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="900, 475, 46, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="351, 356, 47, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="827, 342, 72, 14" />
+                    <uc:CvElementInfo Category="Cell" Region="900, 342, 46, 14" />
+                    <uc:CvElementInfo Category="Cell" Region="827, 475, 72, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="366, 102, 112, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="499, 381, 328, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="946, 342, 31, 14" />
+                    <uc:CvElementInfo Category="Cell" Region="499, 356, 328, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="398, 342, 100, 14" />
+                    <uc:CvElementInfo Category="Cell" Region="977, 342, 73, 14" />
+                    <uc:CvElementInfo Category="Cell" Region="351, 342, 47, 14" />
+                    <uc:CvElementInfo Category="Cell" Region="827, 356, 72, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="900, 356, 46, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="946, 475, 31, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="499, 475, 328, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="977, 356, 73, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="710, 102, 133, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="946, 356, 31, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="592, 102, 118, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="977, 381, 73, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="351, 475, 47, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="398, 475, 100, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="398, 381, 100, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="499, 342, 328, 14" />
+                    <uc:CvElementInfo Category="Cell" Region="977, 475, 73, 25" />
+                    <uc:CvElementInfo Category="Cell" Region="366, 142, 344, 38" />
+                    <uc:CvElementInfo Category="Cell" Region="827, 381, 72, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="900, 381, 46, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="843, 102, 101, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="946, 381, 31, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="351, 381, 47, 94" />
+                    <uc:CvElementInfo Category="Cell" Region="478, 102, 114, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="398, 501, 100, 192" />
+                    <uc:CvElementInfo Category="Cell" Region="499, 501, 328, 192" />
+                    <uc:CvElementInfo Category="Cell" Region="944, 102, 57, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="710, 142, 339, 38" />
+                    <uc:CvElementInfo Category="Cell" Region="351, 102, 15, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="1002, 102, 47, 40" />
+                    <uc:CvElementInfo Category="Cell" Region="827, 501, 72, 192" />
+                    <uc:CvElementInfo Category="Cell" Region="977, 501, 73, 192" />
+                    <uc:CvElementInfo Category="Cell" Region="351, 142, 15, 38" />
+                    <uc:CvElementInfo Category="Cell" Region="366, 142, 112, 38" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="845, 103, 101, 39" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="480, 117, 11, 11" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="479, 102, 115, 41" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="358, 143, 351, 37" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="367, 103, 109, 39" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1001, 103, 49, 40" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="384, 184, 334, 148" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="698, 167, 343, 169" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="352, 466, 7, 9" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="353, 383, 7, 9" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="947, 105, 54, 37" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="844, 118, 9, 9" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="382, 182, 337, 151" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="352, 243, 11, 11" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="356, 143, 352, 38" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1001, 104, 48, 36" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="900, 501, 46, 192" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="348, 510, 49, 178" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="367, 181, 339, 24" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="946, 501, 31, 192" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="540, 22, 180, 24" />
+                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="384, 180, 115, 12" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="844, 103, 104, 38" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="592, 104, 118, 39" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="844, 117, 10, 10" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="594, 117, 10, 11" />
                   </scg:List>
                 </uc:CVCache.CvUiElements>
                 <uc:CVCache.OcrTexts>
-                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="512">
-                    <uc:OcrTextInfo Region="66, 20, 40, 14" Text="Lasku" />
-                    <uc:OcrTextInfo Region="107, 21, 20, 13" Text="SP" />
-                    <uc:OcrTextInfo Region="128, 21, 44, 13" Text="Nature" />
-                    <uc:OcrTextInfo Region="173, 21, 47, 13" Text="Invoice" />
-                    <uc:OcrTextInfo Region="219, 20, 62, 17" Text="2022.pdf" />
-                    <uc:OcrTextInfo Region="820, 21, 8, 13" Text="1" />
-                    <uc:OcrTextInfo Region="840, 21, 8, 13" Text="/" />
-                    <uc:OcrTextInfo Region="854, 21, 8, 12" Text="1" />
-                    <uc:OcrTextInfo Region="940, 21, 28, 13" Text="95%" />
-                    <uc:OcrTextInfo Region="991, 20, 15, 14" Text="+" />
-                    <uc:OcrTextInfo Region="1046, 21, 11, 13" Text="9" />
-                    <uc:OcrTextInfo Region="788, 83, 11, 8" Text="SP" />
-                    <uc:OcrTextInfo Region="801, 83, 24, 9" Text="Nature" />
-                    <uc:OcrTextInfo Region="961, 83, 25, 9" Text="Phone:" />
-                    <uc:OcrTextInfo Region="988, 84, 14, 8" Text="+49" />
-                    <uc:OcrTextInfo Region="1003, 83, 11, 11" Text="(0)" />
-                    <uc:OcrTextInfo Region="1014, 83, 18, 9" Text="5621" />
-                    <uc:OcrTextInfo Region="1032, 84, 15, 7" Text="345" />
-                    <uc:OcrTextInfo Region="1049, 84, 8, 8" Text="-0" />
-                    <uc:OcrTextInfo Region="627, 93, 94, 21" Text="INVOICE" />
-                    <uc:OcrTextInfo Region="788, 102, 43, 9" Text="Autostrasse" />
-                    <uc:OcrTextInfo Region="832, 102, 9, 9" Text="16" />
-                    <uc:OcrTextInfo Region="961, 97, 16, 9" Text="Fax:" />
-                    <uc:OcrTextInfo Region="978, 97, 15, 8" Text="+49" />
-                    <uc:OcrTextInfo Region="994, 97, 9, 9" Text="(0" />
-                    <uc:OcrTextInfo Region="1003, 97, 20, 9" Text="5521" />
-                    <uc:OcrTextInfo Region="1023, 97, 15, 9" Text="345" />
-                    <uc:OcrTextInfo Region="1040, 97, 20, 9" Text="-4229" />
-                    <uc:OcrTextInfo Region="788, 116, 10, 9" Text="D" />
-                    <uc:OcrTextInfo Region="799, 116, 24, 9" Text="69121" />
-                    <uc:OcrTextInfo Region="824, 116, 39, 10" Text="Heidelberg" />
-                    <uc:OcrTextInfo Region="867, 116, 33, 10" Text="Germany" />
-                    <uc:OcrTextInfo Region="961, 111, 29, 9" Text="BAG-Nr." />
-                    <uc:OcrTextInfo Region="993, 112, 22, 8" Text="12802" />
-                    <uc:OcrTextInfo Region="961, 126, 17, 8" Text="VAT" />
-                    <uc:OcrTextInfo Region="979, 125, 8, 8" Text="ID" />
-                    <uc:OcrTextInfo Region="987, 125, 51, 9" Text="DE209719082" />
-                    <uc:OcrTextInfo Region="629, 157, 26, 8" Text="Please" />
-                    <uc:OcrTextInfo Region="655, 157, 21, 9" Text="quote" />
-                    <uc:OcrTextInfo Region="678, 158, 9, 7" Text="on" />
-                    <uc:OcrTextInfo Region="688, 157, 34, 9" Text="payment" />
-                    <uc:OcrTextInfo Region="733, 156, 18, 9" Text="Our" />
-                    <uc:OcrTextInfo Region="751, 156, 45, 9" Text="Reference" />
-                    <uc:OcrTextInfo Region="797, 156, 16, 9" Text="No." />
-                    <uc:OcrTextInfo Region="842, 156, 43, 9" Text="Customer" />
-                    <uc:OcrTextInfo Region="886, 155, 37, 10" Text="Account" />
-                    <uc:OcrTextInfo Region="923, 156, 15, 9" Text="No." />
-                    <uc:OcrTextInfo Region="952, 156, 42, 9" Text="Purchase" />
-                    <uc:OcrTextInfo Region="994, 155, 26, 10" Text="Order" />
-                    <uc:OcrTextInfo Region="1022, 155, 15, 10" Text="No." />
-                    <uc:OcrTextInfo Region="1079, 156, 42, 9" Text="Customer" />
-                    <uc:OcrTextInfo Region="1122, 156, 19, 8" Text="VAT" />
-                    <uc:OcrTextInfo Region="1143, 156, 10, 9" Text="ID" />
-                    <uc:OcrTextInfo Region="1179, 155, 18, 10" Text="Due" />
-                    <uc:OcrTextInfo Region="1199, 155, 20, 10" Text="Date" />
-                    <uc:OcrTextInfo Region="1231, 155, 22, 10" Text="Date" />
-                    <uc:OcrTextInfo Region="631, 171, 9, 8" Text="or" />
-                    <uc:OcrTextInfo Region="641, 171, 15, 8" Text="with" />
-                    <uc:OcrTextInfo Region="657, 170, 27, 10" Text="queries" />
-                    <uc:OcrTextInfo Region="740, 167, 52, 9" Text="2935809900" />
-                    <uc:OcrTextInfo Region="846, 167, 48, 9" Text="300455671" />
-                    <uc:OcrTextInfo Region="952, 167, 7, 8" Text="&gt;" />
-                    <uc:OcrTextInfo Region="958, 167, 59, 9" Text="ISA-21.1.2021" />
-                    <uc:OcrTextInfo Region="1078, 167, 7, 8" Text="&gt;" />
-                    <uc:OcrTextInfo Region="1180, 169, 41, 9" Text="10.4.2022" />
-                    <uc:OcrTextInfo Region="1228, 169, 42, 9" Text="23.2.2022" />
-                    <uc:OcrTextInfo Region="626, 196, 15, 9" Text="Bi" />
-                    <uc:OcrTextInfo Region="642, 197, 10, 8" Text="to" />
-                    <uc:OcrTextInfo Region="952, 196, 21, 12" Text="Ship" />
-                    <uc:OcrTextInfo Region="974, 197, 11, 9" Text="to" />
-                    <uc:OcrTextInfo Region="650, 228, 12, 8" Text="SP" />
-                    <uc:OcrTextInfo Region="663, 228, 26, 9" Text="Nature" />
-                    <uc:OcrTextInfo Region="610, 286, 8, 9" Text="&gt;" />
-                    <uc:OcrTextInfo Region="646, 280, 25, 11" Text="Terhi" />
-                    <uc:OcrTextInfo Region="672, 281, 41, 12" Text="Testaaja" />
-                    <uc:OcrTextInfo Region="952, 281, 25, 11" Text="Terhi" />
-                    <uc:OcrTextInfo Region="978, 282, 41, 11" Text="Testaaja" />
-                    <uc:OcrTextInfo Region="646, 293, 64, 12" Text="Kaupunkikatu" />
-                    <uc:OcrTextInfo Region="711, 294, 7, 10" Text="1" />
-                    <uc:OcrTextInfo Region="953, 294, 61, 11" Text="Kaupunkikatu" />
-                    <uc:OcrTextInfo Region="1017, 295, 6, 10" Text="1" />
-                    <uc:OcrTextInfo Region="646, 307, 31, 10" Text="53100" />
-                    <uc:OcrTextInfo Region="679, 307, 63, 12" Text="Lappeenranta" />
-                    <uc:OcrTextInfo Region="955, 307, 28, 10" Text="53100" />
-                    <uc:OcrTextInfo Region="984, 307, 64, 12" Text="Lappeenranta" />
-                    <uc:OcrTextInfo Region="647, 319, 34, 9" Text="Finland" />
-                    <uc:OcrTextInfo Region="953, 320, 34, 10" Text="Finland" />
-                    <uc:OcrTextInfo Region="613, 385, 37, 10" Text="Quantity" />
-                    <uc:OcrTextInfo Region="657, 384, 35, 10" Text="Product" />
-                    <uc:OcrTextInfo Region="692, 384, 17, 10" Text="No." />
-                    <uc:OcrTextInfo Region="752, 385, 51, 10" Text="Description" />
-                    <uc:OcrTextInfo Region="1087, 384, 18, 10" Text="List" />
-                    <uc:OcrTextInfo Region="1105, 384, 24, 10" Text="Price" />
-                    <uc:OcrTextInfo Region="1134, 384, 24, 10" Text="Disc." />
-                    <uc:OcrTextInfo Region="1158, 384, 10, 10" Text="%" />
-                    <uc:OcrTextInfo Region="1177, 384, 21, 10" Text="VAT" />
-                    <uc:OcrTextInfo Region="1236, 385, 37, 9" Text="Amount" />
-                    <uc:OcrTextInfo Region="751, 397, 23, 10" Text="Date" />
-                    <uc:OcrTextInfo Region="774, 397, 12, 10" Text="of" />
-                    <uc:OcrTextInfo Region="786, 397, 38, 10" Text="services" />
-                    <uc:OcrTextInfo Region="826, 397, 9, 10" Text="is" />
-                    <uc:OcrTextInfo Region="836, 397, 21, 9" Text="date" />
-                    <uc:OcrTextInfo Region="859, 397, 10, 10" Text="of" />
-                    <uc:OcrTextInfo Region="870, 397, 43, 12" Text="invoicing." />
-                    <uc:OcrTextInfo Region="611, 420, 6, 9" Text="1" />
-                    <uc:OcrTextInfo Region="655, 420, 89, 9" Text="887-1-4939-9506-2" />
-                    <uc:OcrTextInfo Region="751, 420, 42, 10" Text="Financial" />
-                    <uc:OcrTextInfo Region="794, 420, 52, 11" Text="Accounting" />
-                    <uc:OcrTextInfo Region="847, 420, 24, 10" Text="book" />
-                    <uc:OcrTextInfo Region="750, 432, 30, 10" Text="Digital" />
-                    <uc:OcrTextInfo Region="781, 433, 35, 9" Text="version" />
-                    <uc:OcrTextInfo Region="751, 442, 33, 10" Text="ISA-21" />
-                    <uc:OcrTextInfo Region="783, 442, 33, 10" Text=".1.2021" />
-                    <uc:OcrTextInfo Region="818, 442, 40, 10" Text="2.3.2021" />
-                    <uc:OcrTextInfo Region="751, 453, 28, 10" Text="Order" />
-                    <uc:OcrTextInfo Region="779, 454, 37, 10" Text="no./pos:" />
-                    <uc:OcrTextInfo Region="837, 453, 39, 10" Text="1124349" />
-                    <uc:OcrTextInfo Region="877, 453, 36, 10" Text="000010" />
-                    <uc:OcrTextInfo Region="751, 464, 17, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="769, 464, 28, 10" Text="Value" />
-                    <uc:OcrTextInfo Region="797, 464, 11, 10" Text="of" />
-                    <uc:OcrTextInfo Region="809, 464, 32, 10" Text="Goods" />
-                    <uc:OcrTextInfo Region="1104, 475, 25, 11" Text="12,54" />
-                    <uc:OcrTextInfo Region="1246, 475, 26, 11" Text="12,54" />
-                    <uc:OcrTextInfo Region="751, 485, 66, 10" Text="recommended" />
-                    <uc:OcrTextInfo Region="818, 485, 24, 12" Text="price" />
-                    <uc:OcrTextInfo Region="842, 485, 28, 10" Text="28.04" />
-                    <uc:OcrTextInfo Region="871, 484, 23, 11" Text="EUR" />
-                    <uc:OcrTextInfo Region="611, 499, 6, 9" Text="1" />
-                    <uc:OcrTextInfo Region="753, 510, 39, 10" Text="EORI-no." />
-                    <uc:OcrTextInfo Region="794, 510, 48, 10" Text="DE7062974" />
-                    <uc:OcrTextInfo Region="612, 719, 16, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="628, 719, 26, 9" Text="Value" />
-                    <uc:OcrTextInfo Region="734, 718, 21, 10" Text="0.00" />
-                    <uc:OcrTextInfo Region="762, 719, 16, 8" Text="Net" />
-                    <uc:OcrTextInfo Region="778, 718, 25, 9" Text="Value" />
-                    <uc:OcrTextInfo Region="885, 718, 21, 10" Text="0.00" />
-                    <uc:OcrTextInfo Region="913, 719, 15, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="929, 718, 25, 10" Text="Value" />
-                    <uc:OcrTextInfo Region="1031, 718, 26, 10" Text="12.54" />
-                    <uc:OcrTextInfo Region="1064, 719, 23, 8" Text="Total" />
-                    <uc:OcrTextInfo Region="1088, 718, 16, 10" Text="Net" />
-                    <uc:OcrTextInfo Region="1104, 719, 25, 9" Text="Value" />
-                    <uc:OcrTextInfo Region="1132, 718, 10, 10" Text="of" />
-                    <uc:OcrTextInfo Region="1143, 718, 29, 9" Text="Goods" />
-                    <uc:OcrTextInfo Region="1243, 718, 27, 10" Text="12,54" />
-                    <uc:OcrTextInfo Region="613, 729, 29, 9" Text="Goods" />
-                    <uc:OcrTextInfo Region="643, 729, 8, 9" Text="C" />
-                    <uc:OcrTextInfo Region="763, 729, 29, 9" Text="Goods" />
-                    <uc:OcrTextInfo Region="794, 729, 8, 9" Text="B" />
-                    <uc:OcrTextInfo Region="914, 729, 29, 9" Text="Goods" />
-                    <uc:OcrTextInfo Region="944, 729, 9, 9" Text="A" />
-                    <uc:OcrTextInfo Region="612, 741, 17, 10" Text="Net" />
-                    <uc:OcrTextInfo Region="629, 742, 40, 10" Text="Shipping" />
-                    <uc:OcrTextInfo Region="734, 742, 21, 9" Text="0.00" />
-                    <uc:OcrTextInfo Region="755, 741, 16, 10" Text="Net" />
-                    <uc:OcrTextInfo Region="773, 742, 40, 10" Text="Shipping" />
-                    <uc:OcrTextInfo Region="884, 741, 22, 10" Text="0.00" />
-                    <uc:OcrTextInfo Region="907, 741, 16, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="924, 742, 39, 10" Text="Shipping" />
-                    <uc:OcrTextInfo Region="1037, 741, 20, 10" Text="0,00" />
-                    <uc:OcrTextInfo Region="1064, 741, 23, 10" Text="Total" />
-                    <uc:OcrTextInfo Region="1088, 742, 16, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="1105, 741, 40, 12" Text="Shipping" />
-                    <uc:OcrTextInfo Region="1146, 741, 26, 10" Text="Costs" />
-                    <uc:OcrTextInfo Region="1247, 741, 22, 10" Text="0,00" />
-                    <uc:OcrTextInfo Region="612, 752, 26, 10" Text="Costs" />
-                    <uc:OcrTextInfo Region="639, 753, 8, 9" Text="C" />
-                    <uc:OcrTextInfo Region="763, 753, 27, 9" Text="Costs" />
-                    <uc:OcrTextInfo Region="790, 752, 8, 9" Text="B" />
-                    <uc:OcrTextInfo Region="914, 752, 26, 10" Text="Costs" />
-                    <uc:OcrTextInfo Region="940, 752, 9, 9" Text="A" />
-                    <uc:OcrTextInfo Region="612, 765, 23, 10" Text="Total" />
-                    <uc:OcrTextInfo Region="635, 766, 16, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="652, 765, 9, 9" Text="C" />
-                    <uc:OcrTextInfo Region="734, 766, 22, 9" Text="0,00" />
-                    <uc:OcrTextInfo Region="762, 765, 23, 10" Text="Total" />
-                    <uc:OcrTextInfo Region="787, 766, 16, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="804, 765, 8, 9" Text="B" />
-                    <uc:OcrTextInfo Region="885, 766, 22, 9" Text="0,00" />
-                    <uc:OcrTextInfo Region="913, 765, 23, 10" Text="Total" />
-                    <uc:OcrTextInfo Region="937, 766, 17, 9" Text="Net" />
-                    <uc:OcrTextInfo Region="955, 766, 8, 8" Text="A" />
-                    <uc:OcrTextInfo Region="1032, 765, 25, 10" Text="12.54" />
-                    <uc:OcrTextInfo Region="1063, 766, 24, 9" Text="Total" />
-                    <uc:OcrTextInfo Region="1088, 765, 16, 10" Text="Net" />
-                    <uc:OcrTextInfo Region="1105, 765, 19, 9" Text="Due" />
-                    <uc:OcrTextInfo Region="1243, 765, 26, 11" Text="41,82" />
-                    <uc:OcrTextInfo Region="611, 790, 45, 9" Text="lncoterms" />
-                    <uc:OcrTextInfo Region="657, 789, 19, 9" Text="CPT" />
-                    <uc:OcrTextInfo Region="687, 790, 20, 8" Text="VAT" />
-                    <uc:OcrTextInfo Region="708, 790, 7, 8" Text="C" />
-                    <uc:OcrTextInfo Region="763, 790, 19, 9" Text="VAT" />
-                    <uc:OcrTextInfo Region="783, 789, 8, 9" Text="B" />
-                    <uc:OcrTextInfo Region="914, 789, 26, 9" Text="VATA" />
-                    <uc:OcrTextInfo Region="948, 790, 24, 10" Text="10,00" />
-                    <uc:OcrTextInfo Region="973, 789, 9, 10" Text="%" />
-                    <uc:OcrTextInfo Region="1037, 789, 20, 10" Text="1,25" />
-                    <uc:OcrTextInfo Region="1065, 789, 22, 10" Text="Total" />
-                    <uc:OcrTextInfo Region="1089, 789, 19, 10" Text="VAT" />
-                    <uc:OcrTextInfo Region="1249, 789, 21, 10" Text="1,25" />
-                    <uc:OcrTextInfo Region="612, 812, 24, 10" Text="Units" />
-                    <uc:OcrTextInfo Region="763, 812, 32, 11" Text="Weight" />
-                    <uc:OcrTextInfo Region="861, 812, 27, 10" Text="0,000" />
-                    <uc:OcrTextInfo Region="892, 812, 17, 10" Text="KG" />
-                    <uc:OcrTextInfo Region="915, 813, 35, 11" Text="Dellivery" />
-                    <uc:OcrTextInfo Region="951, 813, 33, 9" Text="Method" />
-                    <uc:OcrTextInfo Region="1017, 812, 42, 9" Text="Standard" />
-                    <uc:OcrTextInfo Region="1065, 813, 37, 8" Text="Subtotal" />
-                    <uc:OcrTextInfo Region="1242, 812, 27, 10" Text="42,07" />
-                    <uc:OcrTextInfo Region="612, 837, 29, 9" Text="Orders" />
-                    <uc:OcrTextInfo Region="642, 838, 9, 7" Text="or" />
-                    <uc:OcrTextInfo Region="652, 837, 22, 8" Text="other" />
-                    <uc:OcrTextInfo Region="675, 837, 34, 9" Text="inquiries" />
-                    <uc:OcrTextInfo Region="710, 837, 28, 9" Text="please" />
-                    <uc:OcrTextInfo Region="739, 837, 9, 8" Text="to" />
-                    <uc:OcrTextInfo Region="856, 837, 29, 9" Text="Please" />
-                    <uc:OcrTextInfo Region="885, 837, 22, 9" Text="rerit" />
-                    <uc:OcrTextInfo Region="908, 837, 40, 10" Text="payments" />
-                    <uc:OcrTextInfo Region="949, 838, 9, 7" Text="to" />
-                    <uc:OcrTextInfo Region="959, 837, 14, 8" Text="the" />
-                    <uc:OcrTextInfo Region="974, 836, 36, 11" Text="following" />
-                    <uc:OcrTextInfo Region="1010, 837, 36, 9" Text="account:" />
-                    <uc:OcrTextInfo Region="1065, 834, 33, 11" Text="Prepaid" />
-                    <uc:OcrTextInfo Region="1247, 833, 22, 11" Text="0.00" />
-                    <uc:OcrTextInfo Region="613, 849, 5, 7" Text="&gt;" />
-                    <uc:OcrTextInfo Region="620, 848, 28, 9" Text="Books" />
-                    <uc:OcrTextInfo Region="649, 848, 17, 9" Text="+49" />
-                    <uc:OcrTextInfo Region="666, 848, 13, 9" Text="(0)" />
-                    <uc:OcrTextInfo Region="680, 848, 20, 9" Text="6221" />
-                    <uc:OcrTextInfo Region="702, 848, 24, 9" Text="333-0" />
-                    <uc:OcrTextInfo Region="857, 848, 75, 9" Text="Hypovereinsbank" />
-                    <uc:OcrTextInfo Region="933, 848, 40, 9" Text="Munchen" />
-                    <uc:OcrTextInfo Region="621, 859, 125, 9" Text="Customerservicer0spnature.cor" />
-                    <uc:OcrTextInfo Region="856, 858, 22, 9" Text="Acct:" />
-                    <uc:OcrTextInfo Region="894, 858, 47, 9" Text="654793298" />
-                    <uc:OcrTextInfo Region="943, 857, 22, 10" Text="BLZ:" />
-                    <uc:OcrTextInfo Region="981, 858, 17, 9" Text="700" />
-                    <uc:OcrTextInfo Region="999, 858, 16, 8" Text="202" />
-                    <uc:OcrTextInfo Region="1016, 858, 11, 9" Text="70" />
-                    <uc:OcrTextInfo Region="611, 869, 8, 9" Text="&gt;" />
-                    <uc:OcrTextInfo Region="620, 869, 38, 9" Text="Journais" />
-                    <uc:OcrTextInfo Region="660, 869, 16, 9" Text="+49" />
-                    <uc:OcrTextInfo Region="677, 869, 12, 10" Text="(0)" />
-                    <uc:OcrTextInfo Region="690, 868, 21, 10" Text="6221" />
-                    <uc:OcrTextInfo Region="712, 868, 29, 10" Text="3125-0" />
-                    <uc:OcrTextInfo Region="857, 869, 24, 9" Text="IBAN:" />
-                    <uc:OcrTextInfo Region="882, 868, 24, 10" Text="DE22" />
-                    <uc:OcrTextInfo Region="907, 869, 21, 9" Text="7002" />
-                    <uc:OcrTextInfo Region="929, 868, 22, 9" Text="0270" />
-                    <uc:OcrTextInfo Region="952, 869, 20, 9" Text="0654" />
-                    <uc:OcrTextInfo Region="973, 869, 22, 9" Text="7932" />
-                    <uc:OcrTextInfo Region="996, 869, 11, 9" Text="98" />
-                    <uc:OcrTextInfo Region="1064, 869, 33, 10" Text="TOTAL" />
-                    <uc:OcrTextInfo Region="1097, 869, 21, 10" Text="DUE" />
-                    <uc:OcrTextInfo Region="1149, 868, 25, 11" Text="EUR" />
-                    <uc:OcrTextInfo Region="1247, 868, 27, 12" Text="42,07" />
-                    <uc:OcrTextInfo Region="623, 880, 123, 10" Text="Customerservice@spnature.cor" />
-                    <uc:OcrTextInfo Region="857, 879, 18, 10" Text="BIC:" />
-                    <uc:OcrTextInfo Region="893, 879, 71, 9" Text="HYVEDEMMOOX" />
-                    <uc:OcrTextInfo Region="612, 890, 14, 10" Text="SP" />
-                    <uc:OcrTextInfo Region="626, 891, 29, 9" Text="Nature" />
-                    <uc:OcrTextInfo Region="857, 891, 29, 9" Text="Please" />
-                    <uc:OcrTextInfo Region="887, 891, 12, 9" Text="do" />
-                    <uc:OcrTextInfo Region="901, 892, 15, 8" Text="not" />
-                    <uc:OcrTextInfo Region="917, 891, 22, 8" Text="send" />
-                    <uc:OcrTextInfo Region="940, 891, 26, 9" Text="credit" />
-                    <uc:OcrTextInfo Region="966, 892, 21, 8" Text="card" />
-                    <uc:OcrTextInfo Region="987, 890, 33, 10" Text="details." />
-                    <uc:OcrTextInfo Region="612, 902, 49, 9" Text="Autostrasse" />
-                    <uc:OcrTextInfo Region="661, 902, 13, 9" Text="16" />
-                    <uc:OcrTextInfo Region="677, 902, 36, 9" Text="D-69121" />
-                    <uc:OcrTextInfo Region="715, 902, 45, 10" Text="Heidelberg" />
-                    <uc:OcrTextInfo Region="764, 902, 39, 11" Text="Germany" />
-                    <uc:OcrTextInfo Region="857, 902, 16, 9" Text="For" />
-                    <uc:OcrTextInfo Region="874, 903, 6, 8" Text="a" />
-                    <uc:OcrTextInfo Region="880, 903, 31, 9" Text="secure" />
-                    <uc:OcrTextInfo Region="912, 902, 38, 11" Text="payment" />
-                    <uc:OcrTextInfo Region="950, 902, 17, 8" Text="link" />
-                    <uc:OcrTextInfo Region="968, 903, 30, 8" Text="please" />
-                    <uc:OcrTextInfo Region="999, 902, 36, 9" Text="contact:" />
-                    <uc:OcrTextInfo Region="613, 912, 41, 8" Text="Commercial" />
-                    <uc:OcrTextInfo Region="655, 912, 31, 10" Text="Register" />
-                    <uc:OcrTextInfo Region="688, 913, 42, 9" Text="Amtsgericht" />
-                    <uc:OcrTextInfo Region="731, 913, 21, 9" Text="IHRB" />
-                    <uc:OcrTextInfo Region="753, 912, 26, 9" Text="336546" />
-                    <uc:OcrTextInfo Region="857, 912, 121, 10" Text="creditcardstm@spature.com" />
-                    <uc:OcrTextInfo Region="1162, 909, 51, 9" Text="Settlement" />
-                    <uc:OcrTextInfo Region="1214, 909, 14, 10" Text="via" />
-                    <uc:OcrTextInfo Region="1230, 909, 41, 11" Text="webshop" />
-                    <uc:OcrTextInfo Region="611, 923, 44, 6" Text="ilonorlre" />
-                    <uc:OcrTextInfo Region="654, 923, 38, 6" Text="nisntnre." />
+                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="256">
+                    <uc:OcrTextInfo Region="541, 31, 11, 6" Text="SP" />
+                    <uc:OcrTextInfo Region="555, 31, 24, 6" Text="Nature" />
+                    <uc:OcrTextInfo Region="723, 31, 27, 6" Text="Phone:" />
+                    <uc:OcrTextInfo Region="751, 31, 13, 6" Text="+49" />
+                    <uc:OcrTextInfo Region="767, 31, 9, 8" Text="(0)" />
+                    <uc:OcrTextInfo Region="779, 31, 16, 6" Text="5521" />
+                    <uc:OcrTextInfo Region="798, 31, 22, 6" Text="345-0" />
+                    <uc:OcrTextInfo Region="373, 42, 4, 17" Text="|" />
+                    <uc:OcrTextInfo Region="380, 42, 13, 17" Text="N" />
+                    <uc:OcrTextInfo Region="395, 42, 34, 18" Text="VO" />
+                    <uc:OcrTextInfo Region="431, 42, 4, 17" Text="|" />
+                    <uc:OcrTextInfo Region="438, 42, 15, 17" Text="C" />
+                    <uc:OcrTextInfo Region="455, 42, 13, 17" Text="E" />
+                    <uc:OcrTextInfo Region="541, 51, 44, 6" Text="Autostrasse" />
+                    <uc:OcrTextInfo Region="586, 51, 8, 6" Text="16" />
+                    <uc:OcrTextInfo Region="723, 46, 16, 6" Text="Fax:" />
+                    <uc:OcrTextInfo Region="741, 46, 13, 6" Text="+4" />
+                    <uc:OcrTextInfo Region="757, 46, 10, 8" Text="(0)" />
+                    <uc:OcrTextInfo Region="769, 46, 16, 6" Text="5521" />
+                    <uc:OcrTextInfo Region="789, 46, 13, 6" Text="345" />
+                    <uc:OcrTextInfo Region="804, 46, 20, 6" Text="4229" />
+                    <uc:OcrTextInfo Region="542, 66, 5, 6" Text="D" />
+                    <uc:OcrTextInfo Region="549, 70, 2, 1" Text="-" />
+                    <uc:OcrTextInfo Region="554, 66, 22, 6" Text="63121" />
+                    <uc:OcrTextInfo Region="579, 66, 40, 8" Text="Heidelberg" />
+                    <uc:OcrTextInfo Region="620, 66, 1, 8" Text="|" />
+                    <uc:OcrTextInfo Region="624, 66, 35, 8" Text="Germany" />
+                    <uc:OcrTextInfo Region="723, 61, 30, 6" Text="BAG" />
+                    <uc:OcrTextInfo Region="756, 61, 22, 6" Text="12802" />
+                    <uc:OcrTextInfo Region="723, 76, 16, 6" Text="VAT" />
+                    <uc:OcrTextInfo Region="741, 76, 7, 6" Text="ID" />
+                    <uc:OcrTextInfo Region="751, 76, 55, 6" Text="DE209719082" />
+                    <uc:OcrTextInfo Region="352, 104, 17, 1" Text="&quot;7" />
+                    <uc:OcrTextInfo Region="375, 108, 27, 6" Text="Please" />
+                    <uc:OcrTextInfo Region="402, 109, 22, 7" Text="quote" />
+                    <uc:OcrTextInfo Region="425, 110, 9, 4" Text="on" />
+                    <uc:OcrTextInfo Region="437, 109, 31, 7" Text="payment" />
+                    <uc:OcrTextInfo Region="474, 105, 7, 13" Text="~~" />
+                    <uc:OcrTextInfo Region="484, 107, 16, 7" Text="Our" />
+                    <uc:OcrTextInfo Region="503, 107, 45, 7" Text="Reference" />
+                    <uc:OcrTextInfo Region="550, 107, 15, 7" Text="No." />
+                    <uc:OcrTextInfo Region="597, 107, 44, 7" Text="Customer" />
+                    <uc:OcrTextInfo Region="643, 107, 38, 7" Text="Account" />
+                    <uc:OcrTextInfo Region="683, 107, 15, 7" Text="No." />
+                    <uc:OcrTextInfo Region="714, 107, 44, 7" Text="Purchase" />
+                    <uc:OcrTextInfo Region="758, 107, 27, 7" Text="Order" />
+                    <uc:OcrTextInfo Region="787, 107, 15, 7" Text="No." />
+                    <uc:OcrTextInfo Region="846, 107, 44, 7" Text="Customer" />
+                    <uc:OcrTextInfo Region="892, 107, 19, 7" Text="VAT" />
+                    <uc:OcrTextInfo Region="914, 107, 9, 7" Text="ID" />
+                    <uc:OcrTextInfo Region="953, 107, 16, 7" Text="Due" />
+                    <uc:OcrTextInfo Region="973, 107, 20, 7" Text="Date" />
+                    <uc:OcrTextInfo Region="1007, 107, 20, 7" Text="Date" />
+                    <uc:OcrTextInfo Region="1048, 104, 1, 1" Text="!" />
+                    <uc:OcrTextInfo Region="377, 125, 7, 4" Text="or" />
+                    <uc:OcrTextInfo Region="386, 123, 14, 6" Text="with" />
+                    <uc:OcrTextInfo Region="403, 123, 28, 8" Text="queries" />
+                    <uc:OcrTextInfo Region="484, 120, 5, 5" Text="&gt;" />
+                    <uc:OcrTextInfo Region="492, 119, 55, 6" Text="2935809900" />
+                    <uc:OcrTextInfo Region="597, 120, 4, 5" Text="&gt;" />
+                    <uc:OcrTextInfo Region="605, 119, 45, 7" Text="300455671" />
+                    <uc:OcrTextInfo Region="714, 120, 4, 5" Text="&gt;" />
+                    <uc:OcrTextInfo Region="722, 119, 58, 7" Text="ISA-21.1.2021" />
+                    <uc:OcrTextInfo Region="846, 120, 5, 5" Text="&gt;" />
+                    <uc:OcrTextInfo Region="953, 121, 40, 7" Text="104.2022" />
+                    <uc:OcrTextInfo Region="1004, 121, 40, 6" Text="23.2.2022" />
+                    <uc:OcrTextInfo Region="351, 146, 1, 1" Text="©" />
+                    <uc:OcrTextInfo Region="365, 146, 33, 12" Text="Billto" />
+                    <uc:OcrTextInfo Region="708, 146, 38, 14" Text="“shipto" />
+                    <uc:OcrTextInfo Region="397, 184, 11, 6" Text="SP" />
+                    <uc:OcrTextInfo Region="410, 184, 27, 6" Text="Nature" />
+                    <uc:OcrTextInfo Region="356, 245, 5, 5" Text="»" />
+                    <uc:OcrTextInfo Region="393, 239, 25, 8" Text="Terhi" />
+                    <uc:OcrTextInfo Region="420, 240, 40, 10" Text="Testaaja" />
+                    <uc:OcrTextInfo Region="714, 240, 25, 8" Text="Terhi" />
+                    <uc:OcrTextInfo Region="741, 240, 40, 10" Text="Testaaja" />
+                    <uc:OcrTextInfo Region="393, 253, 66, 10" Text="Kaupunkikatu" />
+                    <uc:OcrTextInfo Region="461, 253, 3, 7" Text="1" />
+                    <uc:OcrTextInfo Region="714, 254, 66, 10" Text="Kaupunkikatu" />
+                    <uc:OcrTextInfo Region="782, 254, 3, 7" Text="1" />
+                    <uc:OcrTextInfo Region="393, 266, 30, 8" Text="53100" />
+                    <uc:OcrTextInfo Region="426, 266, 66, 10" Text="Lappeenranta" />
+                    <uc:OcrTextInfo Region="714, 267, 30, 8" Text="53100" />
+                    <uc:OcrTextInfo Region="747, 267, 66, 10" Text="Lappeenranta" />
+                    <uc:OcrTextInfo Region="389, 278, 38, 14" Text="Finland" />
+                    <uc:OcrTextInfo Region="714, 280, 35, 7" Text="Finland" />
+                    <uc:OcrTextInfo Region="357, 348, 40, 9" Text="Quantity" />
+                    <uc:OcrTextInfo Region="404, 348, 35, 7" Text="Product" />
+                    <uc:OcrTextInfo Region="442, 348, 15, 7" Text="No." />
+                    <uc:OcrTextInfo Region="498, 344, 3, 12" Text="”" />
+                    <uc:OcrTextInfo Region="500, 346, 55, 13" Text="Description" />
+                    <uc:OcrTextInfo Region="856, 348, 16, 7" Text="List" />
+                    <uc:OcrTextInfo Region="875, 348, 22, 7" Text="Price" />
+                    <uc:OcrTextInfo Region="906, 348, 22, 7" Text="Disc." />
+                    <uc:OcrTextInfo Region="930, 348, 7, 7" Text="%" />
+                    <uc:OcrTextInfo Region="951, 348, 19, 7" Text="VAT" />
+                    <uc:OcrTextInfo Region="1012, 348, 36, 7" Text="Amount" />
+                    <uc:OcrTextInfo Region="502, 361, 22, 7" Text="Date" />
+                    <uc:OcrTextInfo Region="527, 361, 9, 8" Text="of" />
+                    <uc:OcrTextInfo Region="539, 361, 40, 8" Text="services" />
+                    <uc:OcrTextInfo Region="581, 361, 7, 8" Text="is" />
+                    <uc:OcrTextInfo Region="592, 361, 20, 7" Text="date" />
+                    <uc:OcrTextInfo Region="615, 361, 9, 8" Text="of" />
+                    <uc:OcrTextInfo Region="627, 361, 45, 10" Text="invoicing." />
+                    <uc:OcrTextInfo Region="355, 386, 3, 7" Text="1" />
+                    <uc:OcrTextInfo Region="402, 386, 93, 8" Text="887-1-4939-9506-2" />
+                    <uc:OcrTextInfo Region="502, 385, 45, 8" Text="Financial" />
+                    <uc:OcrTextInfo Region="547, 385, 55, 10" Text="Accounting" />
+                    <uc:OcrTextInfo Region="603, 386, 24, 7" Text="book" />
+                    <uc:OcrTextInfo Region="502, 398, 31, 10" Text="Digital" />
+                    <uc:OcrTextInfo Region="534, 398, 35, 7" Text="version" />
+                    <uc:OcrTextInfo Region="503, 408, 65, 8" Text="1SA-21.1.2021" />
+                    <uc:OcrTextInfo Region="573, 408, 40, 8" Text="2.3.2021" />
+                    <uc:OcrTextInfo Region="502, 420, 27, 8" Text="Order" />
+                    <uc:OcrTextInfo Region="532, 420, 40, 10" Text="no./pos:" />
+                    <uc:OcrTextInfo Region="573, 420, 60, 8" Text="0011124349" />
+                    <uc:OcrTextInfo Region="635, 420, 36, 8" Text="000010" />
+                    <uc:OcrTextInfo Region="502, 432, 16, 7" Text="Net" />
+                    <uc:OcrTextInfo Region="521, 432, 27, 7" Text="Value" />
+                    <uc:OcrTextInfo Region="552, 431, 9, 8" Text="of" />
+                    <uc:OcrTextInfo Region="564, 431, 30, 8" Text="Goods" />
+                    <uc:OcrTextInfo Region="872, 441, 25, 15" Text="12,54" />
+                    <uc:OcrTextInfo Region="1022, 443, 25, 9" Text="12,54" />
+                    <uc:OcrTextInfo Region="502, 454, 71, 7" Text="recommended" />
+                    <uc:OcrTextInfo Region="573, 454, 22, 10" Text="price" />
+                    <uc:OcrTextInfo Region="599, 454, 27, 9" Text="28,04" />
+                    <uc:OcrTextInfo Region="629, 454, 22, 8" Text="EUR" />
+                    <uc:OcrTextInfo Region="355, 468, 3, 7" Text="1" />
+                    <uc:OcrTextInfo Region="504, 480, 40, 7" Text="EORI-no." />
+                    <uc:OcrTextInfo Region="547, 480, 49, 7" Text="DE7062974" />
                   </scg:List>
                 </uc:CVCache.OcrTexts>
               </uc:CVCache>
@@ -1262,11 +1694,11 @@
           <ActivityFunc.Argument>
             <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
           </ActivityFunc.Argument>
-          <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_3" Image="[Image]" Language="en" Profile="Screen" Scale="1" Timeout="100000" />
+          <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" DisplayName="UiPath Screen OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_4" Image="[Image]" Language="auto" Profile="Screen" Scale="1" Timeout="100000" />
         </ActivityFunc>
       </p:CVScope.OCREngine>
       <p:CVScope.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f83365d5-6c78-4b30-a7a6-c6fbc65f089a" InformativeScreenshot="405940a4a5457e4133ef7bd1498837ef" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf - Google Chrome' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl idx='6' role='pane' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f83365d5-6c78-4b30-a7a6-c6fbc65f089a" InformativeScreenshot="405940a4a5457e4133ef7bd1498837ef" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Lasku SP Nature Invoice 2022.pdf - Google Chrome' /&gt;&lt;ctrl name='Lasku SP Nature Invoice 2022.pdf' role='document' /&gt;&lt;ctrl idx='34' role='grouping' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
