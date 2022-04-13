@@ -1,11 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="LuepdflaskuGolfiiOy" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="LuepdflaskuGolfiiOy" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="var_rekisteriLista" Type="InOutArgument(scg:List(x:String))" />
+    <x:Property Name="io_pdfLaskut" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1493,11294</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1544,12060</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="64">
+    <scg:List x:TypeArguments="x:String" Capacity="41">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>Microsoft.VisualBasic</x:String>
@@ -45,10 +46,12 @@
       <x:String>System.Xml.Linq</x:String>
       <x:String>System.IO</x:String>
       <x:String>System.Net.Mail</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="78">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -91,7 +94,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Lue pdf lasku Golfii Oy" sap:VirtualizedContainerService.HintSize="638,11925" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Lue pdf lasku Golfii Oy" sap:VirtualizedContainerService.HintSize="638,11995" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="pdfString" />
       <Variable x:TypeArguments="x:String" Name="laskunSumma" />
@@ -1323,9 +1326,9 @@
         </uc:CvCacheContainer>
       </p:CVScope.DesignTimeCacheContainer>
       <p:CVScope.OCREngine>
-        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+        <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
           <ActivityFunc.Argument>
-            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+            <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
           </ActivityFunc.Argument>
           <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[Image]" Language="en" Profile="Screen" Scale="1" Timeout="100000" />
         </ActivityFunc>
@@ -1344,7 +1347,7 @@
         <InArgument x:TypeArguments="x:Boolean" />
       </p:CVScope.UseLocalServer>
     </p:CVScope>
-    <Sequence DisplayName="Toimittajatiedon lisäys +  laskun maksu" sap:VirtualizedContainerService.HintSize="596,8931" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence DisplayName="Toimittajatiedon lisäys +  laskun maksu" sap:VirtualizedContainerService.HintSize="596,9001" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1369,7 +1372,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="434,3886" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="c2219df0-c2f9-4769-a67d-01dc749e2529" Version="V1">
+              <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä" sap:VirtualizedContainerService.HintSize="434,3886" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="c2219df0-c2f9-4769-a67d-01dc749e2529" Version="V1">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -1529,7 +1532,7 @@
                   </ActivityAction>
                 </uix:NApplicationCard.Body>
                 <uix:NApplicationCard.TargetApp>
-                  <uix:TargetApp Area="-11, -11, 3862, 2110" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADzSURBVDhPndOxSsNQFMbxCJ1sidp2kA6FEgdxUDeLFIdiO3XsksHBwb5AF13EzQM+hXRsoUvdBJe+xHmEQrcOLpb2f5OzCSG5H/yG893kcrkhwb+I1nCFI2s8IlpHD2fWeEQ0xAPurPFIuskrBtYUiLsD0UO0MEfHVnJE9AITXNs8xjeqyZwZ0VP8YIs3HKCNNYb2VEZEn7DDFE3ruvjFSzJnRvQdG9zYHGGBP8RJlxnRR6xwiRI+4E70hdx3sMTI5lt8IkrmXBHtY4YGKghtpUDcjYs+o2xNwaSf7x6x/yYuoue20Yk1HnEvp7/4sTWWINgD9mWE6eXtRIcAAAAASUVORK5CYII=" InformativeScreenshot="63896938d58dfff9497568f344955c9f.png" Selector="&lt;html app='chrome.exe' title='Netvisor :: Tiedotusnäkymä'/&gt;" Url="https://koulutus.netvisor.fi/evo/landingpages/home.aspx?page_transaction=98040" />
+                  <uix:TargetApp Area="-11, -11, 3862, 2110" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADzSURBVDhPndOxSsNQFMbxCJ1sidp2kA6FEgdxUDeLFIdiO3XsksHBwb5AF13EzQM+hXRsoUvdBJe+xHmEQrcOLpb2f5OzCSG5H/yG893kcrkhwb+I1nCFI2s8IlpHD2fWeEQ0xAPurPFIuskrBtYUiLsD0UO0MEfHVnJE9AITXNs8xjeqyZwZ0VP8YIs3HKCNNYb2VEZEn7DDFE3ruvjFSzJnRvQdG9zYHGGBP8RJlxnRR6xwiRI+4E70hdx3sMTI5lt8IkrmXBHtY4YGKghtpUDcjYs+o2xNwaSf7x6x/yYuoue20Yk1HnEvp7/4sTWWINgD9mWE6eXtRIcAAAAASUVORK5CYII=" InformativeScreenshot="63896938d58dfff9497568f344955c9f.png" Selector="&lt;html app='chrome.exe' omit:title='Netvisor :: Tiedotusnäkymä' /&gt;" Url="https://koulutus.netvisor.fi/evo/landingpages/home.aspx?page_transaction=98040" />
                 </uix:NApplicationCard.TargetApp>
               </uix:NApplicationCard>
             </Sequence>
@@ -1545,25 +1548,25 @@
           </Sequence>
         </If.Else>
       </If>
-      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä - Laskun maksu" sap:VirtualizedContainerService.HintSize="554,4390" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
+      <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Netvisor :: Tiedotusnäkymä - Laskun maksu" sap:VirtualizedContainerService.HintSize="554,4460" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="391cf5fb-f369-4b0f-aa3c-1e327bb35268" Version="V1">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="502,4174" sap2010:WorkflowViewState.IdRef="Sequence_23">
+            <Sequence sap:VirtualizedContainerService.HintSize="502,4244" sap2010:WorkflowViewState.IdRef="Sequence_23">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Sequence - Tiedot OK" sap:VirtualizedContainerService.HintSize="460,4080" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <Sequence DisplayName="Sequence - Tiedot OK" sap:VirtualizedContainerService.HintSize="460,4151" sap2010:WorkflowViewState.IdRef="Sequence_19">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,3986" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,4058" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="erapaiva" />
                   </Sequence.Variables>
@@ -1698,7 +1701,7 @@
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
                   </uix:NTypeInto>
-                  <Sequence DisplayName="Sequence - hyväksy autom." sap:VirtualizedContainerService.HintSize="376,848" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence DisplayName="Sequence - hyväksy autom." sap:VirtualizedContainerService.HintSize="376,1073" sap2010:WorkflowViewState.IdRef="Sequence_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1737,12 +1740,8 @@
                         </ui:Target>
                       </ui:WaitUiElementAppear.Target>
                     </ui:WaitUiElementAppear>
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{toimittaja, laskuPv, eräPäivä, laskuNro, laskunSumma, viiteNro}]" DataTable="[io_pdfLaskut]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                   </Sequence>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LaskujenmaksuSequence workflow" sap:VirtualizedContainerService.HintSize="376,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="LaskujenmaksuSequence.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
                 </Sequence>
               </Sequence>
             </Sequence>
