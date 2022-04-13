@@ -6,7 +6,7 @@
     <x:Property Name="testi_string" Type="OutArgument(x:String)" />
     <x:Property Name="var_YtunnusLista" Type="OutArgument(scg:List(x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1796,1510.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1206,1308</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -72,14 +72,14 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Viiden suurimman yrityksen valitseminen valitun kuukauden ostolaskujen perusteella." sap:VirtualizedContainerService.HintSize="476,1446" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="Viiden suurimman yrityksen valitseminen valitun kuukauden ostolaskujen perusteella." sap:VirtualizedContainerService.HintSize="476,1243" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="Laskee yritysten tekemien ostolaskujen lukumäärän sekä kuukauden ostolaskujen yhteenlasketun arvon kullekin yritykselle." sap:VirtualizedContainerService.HintSize="434,127.333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap2010:Annotation.AnnotationText="Laskee yritysten tekemien ostolaskujen lukumäärän sekä kuukauden ostolaskujen yhteenlasketun arvon kullekin yritykselle." sap:VirtualizedContainerService.HintSize="434,140" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[var_Summa]</OutArgument>
       </Assign.To>
@@ -105,15 +105,14 @@ Select var_Summa.Rows.Add(
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" sap2010:Annotation.AnnotationText="Järjestää summataulukon laskevaan järjestykseen." ColumnIndex="[1]" DataTable="[var_Summa]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="434,275.333333333333" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[var_Summa]" SortOrder="Descending">
+    <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" sap2010:Annotation.AnnotationText="Järjestää summataulukon laskevaan järjestykseen." ColumnIndex="[1]" DataTable="[var_Summa]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="434,273" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[var_Summa]" SortOrder="Descending">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:SortDataTable>
-    <ui:FilterDataTable Filters="{x:Null}" OutputDataTable="{x:Null}" SelectColumns="{x:Null}" DataTable="[var_Summa]" DisplayName="Filter Data Table" sap:VirtualizedContainerService.HintSize="434,162.666666666667" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" SelectColumnsMode="Keep" />
-    <Assign sap2010:Annotation.AnnotationText="Valitsee järjestetyn summataulukon viisi ylintä valintaa." sap:VirtualizedContainerService.HintSize="434,107.333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap2010:Annotation.AnnotationText="Valitsee järjestetyn summataulukon viisi ylintä valintaa." sap:VirtualizedContainerService.HintSize="434,104" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[var_Sorted]</OutArgument>
       </Assign.To>
@@ -126,7 +125,7 @@ Select var_Summa.Rows.Add(
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap2010:Annotation.AnnotationText="Tallentaa viiden suurimman yrityksen Y-tunnukset YtunnusListaan." sap:VirtualizedContainerService.HintSize="434,107.333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap2010:Annotation.AnnotationText="Tallentaa viiden suurimman yrityksen Y-tunnukset YtunnusListaan." sap:VirtualizedContainerService.HintSize="434,104" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[var_YtunnusLista]</OutArgument>
       </Assign.To>
@@ -139,7 +138,7 @@ Select var_Summa.Rows.Add(
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Vertailee YtunnusListaa ja Ostolaskut taulukkoa ja jättää Ostolaskut taulukkoon ainoastaan viiden suurimman yrityksen tiedot." DataTable="[Ostolaskut]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,208" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[Ostolaskut]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Vertailee YtunnusListaa ja Ostolaskut taulukkoa ja jättää Ostolaskut taulukkoon ainoastaan viiden suurimman yrityksen tiedot." DataTable="[Ostolaskut]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,206" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[Ostolaskut]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="8">
           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -195,6 +194,6 @@ Select var_Summa.Rows.Add(
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
-    <ui:OutputDataTable DataTable="[Ostolaskut]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="434,80.6666666666667" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[testi_string]" />
+    <ui:OutputDataTable DataTable="[Ostolaskut]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[testi_string]" />
   </Sequence>
 </Activity>

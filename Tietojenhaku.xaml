@@ -4,7 +4,7 @@
     <x:Property Name="Ostolaskut" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="yritysTietoTaulukko" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>535,1503</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1206,1545</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
@@ -85,10 +85,9 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Tietojen haku / taulukoiden luonti" sap:VirtualizedContainerService.HintSize="476,1438" sap2010:WorkflowViewState.IdRef="Sequence_28">
+  <Sequence DisplayName="Tietojen haku / taulukoiden luonti" sap:VirtualizedContainerService.HintSize="476,1480" sap2010:WorkflowViewState.IdRef="Sequence_28">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="virheLaskut" />
     </Sequence.Variables>
@@ -98,7 +97,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:BuildDataTable DataTable="[var_Summa]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Y-tunnus&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Summa&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Yhteenlaskettu&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="Luetaan Lappeenrannan Kaupungin Ostolaskut 2020 Excel tiedosto." DataTable="[Ostolaskut]" DisplayName="Read Ostolaskut Range" sap:VirtualizedContainerService.HintSize="434,129" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Ostolaskudata 2020" WorkbookPath="Input data\Lappeenrannan kaupungin ostolaskut 2020_testiversio.xlsx">
+    <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="Luetaan Lappeenrannan Kaupungin Ostolaskut 2020 Excel tiedosto." DataTable="[Ostolaskut]" DisplayName="Read Ostolaskut Range" sap:VirtualizedContainerService.HintSize="434,131" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Ostolaskudata 2020" WorkbookPath="Input data\Lappeenrannan kaupungin ostolaskut 2020_testiversio.xlsx">
       <ui:ReadRange.Range>
         <InArgument x:TypeArguments="x:String">
           <Literal x:TypeArguments="x:String" Value="" />
@@ -110,7 +109,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadRange>
-    <ui:FilterDataTable DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Valitsee toukokuun" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Ostolaskut]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Valitsee toukokuun" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Ostolaskut]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument BooleanOperator="And" Operator="LTE">
@@ -137,7 +136,7 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Tarkastaa laskut puuttuvien tietojen osalta ja kirjaa virheelliset laskut virheLaskut taulukkon" DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Tarkastaa puuttuvat loppusummat" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,202" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[virheLaskut]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Tarkastaa laskut puuttuvien tietojen osalta ja kirjaa virheelliset laskut virheLaskut taulukkon" DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Tarkastaa puuttuvat tiedot" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,206" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[virheLaskut]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -173,7 +172,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
-    <ui:FilterDataTable DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Poistaa virheelliset laskut automaatiosta" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[Ostolaskut]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable DataTable="[Ostolaskut]" DisplayName="Filter Data Table - Poistaa virheelliset laskut automaatiosta" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[Ostolaskut]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -204,7 +203,7 @@
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
     </ui:FilterDataTable>
-    <ui:FilterDataTable DataTable="[Ostolaskut]" DisplayName="Filter Data Table - yritystieto_taulukko" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[yritysTietoTaulukko]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Filtteröi taulukon, jossa on y-tunnus, toimittajan nimi ja -numero." DataTable="[Ostolaskut]" DisplayName="Filter Data Table - yritystieto_taulukko" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[yritysTietoTaulukko]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -217,8 +216,13 @@
           <InArgument x:TypeArguments="x:Int32">[6]</InArgument>
         </scg:List>
       </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
-    <ui:RemoveDuplicateRows DataTable="[yritysTietoTaulukko]" DisplayName="Remove Duplicate Rows" sap:VirtualizedContainerService.HintSize="434,80.6666666666667" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_1" OutputDataTable="[yritysTietoTaulukko]" />
-    <ui:AppendRange DataTable="[virheLaskut]" DisplayName="Append Range - kirjaa virheloki exceliin" sap:VirtualizedContainerService.HintSize="434,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Virheloki" WorkbookPath="outputData\Yhteenveto.xlsx" />
+    <ui:RemoveDuplicateRows DataTable="[yritysTietoTaulukko]" DisplayName="Remove Duplicate Rows" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_1" OutputDataTable="[yritysTietoTaulukko]" />
+    <ui:AppendRange DataTable="[virheLaskut]" DisplayName="Append Range - kirjaa virheloki exceliin" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Virheloki" WorkbookPath="outputData\Yhteenveto.xlsx" />
   </Sequence>
 </Activity>
